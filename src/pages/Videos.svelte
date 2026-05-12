@@ -3,6 +3,16 @@
 
   const videos = [
     {
+      id: 'fp-launchpad-iit-madras',
+      title: 'TESSERA: Functionally Programming Petabytes of Earth Observations',
+      source: 'FP Launchpad, IIT Madras',
+      date: 'Apr 2026',
+      description: 'Anil Madhavapeddy\'s closing talk at the inaugural FP Launchpad kickoff at IIT Madras, covering TESSERA\'s cloud-native embedding infrastructure and the functional programming foundations behind planetary-scale geospatial tooling.',
+      url: 'https://www.youtube.com/watch?v=-tBv-j5IbmM',
+      thumb: 'https://i.ytimg.com/vi/-tBv-j5IbmM/mqdefault.jpg',
+      type: 'talk' as const,
+    },
+    {
       id: 'exploring-tessera-embeddings',
       title: 'Exploring Tessera Embeddings',
       source: 'Srinivasan Keshav',

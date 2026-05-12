@@ -1,0 +1,11 @@
+---
+title: "TESSERA at the FP Launchpad kickoff at IIT Madras"
+date: 2026-05-01
+tags: [talks, community]
+author: "Anil Madhavapeddy"
+description: "A talk on functionally programming petabytes of Earth observations at the launch of the FP Launchpad Centre for Functional Systems Research and Education at IIT Madras."
+---
+
+Anil Madhavapeddy gave a talk at the inaugural [FP Launchpad kickoff](https://fplaunchpad.org/2026/03/30/fp-launchpad-kickoff.html) at IIT Madras, a new Centre for Functional Systems Research and Education directed by [KC Sivaramakrishnan](https://kcsrk.info/). The centre's aim is to build efficient, reliable and trustworthy software with mathematical guardrails, and TESSERA is one of the 'pillar projects' that the centre aims to work on using functional programming.
+
+His talk on *[TESSERA: Functionally Programming Petabytes of Earth Observations](https://www.youtube.com/watch?v=-tBv-j5IbmM)* walked through how we manage half a petabyte of geospatial foundation model embeddings as a cloud-native dataset, and the libraries and interactive tools that make manipulating global satellite intelligence as easy as LLMs did for natural language.  The recording is on [YouTube](https://www.youtube.com/watch?v=-tBv-j5IbmM) and an ad-free [mirror](https://crank.recoil.org/w/6iKa5Ni3LSDc7tqfZDNCrL), and more notes [on the day](https://anil.recoil.org/notes/fpl-launch) are available from Anil's website.
