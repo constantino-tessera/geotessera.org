@@ -162,8 +162,8 @@
   <div class="story">
     <!-- Hero: scroll 0–1vh (100vh) -->
     <section class="panel panel-hero">
-      <div class="panel-card hero-card">
-        <h1 class="title">{siteConfig.title}</h1>
+      <div class="panel-card hero-card" style="max-width: 150%;">
+        <h1  class="title" style="letter-spacing: 2px;">{siteConfig.title}</h1>
         <p class="subtitle">{siteConfig.subtitle}</p>
         <span class="scroll-cue">scroll to explore ↓</span>
       </div>
