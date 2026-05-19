@@ -1,0 +1,93 @@
+---
+title: "Cambridge's TESSERA Helping to Protect UK Hedgehogs from Space"
+date: 2026-05-19
+tags: [research, ecology, conservation]
+author: "Constantino Panagopulos"
+description: "Researchers at the University of Cambridge have teamed up with the Cambridge Conservation Initiative to use TESSERA's satellite AI to map hedgehog habitats across the UK."
+---
+
+<figure class="cover-image">
+  <img src="/blog/hedgehogs-cover.jpg" alt="[Photo of a hedgehog in the grass]" />
+  </figure>
+
+Hedgehogs are under threat: across the UK today, sightings of the once prevalent spiky omnivores are a rarity. But now they're getting help from a most unlikely new ally: AI.
+
+Researchers here at the University of Cambridge have been developing a powerful new AI tool called [TESSERA](https://geotessera.org/). It analyses the data from thousands of measurements of Earth taken from satellites to generate exceptionally detailed scientific maps of our planet. After learning about the hedgehogs' plight, TESSERA researchers have teamed up with the [Cambridge Conservation Initiative](https://www.cambridgeconservation.org/) to map hedgehog habitats in the UK.
+
+By connecting the habitat maps with other research into hedgehog habits and movements, the idea is to better understand the environmental factors behind their decline.
+
+<figure class="inline-image">
+  <img src="/blog/hedgehogs-secondary.jpeg" alt="[Photo of researchers consulting a laptop on a country road surrounded by green overgrowth.]" />
+  <figcaption>[Assistant Research Professor Sadiq Jaffer and PhD student Gabriel Mahler testing TESSERA's predictions against reality. Credit: Sadiq Jaffer.]</figcaption>
+</figure>
+
+[Professor of Planetary Computing Anil Madhavapeddy](https://www.cst.cam.ac.uk/people/avsm2) co-leads TESSERA's development at [the Department of Computer Science and Technology](https://www.cst.cam.ac.uk). He explains that TESSERA could be especially helpful for identifying pressures on rural hedgehogs, which have seen the steepest decline in numbers. The government's '[State of Britain's Hedgehogs](https://www.hedgehogstreet.org/wp-content/uploads/2022/02/SoBH-2022-Final.pdf)' report estimates that hedgehog numbers have fallen by 75% in rural areas since the turn of the century.
+
+In these environments, hedgehog habitats are increasingly being replaced by large open fields and roads. These also break connectivity between existing habitats, putting additional pressure on remaining populations.
+
+TESSERA can help map the extent of the problem and perhaps guide efforts to join up or protect remaining habitats, Madhavapeddy argues.
+
+"If we take action now we can figure out how to stop this dangerous decline in their numbers," he says.
+
+TESSERA works by churning through massive amounts of data to create an information-rich map of the Earth where each pixel is a stack of information about a 10×10 metre patch of the Earth's surface. The AI processes so much data that it can fill in gaps caused by factors such as cloud cover. For the hedgehog project, researchers trained TESSERA to look for patterns in the data that matched how bramble bushes scatter light from above.
+
+To validate TESSERA's output, the researchers generated a few local maps around Cambridge — and then decided to go out and see how well it had done. In every location on their map that TESSERA had flagged, they found brambles, said [Sadiq Jaffer](https://www.cst.cam.ac.uk/people/sj514), assistant research professor at the Department of Computer Science and Technology.
+
+There were even some surprises. An unlikely bramble hotspot that TESSERA flagged right in the middle of a built-up residential area turned out to be an overgrown building site.
+
+"We thought that can't be right," Jaffer says. "But it turned out a couple of houses had been knocked down and while they were waiting to rebuild something, the area had overgrown with brambles."
+
+The researchers are still working through the hedgehog habitat maps but are hoping to publish their results later in the year.
+
+---
+
+*The first version of TESSERA went online in June 2025 as an open model available to any researcher for free. The computational infrastructure required to compute TESSERA's maps, known as embeddings, was provided by the University of Cambridge and industrial supporters including Vultr and AMD. Learn more about TESSERA and how it's supporting research, at [geotessera.org](https://geotessera.org).*
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .inline-image {
+    float: right;
+    width: 45%;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  .inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .inline-image {
+      float: none;
+      width: 100%;
+      margin: 0 0 1.5rem 0;
+    }
+  }
+</style>
