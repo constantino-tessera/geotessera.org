@@ -45,6 +45,12 @@ The researchers are still working through the hedgehog habitat maps but are hopi
 
 *For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
 
+<div class="press-note">
+
+*In the press: [Satellites and AI used to track UK hedgehogs in bid to slow decline](https://www.bbc.co.uk/news/articles/c202g60qrlpo) — BBC News*
+
+</div>
+
 <style>
   .cover-image {
     margin: 0 0 2rem 0;
@@ -89,5 +95,11 @@ The researchers are still working through the hedgehog habitat maps but are hopi
       width: 100%;
       margin: 0 0 1.5rem 0;
     }
+  }
+  
+  .press-note {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--border-subtle);
   }
 </style>
