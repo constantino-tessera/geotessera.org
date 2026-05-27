@@ -1,0 +1,83 @@
+---
+title: "Cambridge computer scientist and TESSERA co-principal investigator elected Fellow of the Royal Society"
+date: 2026-05-26
+tags: [news, team]
+author: "Constantino Panagopulos"
+description: "Srinivasan Keshav, a renowned expert in computer networking and pioneer in energy informatics, joins the country's most prestigious scientific fellowship."
+---
+
+<figure class="cover-image">
+  <img src="/blog/keshav-rs-fellow.jpg" alt="Professor Srinivasan Keshav" />
+  <figcaption>Professor Srinivasan Keshav. Photo: University of Cambridge</figcaption>
+</figure>
+
+[Srinivasan Keshav](https://royalsociety.org/people/srinivasan-keshav-38095/), co-principal investigator of the [TESSERA project](https://geotessera.org/) at the University of Cambridge, [was elected a Fellow of the Royal Society](https://royalsociety.org/news/2026/05/new-fellows-announcement-2026/). The Royal Society is one of the world's oldest and most prestigious scientific academies and being elected a Fellow is the highest honour for British scientists.
+
+Keshav, the [Robert Sansom Professor of Computer Science](https://www.cst.cam.ac.uk/people/sk818) in the [Department of Computer Science and Technology](https://www.cst.cam.ac.uk), was one of 7 members of the University of Cambridge to be elected a Fellow this year.
+
+"It's a great honour," Keshav said. "I am happy that it recognises the area of sustainability and gives an imprimatur of quality to this area of work."
+
+Other Cambridge recipients include [Anuj Dawar](https://www.cst.cam.ac.uk/people/ad260), Professor of Logic and Algorithms, also at the Department of Computer Science and Technology and a former classmate from Keshav's undergraduate days.
+
+Over 90 outstanding researchers from across the world were elected to Fellowship this year. They include pioneers and leaders across a range of scientific fields, from astronomy and cancer research to mathematics and biotechnology.
+
+Sir Paul Nurse, President of the Royal Society, said: "I am delighted to welcome this newest group of exceptional scientists to the Fellowship of the Royal Society. Their contributions reflect the highest standards of scientific endeavour.
+
+"Whether advancing our understanding of vaccines or exploring the transformative potential of mathematics and computation, their work exemplifies the enduring value of curiosity, creativity and rigorous inquiry."
+
+## Pioneer in networking and energy informatics
+
+Keshav, who is also a Professorial Fellow at [Fitzwilliam College](https://www.fitz.cam.ac.uk), graduated from the [Indian Institute of Technology Delhi](https://home.iitd.ac.in), before earning a doctoral degree in computer science at UC Berkeley. His doctoral work on 'fair queuing' established rules for network traffic in computer systems and provided the theoretical foundation that allows data to move smoothly across the internet today.
+
+Papers he published at that time are considered groundbreaking and earned him two [Test of Time awards](https://www.sigcomm.org/awards/acm-sigcomm-test-of-time-paper-award) from the Association for Computing Machinery's Special Interest Group on Data Communications (ACM SIGCOMM).
+
+According to [Jon Crowcroft](https://www.cst.cam.ac.uk/people/jac22), Marconi Professor of Communications Systems at the Department of Computer Science and Technology, Keshav's 'fair queuing' work exemplified the principle of "make it as simple as possible, but no simpler."
+
+"It beautifully illustrated the minimum mechanism needed to enhance the internet to provide performance guarantees and protection of traffic from misbehaving sources," he said. "The idea still has currency 37 years later."
+
+Crowcroft also highlighted a brief but seminal paper setting out a clear and practical approach to reading scientific papers — one used by countless editors, reviewers, researchers and students.
+
+After stints at AT&T Bell Labs and Cornell, Keshav co-founded two Silicon Valley technology companies whose products contributed to early cloud computing infrastructure. He then returned to academia at the University of Waterloo, where he held two prestigious research chairs and was elected a Fellow of the Royal Society of Canada.
+
+Keshav subsequently turned his attention to sustainability and the emerging field of energy informatics. Realising early on that the electric grid of the future would need to be structured like the internet to accommodate renewable energy sources, he pioneered the application of computer networking principles to energy infrastructure design. He also helped establish an ACM special interest group on energy, dedicated to applying computer science techniques to the world's energy infrastructure. These efforts helped the electric grid shift from a model built around large fossil fuel and nuclear power plants, to today's diverse network of renewable sources, home solar panels and electric vehicles.
+
+Today, renewables account for more than half of the UK's electricity mix, with the remainder coming from nuclear and natural gas. But a little over a decade ago, coal provided 40% of the country's power.
+
+"If you told someone 10 years ago that the UK would reach 0% coal, they would think you were crazy," Keshav said. "It's been a huge shift, but it's gone mostly under the radar."
+
+## TESSERA
+
+Keshav joined the University of Cambridge in 2019. Since 2021, he has focused on the TESSERA project, a foundation model that applies AI to satellite data in support of ecologists, plant scientists, and policy makers. TESSERA is entirely open source and free to use, and is already helping researchers protect habitats, identify deforestation hotspots and inform conservation policy.
+
+Keshav is the author of 2 widely used graduate textbooks on networking. His honours include the [David J. Sakrison Memorial Prize](https://www2.eecs.berkeley.edu/Students/Awards/17/), the inaugural [Achievement Award from the ACM Special Interest Group in Energy Systems and Informatics](https://energy.acm.org/sigenergy-achievement-award-2025-winner-announcement/), and Fellowships of the [Royal Society of Canada](https://rsc-src.ca/en/users/prof-srinivasan-keshav), the [IEEE](https://www.comsoc.org/engagement-community/ieee-fellows/2010-2019), and the [ACM](https://awards.acm.org/award_winners/keshav_0714063).
+
+Keshav and this year's other new Fellows will be formally admitted to the Royal Society at a ceremony on 10 July.
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>
