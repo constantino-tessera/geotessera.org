@@ -18,7 +18,7 @@ By connecting the habitat maps with other research into hedgehog habits and move
 
 <figure class="inline-image">
   <img src="/blog/hedgehogs-secondary.jpeg" alt="[Photo of researchers consulting a laptop on a country road surrounded by green overgrowth.]" />
-  <figcaption>Assistant Research Professor Sadiq Jaffer and master's student Gabriel Mahler testing TESSERA's predictions against reality. Credit: Sadiq Jaffer.</figcaption>
+  <figcaption>Assistant Research Professor Sadiq Jaffer and MPhil student Gabriel Mahler testing TESSERA's predictions against reality. Credit: Sadiq Jaffer.</figcaption>
 </figure>
 
 [Professor of Planetary Computing Anil Madhavapeddy](https://www.cst.cam.ac.uk/people/avsm2) co-leads TESSERA's development at [the Department of Computer Science and Technology](https://www.cst.cam.ac.uk). He explains that TESSERA could be especially helpful for identifying pressures on rural hedgehogs, which have seen the steepest decline in numbers. The government's '[State of Britain's Hedgehogs](https://www.hedgehogstreet.org/wp-content/uploads/2022/02/SoBH-2022-Final.pdf)' report estimates that hedgehog numbers have fallen by 75% in rural areas since the turn of the century.
