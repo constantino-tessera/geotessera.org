@@ -18,7 +18,7 @@ export const blogLinks: BlogLink[] = [
     date: '2026-05-28',
     author: 'BBC Breakfast',
     description: '',
-    url: 'https://www.bbc.co.uk/iplayer/episode/l0058c9h/savings-the-hedgehogs-from-space',
+    url: 'https://crank.recoil.org/w/dxXkfLYocHMbZtdkZLAc8R',
     tags: ['press', 'video', 'conservation', 'community'],
     minor: true,
   },
