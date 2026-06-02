@@ -1,0 +1,85 @@
+---
+title: "TESSERA v1.1: more stable embeddings, fewer artefacts"
+date: 2026-06-02
+tags: [announcement, release]
+author: "Anil Madhavapeddy and Frank Feng on behalf of team TESSERA"
+description: "v1.1 embeddings are more temporally stable year-on-year and have far fewer artefacts in low-observation areas, and nothing in your workflow has to change."
+---
+
+We're pleased to announce the availability of TESSERA v1.1, a retrained
+successor to our original v1.0 model.  If you use TESSERA embeddings for any
+downstream tasks such as classification, change detection, regression, then the
+new embeddings are drop-in replacements that will improve accuracy, with no
+changes needed in your workflow.
+
+## What's better for your downstream tasks
+
+- More **temporal stability** year-on-year. v1.1 128-dim embeddings are more
+  consistent across years for the same location. That makes multi-year work such
+  as change detection, trend analysis, or training a classifier on one year and
+  applying it to another, much more reliable.
+- **Fewer artefacts in low-observation areas.** v1.0 could sometimes produce noisy
+  tiles where a pixel with few clear satellite observations (due to persistent
+  cloud, short time series, or sensor gaps). v1.1 handles sparse observations
+  gracefully, so quality holds up in the places that formerly showed issues.
+  Note that this only affected large-scale downstream tasks; if you used a small
+  ROI that didn't straddle problematic tiles, there will be no change.
+- **Improved coastal coverage** v1.0's land mask was too aggressive and dropped
+  legitimate land pixels in coastal areas. We've listened to our mangrove-loving
+  friends and significantly extended the training and inference buffer to cover
+  coastlines and remote islands.
+
+<figure class="img-caption">
+<figcaption><strong>v1.0 vs v1.1 embeddings</strong> — the same regions visualised in false colour, with v1.0 on the left and v1.1 on the right. Notice the suppressed tiling seams and cleaner structure in low-observation areas.</figcaption>
+<img src="/blog/v1-vs-v1.1-visuals.webp" alt="Side-by-side comparison of TESSERA v1.0 and v1.1 embeddings visualised in false colour, showing reduced tiling artefacts and cleaner low-observation areas in v1.1" />
+</figure>
+
+## Getting the embeddings
+
+Whatever you built on v1.0 will now read v1.1 by just swapping the v1.0
+embeddings for the v1.1 ones and re-running your downstream tasks.
+
+The easiest path is the [geotessera](https://geotessera.readthedocs.io) Python
+library. The freshly released [geotessera 0.9](https://github.com/ucam-eo/geotessera)
+supports both v1.0 and v1.1 embeddings, so you can
+select whichever version you need. There are new flags for `dataset-version` (pick 1.1 to upgrade),
+and also a `dataset-variant`, since we have multiple parties now generating embeddings
+for the community!
+
+- The `cambridge` dataset-variant is run on our University servers and is a small-scale
+  variant we are generating for early adopters of 1.1. Use this to try 1.1 immediately.
+- The `default` dataset-variant will be a Zarr-native full global run of v1.1 run by
+  [Cyclops.AI](https://www.cyclops.ai/) that will cover 2016-2025 for the whole world,
+  and be hosted on AWS for cloud-native streaming access. We're still working through
+  this run, so stay tuned for more news!
+
+All the TESSERA embeddings (both v1.0 and v1.1) are now available in AWS Open
+Data in the `tessera-embeddings` S3 bucket. The geotessera 0.9 release defaults
+to using S3 to fetch the embeddings, which should be more reliable for everyone.
+Lets however take a moment to remember the overloaded Cambridge University server
+that bravely served embeddings for the first six months of TESSERA all by itself.
+Thank you "okavango" for not crashing and taking all our embeddings with you!
+
+## Running or fine-tuning the model yourself
+
+If you'd rather generate your own embeddings or fine-tune on your own data, the
+v1.1 weights are on Hugging Face:
+
+- **[huggingface.co/geotessera/TESSERA-V-1.1](https://huggingface.co/geotessera/TESSERA-V-1.1)**
+- **[huggingface.co/geotessera/TESSERA-V-1.0](https://huggingface.co/geotessera/TESSERA-V-1.0)**
+
+There are checkpoints for both Microsoft Planetary Computer and AWS Open
+Data preprocessing backends, so pick the one matching your data source.
+Also do [let us know](https://eeg.zulipchat.com) if you generate embeddings so we can
+sync up and perhaps add them to the global registry. More mirrors are always welcome.
+
+## License
+
+All TESSERA model weights and embeddings remain under
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/) which is free for
+commercial and non-commercial use. The software is MIT-licensed. Attribution
+isn't required, but we appreciate it, by citing
+<https://arxiv.org/abs/2506.20380>.  We're also grateful to the [UKRI AIRR
+Compute](https://www.ukri.org/opportunity/airr-compute-opportunity-ai-for-science/)
+program that gave us sufficient time on Isambard 2 to perform the model
+retraining.
