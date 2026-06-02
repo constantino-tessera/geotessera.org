@@ -12,6 +12,36 @@ export interface BlogLink {
 }
 
 export const blogLinks: BlogLink[] = [
+   {
+    id: 'bbc-breakfast-hedgehogs',
+    title: 'BBC Breakfast Show: Saving the Hedgehogs from Space',
+    date: '2026-05-28',
+    author: 'BBC Breakfast',
+    description: '',
+    url: 'https://crank.recoil.org/w/dxXkfLYocHMbZtdkZLAc8R',
+    tags: ['press', 'video', 'conservation', 'community'],
+    minor: true,
+  },
+  {
+    id: 'royal-society-fellow',
+    title: 'Cambridge Computer Scientist and TESSERA Co-lead Elected Fellow of the Royal Society',
+    date: '2026-05-27',
+    author: 'University of Cambridge Department of Computer Science and Technology',
+    description: '',
+    url: 'https://www.cst.cam.ac.uk/cambridge-computer-scientist-and-tessera-co-lead-elected-fellow-royal-society',
+    tags: ['press', 'news'],
+    minor: true,
+  },
+  {
+    id: 'hedgehog-tessera-week',
+    title: 'News roundup: What happens when a hedgehog story prickles its way into the BBC',
+    date: '2026-05-22',
+    author: 'Anil Madhavapeddy',
+    description: '',
+    url: 'https://anil.recoil.org/notes/hedgehog-tessera-week',
+    tags: ['press', 'conservation', 'community'],
+    minor: true,
+  },
   {
     id: 'itv-anglia-hedgehogs',
     title: 'ITV News Anglia: Satellites and AI used to track UK hedgehogs',
