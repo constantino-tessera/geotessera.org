@@ -59,7 +59,7 @@ TESSERA is funded by donations from [Jane Street](https://www.janestreet.com/), 
 
 ---
 
-*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, University of Cambridge Department of Computer Science and Technology, +44 (0)7356 104 073.*
 
 <style>
   .cover-image {
