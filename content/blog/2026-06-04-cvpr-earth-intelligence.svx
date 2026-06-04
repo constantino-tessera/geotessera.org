@@ -13,7 +13,7 @@ description: "A new AI model developed at the University of Cambridge distils mi
 
 Satellites have watched Earth for decades. In that time, they've accumulated a staggering archive of images. Yet, faced with intractable datasets and cloud-covered images, scientists have struggled to convert the massive data troves into actionable insights about the planet.
 
-That has changed with [TESSERA](https://geotessera.org/), an artificial intelligence model that distils millions of images captured by [European Space Agency satellites](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/The_Sentinel_missions) into a format that is easily used by researchers. [The model](https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf), which was developed by a team led by the University of Cambridge, [is to be presented 6 June](https://cvpr.thecvf.com/virtual/2026/poster/37322) at the [IEEE/CVF Conference on Computer Vision and Pattern Recognition](https://cvpr.thecvf.com/virtual/2026/poster/37322) in Boulder, Colorado.
+That has changed with [TESSERA](https://geotessera.org/), an artificial intelligence model that distils millions of images captured by [European Space Agency satellites](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/The_Sentinel_missions) into a format that is easily used by researchers. [The model](https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf), which was developed by a team led by the University of Cambridge, [is to be presented 6 June](https://cvpr.thecvf.com/virtual/2026/poster/37322) at the [IEEE/CVF Conference on Computer Vision and Pattern Recognition](https://cvpr.thecvf.com/virtual/2026/poster/37322) in Denver, Colorado.
 
 <figure class="inline-image">
   <img src="/blog/sentinel-timelapse.gif" alt="Timelapse of satellite imagery showing cloud cover and atmospheric changes over the same location" />
@@ -60,6 +60,8 @@ TESSERA is funded by donations from [Jane Street](https://www.janestreet.com/), 
 ---
 
 *For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, University of Cambridge Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+*This story [was also published by the Environment and Energy Group](https://www.cst.cam.ac.uk/research/eeg/cambridge-ai-tool-promises-new-era-earth-intelligence-space) at the Department for Computer Science and Technology.*
 
 <style>
   .cover-image {
