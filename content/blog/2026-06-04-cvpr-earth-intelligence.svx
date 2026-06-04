@@ -1,5 +1,5 @@
 ---
-title: "Cambridge AI tool promises new era of Earth intelligence from space"
+title: "TESSERA arrives in Denver for its CVPR Debut"
 date: 2026-06-04
 tags: [research, news]
 author: "Constantino Panagopulos"
