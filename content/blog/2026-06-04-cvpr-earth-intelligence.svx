@@ -1,0 +1,117 @@
+---
+title: "TESSERA arrives in Denver for its CVPR Debut"
+date: 2026-06-04
+tags: [research, news]
+author: "Constantino Panagopulos"
+description: "A new AI model developed at the University of Cambridge distils millions of satellite images into a format that is easily used by researchers to reveal crop patterns, habitat loss, deforestation, and more."
+---
+
+<figure class="cover-image">
+  <img src="/blog/cambridge-tes.png" alt="Cambridge and surroundings as represented by TESSERA's embeddings" />
+  <figcaption>Cambridge and surroundings, as represented by TESSERA's embeddings. Credit: TESSERA/University of Cambridge</figcaption>
+</figure>
+
+Satellites have watched Earth for decades. In that time, they've accumulated a staggering archive of images. Yet, faced with intractable datasets and cloud-covered images, scientists have struggled to convert the massive data troves into actionable insights about the planet.
+
+That has changed with [TESSERA](https://geotessera.org/), an artificial intelligence model that distils millions of images captured by [European Space Agency satellites](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/The_Sentinel_missions) into a format that is easily used by researchers. [The model](https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf), which was developed by a team led by the University of Cambridge, [is to be presented 6 June](https://cvpr.thecvf.com/virtual/2026/poster/37322) at the [IEEE/CVF Conference on Computer Vision and Pattern Recognition](https://cvpr.thecvf.com/virtual/2026/poster/37322) in Denver, Colorado.
+
+<figure class="inline-image">
+  <img src="/blog/sentinel-timelapse.gif" alt="Timelapse of satellite imagery showing cloud cover and atmospheric changes over the same location" />
+  <figcaption>Images captured by one of ESA's Sentinel satellites. The timelapse shows how clouds, shifting shadows, and changes in the atmosphere can distort satellite views of the same location. Credit: ESA</figcaption>
+</figure>
+
+The software can be used to reveal crop patterns, habitat loss, deforestation, and even environmental impacts of conflict, said Srinivasan Keshav, professor at the [Department of Computer Science and Technology](https://www.cst.cam.ac.uk/) and one of TESSERA's lead investigators.
+
+"Our goal is to support ecologists, agricultural scientists and policy makers through distilled Earth observation on demand. We provide this with no barriers or paywalls. It's Earth intelligence for all," Keshav said.
+
+TESSERA is a type of generalised AI known as a foundation model. As it churns through petabytes of satellite data, it learns to recognise patterns and how they change over time. It also fills in missing values for cloud-covered images. The result is an uninterpreted sequence of 128 numbers for every 10-by-10-metre area of land. The numbers, known collectively as an embedding, are stored in GeoTessera, a massive database available on demand to researchers.
+
+David Coomes, a forest ecologist and conservation biologist at the University of Cambridge, said that TESSERA allows researchers to perform global scale analysis from a simple laptop.
+
+"It means that someone like me, who has used satellite imagery for regional studies, can now use AI to scale up analyses and tackle much larger questions," he said.
+
+Coomes is putting TESSERA to use to monitor land that the UK government has designated for protection across Cumbria. The project, a partnership between TESSERA, the [Endangered Landscapes and Seascape Programme](https://www.endangeredlandscapes.org/), and other UK partners, could eventually provide the government with a way to measure the effectiveness of investments in farming subsidies and nature conservation.
+
+Julia Jones, co-chair of the [Chief Scientists Group](https://jncc.gov.uk/about-jncc/who-we-are/joint-committee/chief-scientists-group/) of the [UK's statutory nature conservation bodies](https://jncc.gov.uk/about-jncc/who-we-are/joint-committee/chief-scientists-group/), said that TESSERA will allow conservation practitioners and policy makers to answer many important questions to inform better decision making.
+
+"TESSERA is a game changer," said Jones, a professor at [Bangor University](https://www.bangor.ac.uk/staff/sens/julia-patricia-gordon-jones-010356/en). "With a relatively small amount of training data, anyone can make a habitat map highlighting the features that interest them and explore change over time. TESSERA removes bottlenecks and lets us monitor change at scale without enormous resources. This will add value to the fabulous ground-based biodiversity data sets collected by citizen scientists or from professional schemes."
+
+Monitoring habitats is just one of hundreds of ways TESSERA's growing community of users has already found to put the embeddings to use. A reason why that community is growing so rapidly is the team's insistence on making TESSERA open source and available for free, a decision which they say lowers the barrier to entry for remote sensing research.
+
+<figure class="inline-image">
+  <img src="/blog/cumbria-project.jpeg" alt="A GPS sensor mounted on a tripod in a field in Cumbria, with a researcher standing beside a tree in the background" />
+  <figcaption>Cambridge University researchers mark the GPS coordinates of a tree in Cumbria to provide ground truth measurements for TESSERA. Credit: University of Cambridge</figcaption>
+</figure>
+
+"Opening access to earth observations is core to our mission," said TESSERA co-lead Anil Madhavapeddy. "We developed TESSERA to democratise satellite data for people who lack massive computer resources, whether that's an underfunded conservation group here in the UK, field biodiversity researchers in the majority world, or planners figuring out climate adaptation strategies in a rapidly warming world."
+
+Madhavapeddy is a professor of planetary computing at the University of Cambridge.
+
+TESSERA has its origins in an idea by remote sensing expert Clement Atzberger, to use an image recognition algorithm called Barlow Twins as a solution to the problem of cloud-covered satellite images.
+
+The algorithm teaches itself to recognise a landscape's 'fingerprint' by examining 2 sets of images of the same scene, selected randomly from cloud-free images captured throughout the year. By telling the algorithm that both sets should depict the same underlying landscape, it becomes adept at ignoring cloud-covered images and filling in the missing values. The team built this technique into a foundation model and began tapping ESA's vast datasets from the [Copernicus Sentinel-1 and Sentinel-2 satellites](https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions).
+
+The team tested TESSERA in real-world settings to map tree species in Germany, farmland in Austria, and rainforest canopies in Borneo. In all tests, TESSERA either matched or outperformed other models, including Google DeepMind's AlphaEarth.
+
+TESSERA currently offers global coverage for 2024, and regional coverage stretching from 2017 to present day. Researchers can explore TESSERA's embeddings at [geotessera.org](https://geotessera.org).
+
+TESSERA is funded by donations from [Jane Street](https://www.janestreet.com/), Tarides, Google, Robert Sansom and John Bernstein. The model was trained using computational resources supplied by [AMD](https://www.amd.com/en.html)/[Vultr](https://www.vultr.com/) and Cambridge University's [Dawn supercomputer](https://www.hpc.cam.ac.uk/d-w-n). Additional computational resources were provided by Durham University's [COSMA supercomputer](https://www.durham.ac.uk/departments/academic/physics/cosma/), [UKRI AIRR Isambard](https://docs.isambard.ac.uk/), Microsoft's [AI for Good Labs](https://www.microsoft.com/en-us/research/group/ai-for-good-research-lab/), AWS and Intel.
+
+---
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, University of Cambridge Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+*This story [was also published by the Environment and Energy Group](https://www.cst.cam.ac.uk/research/eeg/cambridge-ai-tool-promises-new-era-earth-intelligence-space) at the Department for Computer Science and Technology.*
+
+*Read more from the European Space Agency: [Tessera AI model offers accessible way to view Earth](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Tessera_AI_model_offers_accessible_way_to_view_Earth).*
+
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .inline-image {
+    float: right;
+    width: 45%;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  .inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .inline-image {
+      float: none;
+      width: 100%;
+      margin: 0 0 1.5rem 0;
+    }
+  }
+</style>
