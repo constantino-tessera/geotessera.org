@@ -63,6 +63,9 @@ TESSERA is funded by donations from [Jane Street](https://www.janestreet.com/), 
 
 *This story [was also published by the Environment and Energy Group](https://www.cst.cam.ac.uk/research/eeg/cambridge-ai-tool-promises-new-era-earth-intelligence-space) at the Department for Computer Science and Technology.*
 
+*Read more from the European Space Agency: [Tessera AI model offers accessible way to view Earth](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Tessera_AI_model_offers_accessible_way_to_view_Earth).*
+
+
 <style>
   .cover-image {
     margin: 0 0 2rem 0;
