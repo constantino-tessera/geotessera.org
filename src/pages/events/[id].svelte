@@ -15,6 +15,20 @@
       });
     return dateEndStr ? `${fmt(dateStr)} – ${fmt(dateEndStr)}` : fmt(dateStr);
   }
+
+  /** Infer a link icon path from the URL */
+  function linkIcon(url: string): string {
+    if (url.includes('youtube.com') || url.includes('youtu.be') || url.includes('watch.eeg') || url.includes('crank.recoil')) {
+      // Play triangle
+      return 'M5 3l14 9-14 9V3z';
+    }
+    if (url.includes('geotessera.org/blog') || url.includes('anil.recoil') || url.includes('conservationevidence') || url.includes('digitalfutures')) {
+      // Document lines
+      return 'M4 4h12v2H4zM4 8h12v2H4zM4 12h8v2H4z';
+    }
+    // Default: external link arrow
+    return 'M3.5 1.5h7v7M10.5 1.5L2 10';
+  }
 </script>
 
 <div class="event-detail">
@@ -62,19 +76,21 @@
         </div>
       {/if}
 
-      {#if event.externalUrl}
-        <div class="event-cta">
-          <a
-            href={event.externalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-link"
-          >
-            Visit event website
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11" aria-hidden="true">
-              <path d="M3.5 1.5h7v7M10.5 1.5L2 10"/>
-            </svg>
-          </a>
+      {#if event.links && event.links.length > 0}
+        <div class="event-links">
+          {#each event.links as lnk}
+            <a
+              href={lnk.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="event-link-btn"
+            >
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={linkIcon(lnk.url)} />
+              </svg>
+              {lnk.label}
+            </a>
+          {/each}
         </div>
       {/if}
     </article>
@@ -127,7 +143,10 @@
   }
 
   .sep {
-    opacity: 0.4;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--accent-dim);
+    opacity: 1;
   }
 
   .page-label {
@@ -192,25 +211,41 @@
     text-underline-offset: 2px;
   }
 
-  /* CTA */
-  .event-cta {
-    margin-top: 24px;
+  /* Links row */
+  .event-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--accent-border);
   }
 
-  .cta-link {
+  .event-link-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     font-size: 11px;
     letter-spacing: 1px;
     color: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 20px;
+    padding: 6px 14px;
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
 
-  .cta-link:hover {
-    opacity: 1;
+  .event-link-btn:hover {
+    background: var(--accent-faint);
+    border-color: var(--accent-dim);
+    color: #fff;
+  }
+
+  .event-link-btn svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    opacity: 0.8;
   }
 
   .not-found {
