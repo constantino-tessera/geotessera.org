@@ -12,10 +12,10 @@
     return end >= now;
   }
 
-  // Separate into upcoming (soonest first) and past (most recent first)
+  // Separate into upcoming (latest first) and past (most recent first)
   const upcoming = [...tesseraEvents]
     .filter(isUpcoming)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const past = [...tesseraEvents]
     .filter((e) => !isUpcoming(e))
