@@ -41,7 +41,7 @@ export const tesseraEvents: TesseraEvent[] = [
     externalUrl: 'https://program.isprs2026.org/index4499.html?page=browseSessions&path=adminSessions&print=export&ismobile=false&form_date=all&form_session=118&mode=list&presentations=show',
     speaker: 'Madeline Lisaius',
     talk: 'Towards improved crop type classification: a compact embedding approach suitable for small fields',
-    description: 'Madeline will present this paper at Session ThS16: Earth Embeddings — Investigating Accurate and Accessible Deep Geospatial Feature Representations (room 717A, 12:45–1:00pm local time). The paper, co-authored with Andrew Blake, Clement Atzberger, and Srinivasan Keshav, shows that TESSERA embeddings outperform standard approaches for crop type classification in small field systems, achieving higher F1 scores across 5 of 7 crop types while using just 8% of the compute of raw data methods.',
+    description: 'Madeline will present this paper at Session ThS16: Earth Embeddings — Investigating Accurate and Accessible Deep Geospatial Feature Representations (room 717A, 12:45–1:00pm local time). The paper, co-authored with Andrew Blake, Clement Atzberger, and Srinivasan Keshav, shows that Tessera embeddings outperform standard approaches for crop type classification in small field systems, achieving higher F1 scores across 5 of 7 crop types while using just 8% of the compute of raw data methods.',
   },
   {
     id: 'ai4good-geoai-2026',
