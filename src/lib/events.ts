@@ -95,6 +95,20 @@ export const tesseraEvents: TesseraEvent[] = [
     description: 'Anil will present Tessera at the Cloud-Native Geospatial Forum (CNG) London meetup. The talk is at 11am BST at The Beacon at The Jellicoe, 5 Beaconsfield St, London N1C 4EW.',
   },
   {
+    id: 'digital-forestry-purdue-2026',
+    title: 'Applications & Solutions in Digital Forestry International Conference',
+    date: '2026-06-04',
+    dateEnd: '2026-06-05',
+    location: 'Purdue University, West Lafayette, Indiana',
+    organiser: 'Institute for Digital Forestry',
+    links: [
+      { label: 'Conference programme', url: 'https://ag.purdue.edu/digital-forestry/conferences/conference-program.html' },
+    ],
+    speaker: 'David Coomes',
+    talk: 'Geospatial Foundation Models to Transform Forest Resilience',
+    description: 'David gave a plenary talk at the Applications & Solutions in Digital Forestry International Conference, hosted by the Institute for Digital Forestry at Purdue University. His talk was part of Plenary Session 2: Forest Health, Resilience & Climate Applications (4–5pm, PMU North Ballroom), alongside speakers from Purdue and the US Forest Service.',
+  },
+  {
     id: 'cvpr-2026',
     title: 'CVPR 2026',
     date: '2026-06-07',
