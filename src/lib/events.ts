@@ -56,6 +56,21 @@ export const tesseraEvents: TesseraEvent[] = [
     description: "Frank will present Tessera at the GeoAI for Our Shared Future workshop, part of the AI for Good Global Summit. The workshop (14:00–17:15 CEST) brings together UN agencies, academia, and the private sector to explore geospatial foundation models and generative AI. Frank's talk is in Session 2: Emerging State-of-the-Art Academic Research.",
   },
   {
+    id: 'ml4eo-2026',
+    title: 'ML4EO 2026',
+    date: '2026-06-22',
+    dateEnd: '2026-06-24',
+    location: 'University of Exeter',
+    organiser: 'ML4EO',
+    links: [
+      { label: 'Workshop details', url: 'https://ml4eo.org/workshops/' },
+      { label: 'Programme', url: 'https://ml4eo.org/programme/' },
+    ],
+    speaker: 'Zhengpeng (Frank) Feng',
+    talk: 'Introduction to the TESSERA Geospatial Foundation Model: Hands-on Earth Intelligence with Embedding-as-Data',
+    description: "Frank will lead a hands-on workshop on Tessera as part of Workshop Slot 1 at ML4EO 2026 (Monday 22 June, 9:00am, room PCC 2.6, Peter Chalk Centre). Participants will use the GeoTessera Python library to retrieve embeddings for a region of their choice, explore them interactively using the Tessera Embeddings Explorer, and train a lightweight classifier — all without a GPU or cloud account.",
+  },
+  {
     id: 'isprs-2026',
     title: 'ISPRS 2026',
     date: '2026-07-05',
