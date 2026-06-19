@@ -56,6 +56,19 @@ export const tesseraEvents: TesseraEvent[] = [
     description: "Frank will present Tessera at the GeoAI for Our Shared Future workshop, part of the AI for Good Global Summit. The workshop (14:00–17:15 CEST) brings together UN agencies, academia, and the private sector to explore geospatial foundation models and generative AI. Frank's talk is in Session 2: Emerging State-of-the-Art Academic Research.",
   },
   {
+    id: 'eo-summit-2026',
+    title: 'EO Summit 2026',
+    date: '2026-06-22',
+    location: 'The Brewery, London',
+    organiser: 'EO Summit',
+    links: [
+      { label: 'Agenda', url: 'https://www.eosummit.com/2026-agenda' },
+    ],
+    speaker: 'Madeline Lisaius',
+    talk: 'Tessera and agriculture (lightning talk)',
+    description: "Madeline leads a lightning talk on Tessera's applications in agriculture as part of the Innovation Track (Side Stage), 4–5pm, at EO Summit 2026 — a user-focused, application-driven Earth observation conference bringing together the EO community across insurance, energy, agriculture, and climate sectors.",
+  },
+  {
     id: 'ml4eo-2026',
     title: 'ML4EO 2026',
     date: '2026-06-22',
