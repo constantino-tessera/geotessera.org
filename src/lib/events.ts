@@ -43,6 +43,21 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'oemc-global-workshop-2026',
+    title: 'Open-Earth-Monitor Global Workshop 2026',
+    date: '2026-10-07',
+    dateEnd: '2026-10-09',
+    location: 'Barcelona, Spain',
+    organiser: 'OpenGeoHub / Open-Earth-Monitor',
+    image: '/events/oemc-frank-feng.png',
+    links: [
+      { label: 'Event page', url: 'https://earthmonitor.org/global-workshop-2026/' },
+    ],
+    speaker: 'Zhengpeng (Frank) Feng',
+    talk: 'TESSERA: A Foundation Model for Label-Efficient and Multi-Modal Earth Observation at Scale',
+    description: 'Frank is a keynote speaker at the Open-Earth-Monitor Global Workshop 2026, which brings together experts in Earth observation, GeoAI, climate intelligence, and open-source geospatial technologies to showcase the final outputs of the Horizon Europe Open-Earth-Monitor project. His keynote on Tessera runs 10:30–11:00am on Day 3 (Friday 9 October). He is also co-leading a 45-minute hands-on workshop, "Working with and visualizing GeoFoundational AI embeddings", with Mike Harfoot, on Day 2 (Thursday 8 October), 14:45–15:30.',
+  },
+  {
     id: 'ai4good-geoai-2026',
     title: 'AI for Good Global Summit — GeoAI Workshop',
     date: '2026-07-07',
