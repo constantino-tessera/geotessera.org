@@ -69,7 +69,11 @@
           {#if event.speaker}
             <div class="talk-field">
               <span class="field-label">Speaker</span>
-              <p class="talk-speaker">{event.speaker}</p>
+              {#if event.speakerUrl}
+                <p class="talk-speaker"><a href={event.speakerUrl} target="_blank" rel="noopener noreferrer">{event.speaker}</a></p>
+              {:else}
+                <p class="talk-speaker">{event.speaker}</p>
+              {/if}
             </div>
           {/if}
         </div>
@@ -201,6 +205,17 @@
     line-height: 1.4;
   }
 
+  .talk-speaker a {
+    color: var(--accent-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .talk-speaker a:hover {
+    border-bottom-color: var(--accent-dim);
+  }
+
   /* Image */
   .event-image {
     margin: 0 0 28px;
@@ -244,28 +259,31 @@
   .event-link-btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font-size: 11px;
-    letter-spacing: 1px;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
     color: var(--accent-dim);
-    border: 1px solid var(--accent-border);
-    border-radius: 20px;
-    padding: 6px 14px;
+    background: var(--accent-faint);
+    border: 1px solid var(--accent-dim);
+    border-radius: 6px;
+    padding: 9px 18px;
     text-decoration: none;
-    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
   }
 
   .event-link-btn:hover {
-    background: var(--accent-faint);
+    background: var(--accent-dim);
     border-color: var(--accent-dim);
-    color: #fff;
+    color: var(--bg-primary, #0a0a1a);
+    transform: translateY(-1px);
   }
 
   .event-link-btn svg {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
-    opacity: 0.8;
+    opacity: 1;
   }
 
   .not-found {
