@@ -55,6 +55,10 @@
       {#if event.image}
         <figure class="event-image">
           <img src={event.image} alt={event.title} />
+          {#if event.imageCaption}
+            <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+            <figcaption>{@html event.imageCaption}</figcaption>
+          {/if}
         </figure>
       {/if}
 
@@ -224,6 +228,14 @@
     height: auto;
     display: block;
     border: 1px solid var(--accent-border);
+  }
+
+  .event-image figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
   }
 
   /* Description body */

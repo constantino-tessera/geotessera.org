@@ -39,6 +39,8 @@ export interface TesseraEvent {
   links?: EventLink[];
   /** Path relative to /public, e.g. "/events/igarss-2025.jpg". Optional. */
   image?: string;
+  /** Optional caption for the image (rendered as figcaption). May contain HTML. */
+  imageCaption?: string;
   /** Presenter(s). Up to three named + linked; four or more → [{ name: 'Tessera Team' }]. */
   speakers?: EventSpeaker[];
   /** Title of the talk or session */
@@ -130,7 +132,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Madeline Lisaius', url: 'https://mlisaius.github.io/' }],
     talk: 'Tessera and agriculture (lightning talk)',
-    description: "Madeline Lisaius leads a lightning talk on Tessera's applications in agriculture as part of the Innovation Track (Side Stage), 4–5pm, at EO Summit 2026 — a user-focused, application-driven Earth observation conference bringing together the EO community across insurance, energy, agriculture, and climate sectors.",
+    description: "Madeline Lisaius led a lightning talk on Tessera's applications in agriculture as part of the Innovation Track (Side Stage), 4–5pm, at EO Summit 2026 — a user-focused, application-driven Earth observation conference bringing together the EO community across insurance, energy, agriculture, and climate sectors.",
   },
   {
     id: 'ml4eo-2026',
@@ -158,7 +160,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Anil Madhavapeddy', url: 'https://www.cst.cam.ac.uk/people/avsm2' }],
     talk: 'TESSERA: Pixelwise Embeddings of Earth Observations',
-    description: 'Anil Madhavapeddy presents Tessera at the Cloud-Native Geospatial Forum (CNG) London meetup. The talk is at 11am BST at The Beacon at The Jellicoe, 5 Beaconsfield St, London N1C 4EW.',
+    description: 'Anil Madhavapeddy presented Tessera at the Cloud-Native Geospatial Forum (CNG) London meetup. The talk was at 11am BST at The Beacon at The Jellicoe, 5 Beaconsfield St, London N1C 4EW.',
   },
   {
     id: 'digital-forestry-purdue-2026',
@@ -172,7 +174,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'David Coomes', url: 'https://coomeslab.org/research-group/current-members/professor-david-coomes/' }],
     talk: 'Geospatial Foundation Models to Transform Forest Resilience',
-    description: 'David Coomes gives a plenary talk at the Applications & Solutions in Digital Forestry International Conference, hosted by the Institute for Digital Forestry at Purdue University. His talk is part of Plenary Session 2: Forest Health, Resilience & Climate Applications (4–5pm, PMU North Ballroom), alongside speakers from Purdue and the US Forest Service.',
+    description: 'David Coomes gave a plenary talk at the Applications & Solutions in Digital Forestry International Conference, hosted by the Institute for Digital Forestry at Purdue University. His talk was part of Plenary Session 2: Forest Health, Resilience & Climate Applications (4–5pm, PMU North Ballroom), alongside speakers from Purdue and the US Forest Service.',
   },
   {
     id: 'cvpr-2026',
@@ -186,7 +188,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Jovana Knezevic', url: 'https://www.linkedin.com/in/jovana-knezevic-a4b19420/' }],
     talk: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',
-    description: 'Jovana Knezevic presents Tessera at the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026), one of the premier venues in computer vision. The paper was presented as a poster session on 7 June (ExHall F 578, 10:45am–12:45pm PDT).',
+    description: 'Jovana Knezevic presented Tessera at the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026), one of the premier venues in computer vision. The paper was presented as a poster session on 7 June (ExHall F 578, 10:45am–12:45pm PDT).',
   },
   {
     id: 'pint-of-science-2026',
@@ -194,6 +196,8 @@ export const tesseraEvents: TesseraEvent[] = [
     date: '2026-05-18',
     location: 'Cambridge',
     organiser: 'Pint of Science',
+    image: '/events/pint-of-science-sadiq.jpg',
+    imageCaption: 'Sadiq Jaffer demonstrates Tessera embeddings at the Station Tavern, Cambridge. Credit: Tessera/University of Cambridge',
     links: [
       { label: 'Event page', url: 'https://pintofscience.co.uk/event/how-is-ai-accelerating-science/' },
     ],
@@ -266,6 +270,7 @@ export const tesseraEvents: TesseraEvent[] = [
     organiser: 'IEEE GRSS',
     links: [
       { label: 'Watch video', url: 'https://www.youtube.com/watch?v=J-QLuX9xcsI' },
+      { label: 'Event page', url: 'https://www.grss-ieee.org/event/tessera-precomputed-fair-global-pixel-embeddings-for-earth-representation-and-analysis/' },
     ],
     speakers: [{ name: 'Zhengpeng (Frank) Feng', url: 'https://www.linkedin.com/in/zhengpeng-feng-2410a132a/' }],
     talk: 'TESSERA: Precomputed FAIR Global Pixel Embeddings for Earth Representation and Analysis',
@@ -279,6 +284,7 @@ export const tesseraEvents: TesseraEvent[] = [
     organiser: 'Cambridge CL EEG',
     links: [
       { label: 'Watch video', url: 'https://watch.eeg.cl.cam.ac.uk/w/hanDLh2nzjXY4yL1akVEYh' },
+      { label: 'Event page', url: 'https://watch.eeg.cl.cam.ac.uk/c/ecoresilience/videos' },
     ],
     speakers: [
       { name: 'Srinivasan Keshav', url: 'https://www.cst.cam.ac.uk/people/sk818' },
@@ -295,9 +301,14 @@ export const tesseraEvents: TesseraEvent[] = [
     organiser: "PROPL'25",
     links: [
       { label: 'Watch video', url: 'https://watch.eeg.cl.cam.ac.uk/w/trq77gFwc8ZbUeGqyDpzN7' },
+      { label: 'Event page', url: 'https://conf.researchr.org/home/icfp-splash-2025/propl-2025' },
+      { label: 'Programme', url: 'https://conf.researchr.org/home/icfp-splash-2025/propl-2025#program' },
     ],
-    speakers: [{ name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' }],
+    speakers: [
+      { name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' },
+      { name: 'Anil Madhavapeddy', url: 'https://anil.recoil.org/' },
+    ],
     talk: 'Challenges in Practice: Building a Usable Library for Planetary-Scale Embeddings',
-    description: "Sadiq Jaffer presented at the Programming for the Planet (PROPL) workshop, co-located with ICFP/SPLASH 2025 in Singapore. The talk demonstrated how geotessera makes planetary-scale remote sensing accessible through a practical Python library, including a live solar farm classification demo.",
+    description: "Sadiq Jaffer presented at the 2nd ACM SIGPLAN International Workshop on Programming for the Planet (PROPL 2025), co-located with ICFP/SPLASH 2025 in Singapore and chaired by Anil Madhavapeddy. The talk demonstrated how geotessera makes planetary-scale remote sensing accessible through a practical Python library, including a live solar farm classification demo.",
   },
 ];

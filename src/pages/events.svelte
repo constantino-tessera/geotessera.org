@@ -20,31 +20,20 @@
     .filter((e) => !isUpcoming(e))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  type Filter = 'upcoming' | 'past';
-  let activeFilter = $state<Filter>('upcoming');
+  type Filter = 'all' | 'upcoming' | 'past';
+  let activeFilter = $state<Filter>('all');
 
-  // Track whether the divider has scrolled above the viewport (i.e. past events dominate)
-  let dividerAboveViewport = $state(false);
-  let dividerEl = $state<HTMLLIElement | null>(null);
+  // Which groups are visible for the active filter
+  let showUpcoming = $derived(activeFilter === 'all' || activeFilter === 'upcoming');
+  let showPast = $derived(activeFilter === 'all' || activeFilter === 'past');
 
-  $effect(() => {
-    if (!dividerEl) return;
+  // In the default 'all' view, past events sit at a mild fixed de-emphasis so
+  // upcoming reads as primary. They stay fully clickable. Selecting 'past'
+  // brings them to full strength. No scroll magic, no window-size fragility.
+  let pastDimmed = $derived(activeFilter === 'all');
 
-    function check() {
-      if (!dividerEl) return;
-      dividerAboveViewport = dividerEl.getBoundingClientRect().top < 0;
-    }
-
-    window.addEventListener('scroll', check, { passive: true });
-    check(); // run once on mount
-    return () => window.removeEventListener('scroll', check);
-  });
-
-  // Default (Upcoming active): upcoming bright, past faded.
-  // As soon as divider scrolls above viewport, swap: past bright, upcoming faded.
-  // Past filter always forces past bright regardless of scroll.
-  let pastFaded = $derived(activeFilter === 'upcoming' && !dividerAboveViewport);
-  let upcomingFaded = $derived(activeFilter === 'past' || dividerAboveViewport);
+  // Divider only shows in the combined 'all' view, and only if both groups exist
+  let showDivider = $derived(activeFilter === 'all' && upcoming.length > 0 && past.length > 0);
 
   function formatDate(dateStr: string, dateEndStr?: string): string {
     const fmt = (d: string) =>
@@ -73,97 +62,76 @@
   </header>
 
   <div class="filters">
-    <button class:active={activeFilter === 'upcoming'} onclick={() => (activeFilter = 'upcoming')}>
-      Upcoming
-    </button>
-    <button class:active={activeFilter === 'past'} onclick={() => (activeFilter = 'past')}>
-      Past
-    </button>
+    <button class:active={activeFilter === 'all'} onclick={() => (activeFilter = 'all')}>All</button>
+    <button class:active={activeFilter === 'upcoming'} onclick={() => (activeFilter = 'upcoming')}>Upcoming</button>
+    <button class:active={activeFilter === 'past'} onclick={() => (activeFilter = 'past')}>Past</button>
   </div>
 
   <ul class="event-list">
 
     <!-- Upcoming events -->
-    {#if upcoming.length === 0 && activeFilter === 'upcoming'}
-      <li class="empty">No upcoming events at the moment — check back soon.</li>
-    {:else}
-      {#each upcoming as event (event.id)}
-        <li class="event-row" class:faded={upcomingFaded}>
-          {#if isExternal(event)}
-            <a href={primaryHref(event)} target="_blank" rel="noopener noreferrer" class="event-link">
-              <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
-              <span class="event-body">
-                <span class="event-title">{event.title}</span>
-                <span class="event-meta">
-                  {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
-                  <span class="event-location">{event.location}</span>
-                </span>
-              </span>
-              <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 1.5h7v7M10.5 1.5L2 10"/></svg>
-            </a>
-          {:else}
-            <a href={`/events/${event.id}`} use:link class="event-link">
-              <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
-              <span class="event-body">
-                <span class="event-title">{event.title}</span>
-                <span class="event-meta">
-                  {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
-                  <span class="event-location">{event.location}</span>
-                </span>
-              </span>
-              <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-            </a>
-          {/if}
-        </li>
-      {/each}
+    {#if showUpcoming}
+      {#if upcoming.length === 0 && activeFilter === 'upcoming'}
+        <li class="empty">No upcoming events at the moment — check back soon.</li>
+      {:else}
+        {#each upcoming as event (event.id)}
+          {@render eventRow(event, false)}
+        {/each}
+      {/if}
     {/if}
 
-    <!-- Past events divider — observed by IntersectionObserver -->
-    {#if past.length > 0}
-      <li class="section-divider" class:faded={upcomingFaded} bind:this={dividerEl} aria-hidden="true">
+    <!-- Past events divider (only in combined view) -->
+    {#if showDivider}
+      <li class="section-divider" aria-hidden="true">
         <span class="section-label">Past events</span>
       </li>
     {/if}
 
     <!-- Past events -->
-    {#if past.length === 0 && activeFilter === 'past'}
-      <li class="empty">No past events recorded yet.</li>
-    {:else}
-      {#each past as event (event.id)}
-        <li class="event-row" class:faded={pastFaded}>
-          {#if isExternal(event)}
-            <a href={primaryHref(event)} target="_blank" rel="noopener noreferrer" class="event-link">
-              <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
-              <span class="event-body">
-                <span class="event-title">{event.title}</span>
-                <span class="event-meta">
-                  {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
-                  <span class="event-location">{event.location}</span>
-                </span>
-              </span>
-              <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 1.5h7v7M10.5 1.5L2 10"/></svg>
-            </a>
-          {:else}
-            <a href={`/events/${event.id}`} use:link class="event-link">
-              <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
-              <span class="event-body">
-                <span class="event-title">{event.title}</span>
-                <span class="event-meta">
-                  {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
-                  <span class="event-location">{event.location}</span>
-                </span>
-              </span>
-              <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-            </a>
-          {/if}
-        </li>
-      {/each}
+    {#if showPast}
+      {#if past.length === 0 && activeFilter === 'past'}
+        <li class="empty">No past events recorded yet.</li>
+      {:else}
+        {#each past as event (event.id)}
+          {@render eventRow(event, pastDimmed)}
+        {/each}
+      {/if}
     {/if}
 
   </ul>
 
   <Footer />
 </div>
+
+{#snippet eventRow(event: TesseraEvent, dimmed: boolean)}
+  <li class="event-row" class:dimmed>
+    {#if isExternal(event)}
+      <a href={primaryHref(event)} target="_blank" rel="noopener noreferrer" class="event-link">
+        <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
+        <span class="event-body">
+          <span class="event-title">{event.title}</span>
+          <span class="event-meta">
+            {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
+            <span class="event-location">{event.location}</span>
+          </span>
+        </span>
+        <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 1.5h7v7M10.5 1.5L2 10"/></svg>
+      </a>
+    {:else}
+      <a href={`/events/${event.id}`} use:link class="event-link">
+        <span class="event-date">{formatDate(event.date, event.dateEnd)}</span>
+        <span class="event-body">
+          <span class="event-title">{event.title}</span>
+          <span class="event-meta">
+            {#if event.organiser}<span class="event-organiser">{event.organiser}</span><span class="sep" aria-hidden="true">·</span>{/if}
+            <span class="event-location">{event.location}</span>
+          </span>
+        </span>
+        <svg class="arrow-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+      </a>
+    {/if}
+  </li>
+{/snippet}
 
 <style>
   .events-page {
@@ -229,16 +197,20 @@
 
   .event-row {
     border-bottom: 1px solid var(--accent-border);
-    transition: opacity 0.4s ease;
+    transition: opacity 0.25s ease;
   }
 
   .event-row:first-child {
     border-top: 1px solid var(--accent-border);
   }
 
-  .event-row.faded {
-    opacity: 0.3;
-    pointer-events: none;
+  /* Past events in combined view: mild fixed de-emphasis, still fully clickable */
+  .event-row.dimmed {
+    opacity: 0.55;
+  }
+
+  .event-row.dimmed:hover {
+    opacity: 1;
   }
 
   /* Past events divider */
@@ -247,7 +219,6 @@
     align-items: center;
     gap: 12px;
     padding: 24px 0 8px;
-    transition: opacity 0.4s ease;
   }
 
   .section-divider::before,
@@ -256,10 +227,6 @@
     flex: 1;
     height: 1px;
     background: var(--accent-border);
-  }
-
-  .section-divider.faded {
-    opacity: 0.3;
   }
 
   .section-label {
