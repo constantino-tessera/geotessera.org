@@ -50,23 +50,29 @@
         </p>
 
         <span class="page-label">{event.title}</span>
-
-        {#if event.speaker || event.talk}
-          <div class="talk-block">
-            {#if event.talk}
-              <p class="talk-title">"{event.talk}"</p>
-            {/if}
-            {#if event.speaker}
-              <p class="talk-speaker">{event.speaker}</p>
-            {/if}
-          </div>
-        {/if}
       </header>
 
       {#if event.image}
         <figure class="event-image">
           <img src={event.image} alt={event.title} />
         </figure>
+      {/if}
+
+      {#if event.speaker || event.talk}
+        <div class="talk-block">
+          {#if event.talk}
+            <div class="talk-field">
+              <span class="field-label">Talk</span>
+              <p class="talk-title">{event.talk}</p>
+            </div>
+          {/if}
+          {#if event.speaker}
+            <div class="talk-field">
+              <span class="field-label">Speaker</span>
+              <p class="talk-speaker">{event.speaker}</p>
+            </div>
+          {/if}
+        </div>
       {/if}
 
       {#if event.description}
@@ -155,30 +161,44 @@
     font-size: 18px;
     color: var(--text-secondary);
     display: block;
-    margin-bottom: 20px;
   }
 
-  /* Talk block */
+  /* Talk / speaker block — labelled metadata */
   .talk-block {
-    border-left: 1px solid var(--accent-dim);
-    padding-left: 16px;
-    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0 0 28px;
+  }
+
+  .talk-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .field-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-dim);
     opacity: 0.85;
   }
 
   .talk-title {
-    font-size: 14px;
-    color: var(--text-secondary);
-    font-style: italic;
-    margin: 0 0 4px;
-    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
   }
 
   .talk-speaker {
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    color: var(--text-secondary);
     margin: 0;
+    line-height: 1.4;
   }
 
   /* Image */
