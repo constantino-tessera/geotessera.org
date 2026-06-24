@@ -109,7 +109,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Madeline Lisaius', url: 'https://mlisaius.github.io/' }],
     talk: 'Towards improved crop type classification: a compact embedding approach suitable for small fields',
-    description: 'Madeline Lisaius presents this paper at Session ThS16: Earth Embeddings — Investigating Accurate and Accessible Deep Geospatial Feature Representations (room 717A, 12:45–1:00pm local time). The paper, co-authored with Andrew Blake, Clement Atzberger, and Srinivasan Keshav, shows that Tessera embeddings outperform standard approaches for crop type classification in small field systems, achieving higher F1 scores across 5 of 7 crop types while using just 8% of the compute of raw data methods.',
+    description: 'Former PhD student Madeline Lisaius presents this paper at Session ThS16: Earth Embeddings — Investigating Accurate and Accessible Deep Geospatial Feature Representations (room 717A, 12:45–1:00pm local time). The paper, co-authored with Andrew Blake, Clement Atzberger, and Srinivasan Keshav, shows that Tessera embeddings outperform standard approaches for crop type classification in small field systems, achieving higher F1 scores across 5 of 7 crop types while using just 8% of the compute of raw data methods.',
   },
   {
     id: 'pixel-seminar-2026',
@@ -135,7 +135,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Madeline Lisaius', url: 'https://mlisaius.github.io/' }],
     talk: 'Tessera and agriculture (lightning talk)',
-    description: "Madeline Lisaius led a lightning talk on Tessera's applications in agriculture as part of the Innovation Track (Side Stage), 4–5pm, at EO Summit 2026 — a user-focused, application-driven Earth observation conference bringing together the EO community across insurance, energy, agriculture, and climate sectors.",
+    description: "Former PhD student Madeline Lisaius led a lightning talk on Tessera's applications in agriculture as part of the Innovation Track (Side Stage), 4–5pm, at EO Summit 2026 — a user-focused, application-driven Earth observation conference bringing together the EO community across insurance, energy, agriculture, and climate sectors.",
   },
   {
     id: 'ml4eo-2026',
@@ -186,12 +186,13 @@ export const tesseraEvents: TesseraEvent[] = [
     location: 'Denver, Colorado',
     organiser: 'IEEE/CVF',
     links: [
+      { label: 'Paper', url: 'https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf' },
       { label: 'Abstract', url: 'https://cvpr.thecvf.com/virtual/2026/poster/37322' },
       { label: 'Blog post', url: 'https://geotessera.org/blog/2026-06-04-cvpr-earth-intelligence' },
     ],
     speakers: [{ name: 'Jovana Knezevic', url: 'https://www.linkedin.com/in/jovana-knezevic-a4b19420/' }],
     talk: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',
-    description: 'Jovana Knezevic presented Tessera at the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026), one of the premier venues in computer vision. The paper was presented as a poster session on 7 June (ExHall F 578, 10:45am–12:45pm PDT).',
+    description: "Tessera's first peer-reviewed paper, authored by PhD student Zhengpeng (Frank) Feng, was presented at the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026), one of the premier venues in computer vision. The paper was presented as a poster session by PhD student Jovana Knezevic on 7 June (ExHall F 578, 10:45am–12:45pm PDT).",
   },
   {
     id: 'pint-of-science-2026',
