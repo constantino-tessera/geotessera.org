@@ -45,6 +45,23 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'atbc-2026',
+    title: '62nd Annual Meeting of the Association for Tropical Biology and Conservation (ATBC)',
+    date: '2026-06-28',
+    dateEnd: '2026-07-03',
+    location: 'Xishuangbanna, Yunnan, China',
+    organiser: 'ATBC',
+    links: [
+      { label: 'Abstract', url: 'http://47.83.172.178:8080/#/abstract/A-840' },
+      { label: 'Session', url: 'http://47.83.172.178:8080/#/session/OS-24' },
+      { label: 'Event page', url: 'https://www.atbc2026.org/' },
+    ],
+    speaker: 'James Ball',
+    speakerUrl: 'https://patball1.github.io/',
+    talk: 'Self-supervised satellite embeddings predict tropical tree composition, habitat identity, and functional traits at continental scale',
+    description: 'James Ball, a postdoctoral research associate in the Department of Plant Sciences at the University of Cambridge, gives an oral presentation on Thursday 2 July (10:15–12:15) in the session "Remote Sensing of Forest Structure, Traits and Carbon", under the meeting theme "Achieving a Shared Ecological Civilization for Long-Term Resilience". The work harmonises six Latin American vegetation plot networks into 11,766 geo-referenced sites and tests whether Tessera embeddings (128 channels, 10m, trained on Sentinel-1/2 time series) encode ecologically meaningful structure. Embedding similarity tracks floristic dissimilarity, and combined embedding–climate models classify 17 biogeographic domains at 77% accuracy. Critically, the embeddings also predict community-weighted functional traits across 2,053 Amazonian plots — leaf carbon, wood density, seed mass, and a fast–slow continuum score — consistently outperforming climate alone, and are used to produce wall-to-wall maps of functional traits across Amazonia and habitat types across Latin America.',
+  },
+  {
     id: 'oemc-global-workshop-2026',
     title: 'Open-Earth-Monitor Global Workshop 2026',
     date: '2026-10-07',
