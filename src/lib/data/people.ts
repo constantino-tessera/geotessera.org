@@ -117,6 +117,16 @@ export const people: Person[] = [
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
+    id: 'aneesh-naik',
+    name: 'Aneesh Naik',
+    role: 'researcher',
+    title: 'Postdoctoral Research Associate',
+    affiliation: 'Department of Plant Sciences, Cambridge',
+    url: 'https://www.aneeshnaik.com/',
+    initials: 'AN',
+    programmes: ['tessera'],
+  },
+  {
     id: 'jon-ludlam',
     name: 'Jon Ludlam',
     role: 'researcher',

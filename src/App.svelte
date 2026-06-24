@@ -15,6 +15,8 @@
   import Coverage from './pages/Coverage.svelte';
   import CropUmapPage from './pages/CropUmapPage.svelte';
   import Docs from './pages/Docs.svelte';
+  import Events from './pages/events.svelte';
+  import EventDetail from './pages/events/[id].svelte';
 
   let route = $derived($currentRoute);
   let isHome = $derived(route.path === '/');
@@ -50,6 +52,10 @@
         <Papers />
       {:else if route.path === '/videos'}
         <Videos />
+      {:else if route.path === '/events'}
+        <Events />
+      {:else if route.path === '/events/:id'}
+        <EventDetail />
       {:else if route.path === '/crop-umap'}
         <CropUmapPage />
       {:else if route.path === '/docs'}
