@@ -84,16 +84,18 @@ export const tesseraEvents: TesseraEvent[] = [
   },
   {
     id: 'ai4good-geoai-2026',
-    title: 'AI for Good Global Summit — GeoAI Workshop',
+    title: 'AI for Good Global Summit',
     date: '2026-07-07',
+    dateEnd: '2026-07-10',
     location: 'Geneva, Switzerland',
     organiser: 'ITU / AI for Good',
     links: [
-      { label: 'Event page', url: 'https://aiforgood.itu.int/event/geoai-for-our-shared-future-geospatial-foundation-models-and-generative-intelligence-for-people-and-the-planet/' },
+      { label: 'Event page', url: 'https://aiforgood.itu.int/summit26/' },
+      { label: 'Session', url: 'https://aiforgood.itu.int/event/geoai-for-our-shared-future-geospatial-foundation-models-and-generative-intelligence-for-people-and-the-planet/' },
     ],
     speakers: [{ name: 'Zhengpeng (Frank) Feng', url: 'https://www.linkedin.com/in/zhengpeng-feng-2410a132a/' }],
     talk: 'TESSERA: A Foundation Model for Label-Efficient and Multi-Modal Earth Observation',
-    description: "Zhengpeng (Frank) Feng presents Tessera at the GeoAI for Our Shared Future workshop, part of the AI for Good Global Summit. The workshop (14:00–17:15 CEST) brings together UN agencies, academia, and the private sector to explore geospatial foundation models and generative AI. His talk is in Session 2: Emerging State-of-the-Art Academic Research.",
+    description: "Zhengpeng (Frank) Feng presents Tessera at the GeoAI for Our Shared Future workshop on 7 July, part of the AI for Good Global Summit. The workshop (14:00–17:15 CEST) brings together UN agencies, academia, and the private sector to explore geospatial foundation models and generative AI. His talk is in Session 2: Emerging State-of-the-Art Academic Research.",
   },
   {
     id: 'isprs-2026',
@@ -102,7 +104,8 @@ export const tesseraEvents: TesseraEvent[] = [
     location: 'Toronto, Canada',
     organiser: 'ISPRS',
     links: [
-      { label: 'Session page', url: 'https://program.isprs2026.org/index4499.html?page=browseSessions&path=adminSessions&print=export&ismobile=false&form_date=all&form_session=118&mode=list&presentations=show' },
+      { label: 'Session page', url: 'https://www.conftool.com/isprs2026/index.php?page=browseSessions&print=embed&form_date=2026-07-05&form_session=118&mode=list&presentations=hide' },
+      { label: 'Event page', url: 'https://www.isprs2026toronto.com/' },
     ],
     speakers: [{ name: 'Madeline Lisaius', url: 'https://mlisaius.github.io/' }],
     talk: 'Towards improved crop type classification: a compact embedding approach suitable for small fields',
@@ -147,7 +150,7 @@ export const tesseraEvents: TesseraEvent[] = [
     ],
     speakers: [{ name: 'Zhengpeng (Frank) Feng', url: 'https://www.linkedin.com/in/zhengpeng-feng-2410a132a/' }],
     talk: 'Introduction to the TESSERA Geospatial Foundation Model: Hands-on Earth Intelligence with Embedding-as-Data',
-    description: "Zhengpeng (Frank) Feng leads a hands-on workshop on Tessera as part of Workshop Slot 1 at ML4EO 2026 (Monday 22 June, 9:00am, room PCC 2.6, Peter Chalk Centre). Participants will use the GeoTessera Python library to retrieve embeddings for a region of their choice, explore them interactively using the Tessera Embeddings Explorer, and train a lightweight classifier — all without a GPU or cloud account.",
+    description: "Zhengpeng (Frank) Feng led a hands-on workshop on Tessera as part of Workshop Slot 1 at ML4EO 2026 (Monday 22 June, 9:00am, room PCC 2.6, Peter Chalk Centre). Participants used the GeoTessera Python library to retrieve embeddings for a region of their choice, explored them interactively using the Tessera Embeddings Explorer, and trained a lightweight classifier — all without a GPU or cloud account.",
   },
   {
     id: 'cng-london-2026',
