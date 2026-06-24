@@ -58,7 +58,7 @@
         </figure>
       {/if}
 
-      {#if event.speaker || event.talk}
+      {#if (event.speakers && event.speakers.length > 0) || event.talk}
         <div class="talk-block">
           {#if event.talk}
             <div class="talk-field">
@@ -66,14 +66,12 @@
               <p class="talk-title">{event.talk}</p>
             </div>
           {/if}
-          {#if event.speaker}
+          {#if event.speakers && event.speakers.length > 0}
             <div class="talk-field">
-              <span class="field-label">Speaker</span>
-              {#if event.speakerUrl}
-                <p class="talk-speaker"><a href={event.speakerUrl} target="_blank" rel="noopener noreferrer">{event.speaker}</a></p>
-              {:else}
-                <p class="talk-speaker">{event.speaker}</p>
-              {/if}
+              <span class="field-label">{event.speakers.length > 1 ? 'Speakers' : 'Speaker'}</span>
+              <p class="talk-speaker">
+                {#each event.speakers as sp, i}{#if i > 0}, {/if}{#if sp.url}<a href={sp.url} target="_blank" rel="noopener noreferrer">{sp.name}</a>{:else}{sp.name}{/if}{/each}
+              </p>
             </div>
           {/if}
         </div>

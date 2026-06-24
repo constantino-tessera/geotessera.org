@@ -61,7 +61,8 @@
   }
 
   function isExternal(event: TesseraEvent): boolean {
-    return !event.speaker && !event.talk && !event.description && !event.image;
+    const hasSpeakers = event.speakers && event.speakers.length > 0;
+    return !hasSpeakers && !event.talk && !event.description && !event.image;
   }
 </script>
 
