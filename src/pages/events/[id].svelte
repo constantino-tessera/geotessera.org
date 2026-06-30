@@ -22,7 +22,7 @@
       // Play triangle
       return 'M5 3l14 9-14 9V3z';
     }
-    if (url.includes('geotessera.org/blog') || url.includes('anil.recoil') || url.includes('conservationevidence') || url.includes('digitalfutures')) {
+    if (url.includes('geotessera.org/blog') || url.includes('geotessera.org/news') || url.includes('anil.recoil') || url.includes('conservationevidence') || url.includes('digitalfutures')) {
       // Document lines
       return 'M4 4h12v2H4zM4 8h12v2H4zM4 12h8v2H4z';
     }

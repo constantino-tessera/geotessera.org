@@ -20,7 +20,11 @@ export function sitemapPlugin(opts: SitemapOpts): Plugin {
         const draftMatch = content.match(/^---\n[\s\S]*?\ndraft:\s*(true|false)[\s\S]*?\n---/);
         if (draftMatch && draftMatch[1] === 'true') continue;
         const slug = file.replace(/\.svx$/, '');
-        urls.push(`/blog/${slug}`);
+        // News/press articles live under /news; everything else under /blog.
+        const tagsMatch = content.match(/tags:\s*\[([^\]]*)\]/);
+        const tags = tagsMatch ? tagsMatch[1].split(',').map((s) => s.trim()) : [];
+        const isNews = tags.some((t) => t === 'news' || t === 'press');
+        urls.push(isNews ? `/news/${slug}` : `/blog/${slug}`);
       }
     } catch {
       // no blog dir yet
