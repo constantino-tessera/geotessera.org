@@ -210,18 +210,18 @@ export const people: Person[] = [
     initials: 'JW',
     programmes: ['habitat-mapping', 'clr'],
   },
-
-  // Collaborators
   {
     id: 'silja-sormunen',
     name: 'Silja Sormunen',
-    role: 'collaborator',
-    title: 'Researcher',
-    affiliation: '',
-    url: 'https://www.researchgate.net/scientific-contributions/Silja-Sormunen-2168369578',
+    role: 'researcher',
+    title: 'Research Associate',
+    affiliation: 'Department of Computer Science and Technology, Cambridge',
+    url: 'https://scholar.google.com/citations?user=v3HaAnUAAAAJ&hl=en',
     initials: 'SS',
     programmes: ['tessera'],
   },
+
+  // Collaborators
   {
     id: 'toby-jackson',
     name: 'Toby Jackson',
