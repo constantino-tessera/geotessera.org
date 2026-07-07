@@ -1,7 +1,33 @@
 <script lang="ts">
   import Footer from '@/components/Footer.svelte';
 
-  const papers = [
+  interface PaperEntry {
+    id: string;
+    title: string;
+    authors: string;
+    venue: string;
+    date: string;
+    description: string;
+    url: string;
+    doi: string;
+    icon: string;
+    tag: string;
+    blog?: string;
+  }
+
+  const papers: PaperEntry[] = [
+    {
+      id: 'tessera-v2',
+      title: 'TESSERA v2: Scaling Pixel-wise Earth Foundation Models',
+      authors: 'Zhengpeng Feng, Sadiq Jaffer, Ira Shokar, Jovana Knezevic, Mark Elvers, Clement Atzberger, Robin Young, Aneesh Naik, Niall Robinson, Andrew Blake, David A. Coomes, Anil Madhavapeddy, Srinivasan Keshav',
+      venue: 'arXiv preprint',
+      date: 'Jul 2026',
+      description: 'The largest controlled scaling study for Earth observation to date: 395 training runs on 1,024 GH200 superchips in a fixed pixel-wise Barlow Twins family, each evaluated on 15 downstream tasks. Pretraining loss barely predicts downstream performance, and the encoder and data should scale together while the projector stays fixed. The distilled 21-million-parameter TESSERA v2-1B-M outperforms all open and proprietary models tested, with Matryoshka embeddings that retain 92% of performance at 1/8 of the storage.',
+      url: 'https://arxiv.org/abs/2607.03949',
+      doi: '10.48550/arXiv.2607.03949',
+      icon: 'M10 2L2 6.5l8 4.5 8-4.5zM2 10l8 4.5 8-4.5M2 13.5l8 4.5 8-4.5',
+      tag: 'foundation model',
+    },
     {
       id: 'tessera',
       title: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',
@@ -11,61 +37,21 @@
       description: 'The core TESSERA foundation model paper. Introduces self-supervised temporal embeddings from Sentinel-1 and Sentinel-2 using Barlow Twins with sparse random temporal sampling. Demonstrates strong performance across classification, segmentation, and regression with minimal labels. Includes release of pre-computed global embeddings at 10m resolution.',
       url: 'https://arxiv.org/abs/2506.20380',
       doi: '10.48550/arXiv.2506.20380',
+      blog: 'https://geotessera.org/blog/2026-06-04-cvpr-earth-intelligence',
+      icon: 'M10 2L3 7v6l7 5 7-5V7z',
       tag: 'foundation model',
-    },
-    {
-      id: 'tessera-v2',
-      title: 'TESSERA v2: Scaling Pixel-wise Earth Foundation Models',
-      authors: 'Zhengpeng Feng, Sadiq Jaffer, Ira Shokar, Jovana Knezevic, Mark Elvers, Clement Atzberger, Robin Young, Aneesh Naik, Niall Robinson, Andrew Blake, David A. Coomes, Anil Madhavapeddy, Srinivasan Keshav',
-      venue: 'arXiv preprint',
-      date: 'Jul 2026',
-      description: 'The largest controlled scaling study for Earth observation to date: 395 training runs on 1,024 GH200 superchips in a fixed pixel-wise Barlow Twins family, each evaluated on 15 downstream tasks. Pretraining loss barely predicts downstream performance, and the encoder and data should scale together while the projector stays fixed. The distilled 21-million-parameter TESSERA v2-1B-M outperforms all open and proprietary models tested, with Matryoshka embeddings that retain 92% of performance at 1/8 of the storage. Global v2 embeddings for 2017–2025 to follow.',
-      url: 'https://arxiv.org/abs/2607.03949',
-      doi: '10.48550/arXiv.2607.03949',
-      tag: 'foundation model',
-    },
-    {
-      id: 'applications',
-      title: 'Applications of the TESSERA Geospatial Foundation Model to Diverse Environmental Mapping Tasks',
-      authors: 'Zhengpeng Feng, Clement Atzberger, Sadiq Jaffer, Jovana Knezevic, Silja Sormunen, Robin Young, Madeline C. Lisaius, Markus Immitzer, Toby Jackson, James Ball, David A. Coomes, Anil Madhavapeddy, Andrew Blake, Srinivasan Keshav',
-      venue: 'SSRN preprint',
-      date: 'Jan 2026',
-      description: 'Demonstrates TESSERA across five environmental tasks: crop classification in Austria, wildfire detection in California, canopy height estimation in Borneo, biomass forecasting in Finland, and agroforestry in Brazil. Achieves over 90% of final performance using less than 1% of available training data.',
-      url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6142416',
-      doi: '10.2139/ssrn.6142416',
-      tag: 'applications',
-    },
-    {
-      id: 'tree-species',
-      title: 'Geospatial Foundation Models Enable Data-Efficient Tree Species Mapping in Temperate Mountain Forests',
-      authors: 'James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David Coomes',
-      venue: 'bioRxiv preprint',
-      date: 'Mar 2026',
-      description: 'Evaluates TESSERA and AlphaEarth embeddings for tree species identification in heterogeneous mountain forests in Trentino, Italy. Foundation model embeddings achieve superior performance (weighted F1 = 0.83) with near-asymptotic accuracy using as few as 5% of available training parcels.',
-      url: 'https://doi.org/10.64898/2026.02.23.707022',
-      doi: '10.64898/2026.02.23.707022',
-      tag: 'applications',
     },
     {
       id: 'crop-small-fields',
       title: 'Towards Improved Crop Type Classification: a Compact Embedding Approach Suitable for Small Fields',
       authors: 'Madeline C. Lisaius, Andrew Blake, Clement Atzberger, Srinivasan Keshav',
-      venue: 'ISPRS Annals 2026',
+      venue: 'ISPRS Annals, Volume XI-2-2026',
       date: 'Jul 2026',
-      description: 'Compares TESSERA embeddings against standard crop-classification methods for small-field systems in Austria. Reports a triple win: statistically significant accuracy gains (better F1 in 5 of 7 crop types, over 10% in one case), no feature engineering, and just 8% of the compute of raw-data approaches. The peer-reviewed version of the small-fields crop work.',
+      description: 'Compares TESSERA embeddings against standard crop-classification methods for small-field systems in Austria. Reports a triple win: statistically significant accuracy gains (better F1 in 5 of 7 crop types, over 10% in one case), no feature engineering, and just 8% of the compute of raw-data approaches.',
       url: 'https://isprs-annals.copernicus.org/articles/XI-2-2026/873/2026/',
       doi: '10.5194/isprs-annals-XI-2-2026-873-2026',
-      tag: 'applications',
-    },
-    {
-      id: 'crop-senegal',
-      title: 'Embedding-based Crop Type Classification in the Groundnut Basin of Senegal',
-      authors: 'Madeline C. Lisaius, Srinivasan Keshav, Andrew Blake, Clement Atzberger',
-      venue: 'arXiv preprint',
-      date: 'Jan 2026',
-      description: 'Establishes a four-part criteria for embedding-based crop mapping and evaluates TESSERA and AlphaEarth in Senegal\'s groundnut basin. The TESSERA-based approach achieves 28% higher accuracy than the next best method in temporal transfer, demonstrating effective crop classification for smallholder farming regions.',
-      url: 'https://arxiv.org/abs/2601.16900',
-      doi: '10.48550/arXiv.2601.16900',
+      blog: 'https://geotessera.org/blog/2026-07-02-smallholder-farms',
+      icon: 'M10 18v-6M10 12c-2.6 0-4-1.6-4-4 2.6 0 4 1.6 4 4zM10 12c2.6 0 4-1.6 4-4-2.6 0-4 1.6-4 4z',
       tag: 'applications',
     },
     {
@@ -77,6 +63,7 @@
       description: 'This paper extends Attentive Neural Processes to fill spatiotemporal gaps in GEDI lidar biomass data using embeddings and space-for-time substitution to produce well-calibrated uncertainty estimates even through extended observation outages and forest disturbance events.',
       url: 'https://arxiv.org/abs/2604.03874',
       doi: '10.48550/arXiv.2604.03874',
+      icon: 'M3 3v14h14M3 13c3 0 4-7 7-7s4 5 7 5',
       tag: 'applications',
     },
     {
@@ -88,6 +75,43 @@
       description: 'This paper shows that self-supervised learning features from satellite imagery can predict below ground ectomycorrhizal fungal species richness across ~12,000 field samples, achieving a 10,000-fold resolution improvement over existing methods and enabling temporal monitoring of fungal biodiversity at landscape scales.',
       url: 'https://arxiv.org/abs/2604.09818',
       doi: '10.48550/arXiv.2604.09818',
+      icon: 'M10 11v6M4.5 11a5.5 5.5 0 0 1 11 0z',
+      tag: 'applications',
+    },
+    {
+      id: 'tree-species',
+      title: 'Geospatial Foundation Models Enable Data-Efficient Tree Species Mapping in Temperate Mountain Forests',
+      authors: 'James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David Coomes',
+      venue: 'bioRxiv preprint',
+      date: 'Mar 2026',
+      description: 'Evaluates TESSERA and AlphaEarth embeddings for tree species identification in heterogeneous mountain forests in Trentino, Italy. Foundation model embeddings achieve superior performance (weighted F1 = 0.83) with near-asymptotic accuracy using as few as 5% of available training parcels.',
+      url: 'https://doi.org/10.64898/2026.02.23.707022',
+      doi: '10.64898/2026.02.23.707022',
+      icon: 'M10 18v-5M10 13c-3.3 0-5.5-2.2-5.5-5.5S6.7 2 10 2s5.5 3.2 5.5 5.5S13.3 13 10 13z',
+      tag: 'applications',
+    },
+    {
+      id: 'applications',
+      title: 'Applications of the TESSERA Geospatial Foundation Model to Diverse Environmental Mapping Tasks',
+      authors: 'Zhengpeng Feng, Clement Atzberger, Sadiq Jaffer, Jovana Knezevic, Silja Sormunen, Robin Young, Madeline C. Lisaius, Markus Immitzer, Toby Jackson, James Ball, David A. Coomes, Anil Madhavapeddy, Andrew Blake, Srinivasan Keshav',
+      venue: 'SSRN preprint',
+      date: 'Jan 2026',
+      description: 'Demonstrates TESSERA across five environmental tasks: crop classification in Austria, wildfire detection in California, canopy height estimation in Borneo, biomass forecasting in Finland, and agroforestry in Brazil. Achieves over 90% of final performance using less than 1% of available training data.',
+      url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6142416',
+      doi: '10.2139/ssrn.6142416',
+      icon: 'M3 3h6v6H3zM11 3h6v6h-6zM3 11h6v6H3zM11 11h6v6h-6z',
+      tag: 'applications',
+    },
+    {
+      id: 'crop-senegal',
+      title: 'Embedding-based Crop Type Classification in the Groundnut Basin of Senegal',
+      authors: 'Madeline C. Lisaius, Srinivasan Keshav, Andrew Blake, Clement Atzberger',
+      venue: 'arXiv preprint',
+      date: 'Jan 2026',
+      description: 'Establishes a four-part criteria for embedding-based crop mapping and evaluates TESSERA and AlphaEarth in Senegal\'s groundnut basin. The TESSERA-based approach achieves 28% higher accuracy than the next best method in temporal transfer, demonstrating effective crop classification for smallholder farming regions.',
+      url: 'https://arxiv.org/abs/2601.16900',
+      doi: '10.48550/arXiv.2601.16900',
+      icon: 'M3 5h14M3 10h14M3 15h14M7 5v10M13 5v10',
       tag: 'applications',
     },
     {
@@ -99,6 +123,7 @@
       description: 'Proposes Attentive Neural Processes for biomass density estimation using GEDI data and geospatial foundation model embeddings. Achieves competitive accuracy with near-ideal uncertainty calibration across five biomes from tropical Amazonian forests to boreal ecosystems, with few-shot cross-region transfer.',
       url: 'https://arxiv.org/abs/2601.16834',
       doi: '10.48550/arXiv.2601.16834',
+      icon: 'M3 3v14h14M6 14v-3M10 14v-6M14 14v-9',
       tag: 'applications',
     },
     {
@@ -110,6 +135,7 @@
       description: 'Introduces spectral-temporal Barlow Twins (ST-BT), the self-supervised approach underpinning TESSERA. Achieves F1 scores of 0.94 and 0.90 on crop classification benchmarks even with 50% cloud cover, using only a few labelled samples.',
       url: 'https://ieeexplore.ieee.org/document/10592304',
       doi: '10.1109/JSTARS.2024.3426044',
+      icon: 'M8 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10M12 5a5 5 0 1 1 0 10',
       tag: 'method',
     },
     {
@@ -121,21 +147,10 @@
       description: 'The first global, spatially explicit characterisation of terrestrial habitat types at 100 m resolution following the IUCN habitat classification scheme. A key reference for the habitat mapping programme.',
       url: 'https://doi.org/10.1038/s41597-020-00599-8',
       doi: '10.1038/s41597-020-00599-8',
+      icon: 'M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM2 10h16M10 2c-2.7 2.7-2.7 13.3 0 16M10 2c2.7 2.7 2.7 13.3 0 16',
       tag: 'background',
     },
   ];
-
-  /** Icon per tag */
-  const tagIcons: Record<string, string> = {
-    'foundation model': 'M10 2L3 7v6l7 5 7-5V7z',
-    'applications': 'M3 3h6v6H3zM11 3h6v6h-6zM3 11h6v6H3zM11 11h6v6h-6z',
-    'method': 'M8 2v3M4.9 4.9l2.1 2.1M2 8h3M4.9 11.1l2.1-2.1M8 14v-3M11.1 11.1l-2.1-2.1M14 8h-3M11.1 4.9L9 7',
-    'background': 'M4 2h8l4 4v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM12 2v4h4M7 10h6M7 14h4',
-  };
-
-  function getIcon(tag: string): string {
-    return tagIcons[tag] ?? 'M5 2h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM7 6h6M7 9h6M7 12h4';
-  }
 
   const papersJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -177,7 +192,7 @@
       <div class="timeline-entry" id={paper.id}>
         <div class="timeline-rail">
           <a class="timeline-icon" href={`#${paper.id}`} aria-label={paper.title}>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={getIcon(paper.tag)}/></svg>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={paper.icon}/></svg>
           </a>
           <div class="timeline-line"></div>
         </div>
@@ -194,6 +209,12 @@
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM6 5h4M6 7.5h4M6 10h2.5"/></svg>
               Read paper
             </a>
+            {#if paper.blog}
+              <a href={paper.blog} target="_blank" rel="noopener" class="paper-action">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3.5h7a1 1 0 0 1 1 1v8a1 1 0 0 0 1 1H4a1 1 0 0 1-1-1z"/><path d="M11 6.5h1.5a1 1 0 0 1 1 1v4.5a1 1 0 0 1-1 1"/><path d="M5 6h3M5 8.5h3M5 11h2"/></svg>
+                Blog post
+              </a>
+            {/if}
             <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener" class="paper-doi">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a3 3 0 0 0 4.2.3l1.5-1.5a3 3 0 0 0-4.2-4.2L6.5 5.5"/><path d="M9.5 6.5a3 3 0 0 0-4.2-.3L3.8 7.7a3 3 0 0 0 4.2 4.2l1.5-1.5"/></svg>
               {paper.doi}
