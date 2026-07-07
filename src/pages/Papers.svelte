@@ -13,6 +13,7 @@
     icon: string;
     tag: string;
     blog?: string;
+    pdf?: string;
   }
 
   const papers: PaperEntry[] = [
@@ -33,11 +34,12 @@
       title: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',
       authors: 'Zhengpeng Feng, Clement Atzberger, Sadiq Jaffer, Jovana Knezevic, Silja Sormunen, Robin Young, Madeline C. Lisaius, Markus Immitzer, Toby Jackson, James Ball, David A. Coomes, Anil Madhavapeddy, Andrew Blake, Srinivasan Keshav',
       venue: 'CVPR 2026',
-      date: 'Jun 2025',
-      description: 'The core TESSERA foundation model paper. Introduces self-supervised temporal embeddings from Sentinel-1 and Sentinel-2 using Barlow Twins with sparse random temporal sampling. Demonstrates strong performance across classification, segmentation, and regression with minimal labels. Includes release of pre-computed global embeddings at 10m resolution.',
-      url: 'https://arxiv.org/abs/2506.20380',
+      date: 'Jun 2026',
+      description: 'The core TESSERA foundation model paper. Introduces a pixel-wise, multi-modal (Sentinel-1/2) model that learns label-efficient temporal embeddings using Barlow Twins with sparse random temporal sampling, aided by global-shuffling and mix-based regularisers. Delivers state-of-the-art accuracy across classification, segmentation, and regression with only a small task head, and releases global, annual, 10m pixel-wise embeddings with open weights and code.',
+      url: 'https://openaccess.thecvf.com/content/CVPR2026/html/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.html',
       doi: '10.48550/arXiv.2506.20380',
       blog: 'https://geotessera.org/blog/2026-06-04-cvpr-earth-intelligence',
+      pdf: 'https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf',
       icon: 'M10 2L3 7v6l7 5 7-5V7z',
       tag: 'foundation model',
     },
@@ -205,7 +207,7 @@
           <p class="paper-authors">{paper.authors}</p>
           <p class="paper-desc">{paper.description}</p>
           <div class="paper-links">
-            <a href={paper.url} target="_blank" rel="noopener" class="paper-action">
+            <a href={paper.pdf ?? paper.url} target="_blank" rel="noopener" class="paper-action">
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM6 5h4M6 7.5h4M6 10h2.5"/></svg>
               Read paper
             </a>
