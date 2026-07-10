@@ -1,0 +1,116 @@
+---
+title: "New Faces: Silja Sormunen"
+date: 2026-07-11
+tags: [announcement, new-faces]
+author: "Constantino Panagopulos"
+description: "Silja Sormunen joins the TESSERA team as a research associate, bringing a background spanning psychology, medicine, physics and network science to the study of Earth embeddings."
+---
+
+<div class="profile-header">
+  <figure class="profile-photo">
+    <img src="/blog/silja-sormunen.jpg" alt="Portrait of Silja Sormunen" />
+  </figure>
+  <div class="profile-intro">
+    <p class="profile-label">New Faces</p>
+    <p>Silja Sormunen has joined the Tessera team as a research associate.</p>
+  </div>
+</div>
+
+Sormunen has an eclectic background. Before transitioning to computer science and physics, she studied psychology, medicine, and philosophy. Now at the University of Cambridge Department of Computer Science & Technology she is exploring new fields of application for Tessera's embeddings.
+
+<blockquote class="pull-quote">
+  <p>"I am especially interested in developing methods for detecting gradual environmental change, as detecting subtle ecological shifts is important for effectively monitoring the success of restoration projects and identifying areas with declining ecosystem health," Sormunen said.</p>
+</blockquote>
+
+She is also interested in studying the mathematical structure of the Tessera representations themselves to better understand the information they capture.
+
+Sormunen earned a doctoral degree from Aalto University in Finland in 2026, where her research combined network science and dynamical systems theory to study adaptive systems.
+
+---
+
+*She can be reached at [sas268@cam.ac.uk](mailto:sas268@cam.ac.uk). Read more about her research on [Google Scholar](https://scholar.google.com/citations?user=v3HaAnUAAAAJ&hl=en).*
+
+<style>
+  .profile-header {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin: 0 0 1.75rem;
+  }
+
+  .profile-photo {
+    width: 34%;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .profile-intro {
+    flex: 1;
+    padding-top: 6px;
+  }
+
+  .profile-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin: 0 0 10px;
+  }
+
+  .profile-intro p:not(.profile-label) {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .pull-quote {
+    position: relative;
+    margin: 2rem 0;
+    padding: 0.25rem 0 0.25rem 1.75rem;
+    border-left: 3px solid var(--accent-dim);
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    left: -4px;
+    top: -22px;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent-dim);
+    opacity: 0.25;
+    font-family: Georgia, serif;
+  }
+
+  .pull-quote p {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.55;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .profile-header {
+      flex-direction: column;
+    }
+
+    .profile-photo {
+      width: 55%;
+      margin: 0 auto;
+    }
+
+    .pull-quote p {
+      font-size: 18px;
+    }
+  }
+</style>

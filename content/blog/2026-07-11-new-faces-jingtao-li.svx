@@ -1,0 +1,130 @@
+---
+title: "New Faces: Jingtao Li"
+date: 2026-07-11
+tags: [announcement, new-faces]
+author: "Constantino Panagopulos"
+description: "Jingtao Li joins the TESSERA team as a research associate, focused on anomaly detection and foundation model techniques for remote sensing imagery."
+draft: true
+---
+
+<div class="profile-header">
+  <figure class="profile-photo">
+    <img src="/blog/jingtao-li.jpg" alt="Portrait of Jingtao Li" />
+  </figure>
+  <div class="profile-intro">
+    <p class="profile-label">New Faces</p>
+    <p>Jingtao Li's research interests lie in Earth vision interpretation, with a particular focus on anomaly detection and foundation model techniques for remote sensing imagery.</p>
+  </div>
+</div>
+
+At Tessera, he is interested in working to improve the representation quality of the model and explore its downstream application potential, with the broader goal of contributing to global sustainable development.
+
+<blockquote class="pull-quote pending">
+  <p>[Quote pending — awaiting Li's answer to the standard prompt.]</p>
+</blockquote>
+
+Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei Zhang. He joins the University of Cambridge Department of Computer Science & Technology as a research associate.
+
+---
+
+*He can be reached at [email pending]. Read more about Jingtao's research at [his personal website](#) (link pending).*
+
+<style>
+  .profile-header {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin: 0 0 1.75rem;
+  }
+
+  .profile-photo {
+    width: 34%;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .profile-intro {
+    flex: 1;
+    padding-top: 6px;
+  }
+
+  .profile-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin: 0 0 10px;
+  }
+
+  .profile-intro p:not(.profile-label) {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .pull-quote {
+    position: relative;
+    margin: 2rem 0;
+    padding: 0.25rem 0 0.25rem 1.75rem;
+    border-left: 3px solid var(--accent-dim);
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    left: -4px;
+    top: -22px;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent-dim);
+    opacity: 0.25;
+    font-family: Georgia, serif;
+  }
+
+  .pull-quote p {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.55;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  /* Distinct treatment while the quote is still a placeholder */
+  .pull-quote.pending {
+    border-left-style: dashed;
+    border-left-color: var(--text-faint);
+  }
+
+  .pull-quote.pending::before {
+    opacity: 0.12;
+  }
+
+  .pull-quote.pending p {
+    font-style: normal;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .profile-header {
+      flex-direction: column;
+    }
+
+    .profile-photo {
+      width: 55%;
+      margin: 0 auto;
+    }
+
+    .pull-quote p {
+      font-size: 18px;
+    }
+  }
+</style>
