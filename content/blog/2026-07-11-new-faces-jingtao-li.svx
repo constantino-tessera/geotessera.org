@@ -7,20 +7,20 @@ description: "Jingtao Li joins the TESSERA team as a research associate, focused
 draft: true
 ---
 
-<div class="profile-header">
-  <figure class="profile-photo">
-    <img src="/blog/jingtao-li.jpg" alt="Portrait of Jingtao Li" />
-  </figure>
-  <div class="profile-intro">
-    <p class="profile-label">New Faces</p>
-    <p>Jingtao Li's research interests lie in Earth vision interpretation, with a particular focus on anomaly detection and foundation model techniques for remote sensing imagery.</p>
-  </div>
-</div>
+<figure class="profile-photo">
+  <img src="/blog/jingtao-li.jpg" alt="Portrait of Jingtao Li" />
+</figure>
+
+<p class="profile-label">New Faces</p>
+
+Jingtao Li's research interests lie in Earth vision interpretation, with a particular focus on anomaly detection and foundation model techniques for remote sensing imagery.
 
 At Tessera, he is interested in working to improve the representation quality of the model and explore its downstream application potential, with the broader goal of contributing to global sustainable development.
 
+<div class="clear"></div>
+
 <blockquote class="pull-quote pending">
-  <p>[Quote pending — awaiting Li's answer to the standard prompt.]</p>
+  <p>[Quote pending]</p>
 </blockquote>
 
 Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei Zhang. He joins the University of Cambridge Department of Computer Science & Technology as a research associate.
@@ -30,17 +30,10 @@ Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei
 *He can be reached at [email pending]. Read more about Jingtao's research at [his personal website](#) (link pending).*
 
 <style>
-  .profile-header {
-    display: flex;
-    gap: 28px;
-    align-items: flex-start;
-    margin: 0 0 1.75rem;
-  }
-
   .profile-photo {
-    width: 34%;
-    flex-shrink: 0;
-    margin: 0;
+    float: right;
+    width: 38%;
+    margin: 0 0 1.25rem 2rem;
   }
 
   .profile-photo img {
@@ -50,25 +43,17 @@ Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei
     border-radius: 6px;
   }
 
-  .profile-intro {
-    flex: 1;
-    padding-top: 6px;
-  }
-
   .profile-label {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--accent-dim);
-    margin: 0 0 10px;
+    margin: 0 0 14px;
   }
 
-  .profile-intro p:not(.profile-label) {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--text-primary);
-    margin: 0;
+  .clear {
+    clear: both;
   }
 
   .pull-quote {
@@ -114,13 +99,10 @@ Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei
   }
 
   @media (max-width: 640px) {
-    .profile-header {
-      flex-direction: column;
-    }
-
     .profile-photo {
-      width: 55%;
-      margin: 0 auto;
+      float: none;
+      width: 60%;
+      margin: 0 auto 1.5rem;
     }
 
     .pull-quote p {
