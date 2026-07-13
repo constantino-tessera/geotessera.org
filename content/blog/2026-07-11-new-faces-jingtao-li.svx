@@ -20,7 +20,7 @@ At Tessera, he is interested in working to improve the representation quality of
 <div class="clear"></div>
 
 <blockquote class="pull-quote pending">
-  <p>[Quote pending]</p>
+  <p>Quote pending</p>
 </blockquote>
 
 Li earned his PhD from Wuhan University, supervised by Yanfei Zhong and Liangpei Zhang. He joins the University of Cambridge Department of Computer Science & Technology as a research associate.
