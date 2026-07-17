@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@ucam-eo/maplibre-tessera'
+  - '@ucam-eo/tessera'
+overrides:
+  '@ucam-eo/tessera': 'github:ucam-eo/tze#1a90e0a0f5a53691c2930cb39b85f05af19c0ad8&path:packages/tessera'
+  zarrita: 'github:avsm/zarrita.js#a51753a73c9a4d889a0d3218ddd236bd52200d86&path:packages/zarrita'
+  '@zarrita/storage': 'github:avsm/zarrita.js#a51753a73c9a4d889a0d3218ddd236bd52200d86&path:packages/@zarrita-storage'
