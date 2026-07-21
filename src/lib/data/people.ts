@@ -122,6 +122,7 @@ export const people: Person[] = [
     role: 'researcher',
     title: 'Visiting Assistant Professor',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
+    url: 'https://www.linkedin.com/in/yi-lin-kyle-gao',
     initials: 'KG',
     email: 'ylg23@cam.ac.uk',
     programmes: ['tessera'],

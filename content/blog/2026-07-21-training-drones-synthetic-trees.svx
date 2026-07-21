@@ -1,0 +1,111 @@
+---
+title: "TESSERA researchers teach AI drones to count trees"
+date: 2026-07-21
+tags: [research, news]
+author: "Constantino Panagopulos"
+description: "Cambridge PhD researcher Yihang She built a fully synthetic forest inside a videogame engine to train AI systems to recognise individual trees from drone lidar scans, cutting the labelling work behind forest surveys to a fraction of what traditional methods require."
+---
+
+<figure class="cover-media">
+  <video src="/blog/synthetic-forest-drone.mp4" controls muted loop playsinline preload="metadata"></video>
+  <figcaption>[Cutline placeholder]</figcaption>
+</figure>
+
+A drone swoops low over an alpine forest. It climbs suddenly to follow the contours of the sharply rising landscape. Pulses from its lidar — a laser mapping instrument — rapidly scan the trees below.
+
+The forest, however, isn't real. In fact, the entire landscape is a synthetic rendering created by researchers to teach algorithms how to see trees.
+
+The ability to recognise an individual tree in the forest canopy is essential for calculating how forests grow, how they respond to climate change, and how much carbon they store. Until now, researchers developing forest vision systems would painstakingly trace the outlines of thousands of trees to provide the system with sufficient training data, a process that can take weeks.
+
+The new forest vision training simulator overcomes that bottleneck. It is the brainchild of Cambridge PhD student, Yihang She, who developed the technique as part of his doctoral degree at the [Department of Computer Science & Technology](https://www.cst.cam.ac.uk/).
+
+"In forest surveying, data collection itself isn't the hard part, the hard part is cleaning and labelling that data," he said. "Without accurate individual-tree segmentation none of the downstream work is possible. That's where this study fits into the bigger picture."
+
+The study, alongside an opensource toolkit for forest modelling called CAMP3D, was published in the *International Journal of Computer Vision*. Although the research does not directly involve TESSERA embeddings, the technique can be used to better understand the geospatial foundation models that produce them.
+
+## Seeing the trees for the wood
+
+Whirring, lidar-equipped quadcopters have revolutionised fieldwork. They've made hard-to-reach places easier to access and allowed pinpoint aerial surveys of vast areas. But computers struggle to resolve individual trees in survey data. A computer vision technique called segmentation allows computers to recognise the trees, but it requires a large amount of prelabelled data.
+
+<figure class="media-placeholder">
+  <div class="placeholder-box">Image placeholder</div>
+  <figcaption>[Cutline placeholder]</figcaption>
+</figure>
+
+In the new approach, however, the trees are already segmented because they are created by a videogame engine. The researchers used Unreal Engine's procedural generation tools to build the forest. Then, flew a simulated drone equipped with a simulated laser scanner to produce a virtual 3D point cloud just as it would have in the real world. Because the computer already knows which points belong to which tree, the resulting point cloud comes out fully labelled.
+
+When applying the simulator-trained model to real lidar maps, the researchers still label a small number of trees for fine tuning, but only 2-3% of what traditional methods require. In a comparison detailed in the study, the simulator-trained model performed just as well as a model trained on a fully labelled real world dataset.
+
+## Learning to fly from self-driving cars
+
+She's technique has its origins in self-driving cars. While trying to source real-world data for 3D forest reconstructions, he noticed that autonomous car manufacturers were using videogame technology to manufacture endless possible scenarios for their algorithms, such as reckless driving or unexpected events. The same principle could be used to generate forest environments.
+
+"My supervisor showed me some vegetation examples from CARLA [a self-driving-car simulator also built on the Unreal Engine] and the thought was: maybe we could generate some data from this," he said.
+
+<figure class="media-placeholder">
+  <div class="placeholder-box">GIF placeholder</div>
+  <figcaption>[Cutline placeholder]</figcaption>
+</figure>
+
+The researchers added a physics-based, laser simulator for forest surveys called HELIOS++, which plays the part of the drone's lidar, and bundled it together to create their opensource toolkit. Cambridge Arboreal Modelling Panoptic 3D (CAMP3D) is freely available on the project's GitHub page ([link placeholder]).
+
+Co-author Andrew Blake, Professor Emeritus of Machine Intelligence at University of Cambridge, who also co-supervised She's PhD, said the work would significantly benefit forest ecology research. Blake was a pioneer of early computer vision research behind Microsoft's Kinect and co-developed a foreground-background segmentation method that's still found in tools like Word and Powerpoint.
+
+"Yihang has done a beautiful piece of work here in vision simulation. It's a wonderful modern tool for AI-driven research in forest ecology and it should be widely reusable," Blake said.
+
+After succeeding with simulated laser mapping, the team have moved on to something more ambitious. By replacing the lidar with a complex simulation of scattering electromagnetic waves, the team were able to render forests as they would look to a passing satellite. According to She, this means they can now begin to probe the 'black box' inside geospatial AI models such as TESSERA, a foundation model for satellite data.
+
+"It opens up the possibility of designing controlled simulations to probe what geo-foundation models have learned about physical concepts," he said.
+
+The forest vision research was funded by the UKRI Centre for Doctoral Training in Application of Artificial Intelligence to the study of Environmental Risks (AI4ER) and the Cambridge Centre for Carbon Credits (4C). The paper, "Scaling Up Forest Vision with Synthetic Data," is published open access in the [International Journal of Computer Vision](https://doi.org/10.1007/s11263-026-02923-y) (DOI: 10.1007/s11263-026-02923-y).
+
+---
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+<style>
+  .cover-media {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    background: #000;
+  }
+
+  .media-placeholder {
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .placeholder-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 2px dashed var(--border-light);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>

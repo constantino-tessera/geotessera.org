@@ -3,6 +3,16 @@
 
   const videos = [
     {
+      id: 'raise-summit-vultr-booth',
+      title: 'TESSERA: From Satellite Data to Fingerprints',
+      source: 'RAISE Summit 2026, Paris — Vultr booth',
+      date: 'Jul 2026',
+      description: 'Sadiq Jaffer presents TESSERA at Vultr\'s booth at the <a href="https://www.raisesummit.com/" target="_blank" rel="noopener">RAISE Summit</a> in Paris, covering the embeddings-as-data model and planetary-scale inference on Vultr\'s AMD MI325X infrastructure.',
+      url: 'https://www.youtube.com/watch?v=UDg0dFsTAMI',
+      thumb: 'https://i.ytimg.com/vi/UDg0dFsTAMI/mqdefault.jpg',
+      type: 'talk' as const,
+    },
+    {
       id: 'fp-launchpad-iit-madras',
       title: 'TESSERA: Functionally Programming Petabytes of Earth Observations',
       source: 'FP Launchpad, IIT Madras',
@@ -183,7 +193,7 @@
             <span class="video-sep">&middot;</span>
             <span class="video-date">{video.date}</span>
           </div>
-          <p>{video.description}</p>
+          <p>{@html video.description}</p>
         </div>
       </div>
     {/each}
@@ -395,6 +405,11 @@
     line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
+  }
+
+  .video-info p :global(a) {
+    color: var(--accent-dim);
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {
