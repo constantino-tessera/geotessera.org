@@ -1,0 +1,64 @@
+---
+title: "TESSERA heads to Toronto to map the farms satellites can't see"
+date: 2026-07-02
+tags: [research, news]
+author: "Constantino Panagopulos"
+description: "New University of Cambridge research shows the TESSERA AI model can classify crops in the world's smallest fields more accurately than current methods, using a fraction of the computing power."
+---
+
+<figure class="cover-image">
+  <img src="/blog/austria-embeddings.png" alt="Austria's small agricultural fields rendered in false colour by TESSERA's embeddings" />
+  <figcaption>A representation by TESSERA of the small fields in Austria used in the study. The first three dimensions of the embedding have been converted to red, green and blue. Credit: TESSERA / University of Cambridge. CC0 1.0</figcaption>
+</figure>
+
+Small farms grow much of the world's food, but from space they are almost invisible. Their fields are tiny and ill-defined, and the satellite tools built to track crops were designed for the large, uniform fields of industrial agriculture — not the sub-hectare plots that feed many of the world's poorest people.
+
+New research suggests that [TESSERA](https://geotessera.org/) could change that. Tested on small fields in Austria, TESSERA identified most crop types more accurately than the methods currently in use, while using just 8% of the computing power and none of the hand-tuning those methods require. The work, which was led at the University of Cambridge, will be presented on 5 July at the [ISPRS 2026 Congress](https://www.isprs2026toronto.com/) in Toronto, a major gathering for the satellite and mapping community.
+
+Those figures matter because the agencies that plan for food security — among them the [UN Food and Agriculture Organization](https://www.fao.org/), the [World Bank](https://www.worldbank.org/) and individual governments — rely on satellite crop maps in their decision making. Surveying small fields on the ground across an entire country is impractical, and at that scale a small gain in accuracy can decide whether a country imports enough grain to avoid a shortfall, said lead author Madeline Lisaius, who was TESSERA's first PhD student, and completed the research during her doctoral studies at Cambridge's [Department of Computer Science and Technology](https://www.cst.cam.ac.uk/).
+
+"When the decisions are being made at country and continent scale, [that] makes a really big difference in terms of food security and planning," Lisaius said. "Do we go buy 100 tonnes, or 10,000 tonnes of rice from Thailand now, because we're going to underproduce and people are going to starve in seven months?"
+
+TESSERA turns raw satellite images into compact numerical summaries called embeddings, which capture how a patch of ground changes across the seasons. The hardest part of mapping small fields is their edges, where a single satellite pixel can fall across 2 crops, a track or a hedge, blurring the signal. The smallest fields, Lisaius says, are almost all edge — which renders them effectively invisible to many methods that rely on reading a field's interior to define the crop type.
+
+TESSERA's embeddings, by contrast, give a signal at the field edge reliable enough to tell one crop from another. The researchers believe this is because the model is trained to track how the land changes across a whole year, rather than reacting to a single, noisy snapshot.
+
+The team is careful to note that while the Austrian trials show the technology is effective, using TESSERA to guide real decisions — where many other factors come into play — is still some years off. Even so, the people responsible for food-security policy should take the technology seriously now, Lisaius said.
+
+"AI-based technologies like TESSERA are very different from anything they've ever used before," she said. "They are cheaper and easier to run than these expensive, complex tools, and with a little investment they could begin to solve some of these really tricky problems within a few years."
+
+The research was funded by [UKRI](https://www.ukri.org/). The peer-reviewed paper, "Towards Improved Crop Type Classification: a Compact Embedding Approach Suitable for Small Fields," was written by Lisaius, Andrew Blake and Srinivasan Keshav of the University of Cambridge with Clement Atzberger of Cyclops.ai, and will appear in ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences.
+
+---
+
+*This story is adapted from a press release at the Department of Computer Science & Technology: [How AI could bring satellite crop monitoring to the world's most vulnerable farms](https://www.cst.cam.ac.uk/news/how-ai-could-bring-satellite-crop-monitoring-worlds-most-vulnerable-farms).*
+
+*Madeline Lisaius will present "Towards improved crop type classification: a compact embedding approach suitable for small fields" at 12.45–1pm on Sunday 5 July, in session [ThS16: Earth Embeddings: Investigating Accurate and Accessible Deep Geospatial Feature Representations](https://www.conftool.com/isprs2026/index.php?page=browseSessions&print=embed&form_date=2026-07-05&form_session=118&mode=list&presentations=hide).*
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), TESSERA communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>
