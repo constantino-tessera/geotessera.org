@@ -98,7 +98,7 @@
 <div class="blog-page">
   <header>
     <span class="page-label">Blog</span>
-    <p class="subtitle">Updates, tutorials, and research from the TESSERA community</p>
+    <p class="subtitle">Tutorials, technical deep-dives, and notes from the TESSERA community</p>
     <div class="feed-links">
       <a href="/blog/feed.xml" class="feed-link" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><circle cx="3.5" cy="12.5" r="2"/><path d="M1.5 6.5a7 7 0 0 1 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M1.5 1.5a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
