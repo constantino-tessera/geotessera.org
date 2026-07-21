@@ -8,7 +8,7 @@ description: "Cambridge PhD researcher Yihang She built a fully synthetic forest
 
 <figure class="cover-media">
   <video src="/blog/synthetic-forest-drone.mp4" controls muted loop playsinline preload="metadata"></video>
-  <figcaption>The forest vision training simulator, seen from a simulated drone. The trees are part of a synthetic forest environment built for the research using Unreal Engine. Credit: Yihang She.</figcaption>
+  <figcaption>A drone's view of a simulated forest generated using Unreal Engine. Credit: Yihang She.</figcaption>
 </figure>
 
 A drone swoops low over an alpine forest. It climbs suddenly to follow the contours of the sharply rising landscape. Pulses from its lidar — a laser mapping instrument — rapidly scan the trees below.
@@ -44,7 +44,7 @@ She's technique has its origins in self-driving cars. While trying to source rea
 
 <figure class="full-media">
   <img src="/blog/segmented_trees_side_by_side.gif" alt="Side-by-side rendering of a forest showing raw synthetic trees on the left and individually segmented trees, each shaded a different colour, on the right" />
-  <figcaption>A rendering of the forest with individual trees segmented. Credit: Yihang She.</figcaption>
+  <figcaption>Samples of synthetic data used to train the forest vision algorithm, labelled by colour to represent leaves and wood (left) and individual trees (right). Labelling is instantaneous in the forest vision simulator. Credit: Yihang She.</figcaption>
 </figure>
 
 The researchers added a physics-based, laser simulator for forest surveys called HELIOS++, which plays the part of the drone's lidar, and bundled it together to create their opensource toolkit. Cambridge Arboreal Modelling Panoptic 3D (CAMP3D) is freely available on the project's GitHub page ([link placeholder]).
