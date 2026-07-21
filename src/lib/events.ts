@@ -212,7 +212,7 @@ export const tesseraEvents: TesseraEvent[] = [
     links: [
       { label: 'Paper', url: 'https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf' },
       { label: 'Abstract', url: 'https://cvpr.thecvf.com/virtual/2026/poster/37322' },
-      { label: 'Blog post', url: 'https://geotessera.org/blog/2026-06-04-cvpr-earth-intelligence' },
+      { label: 'News post', url: 'https://geotessera.org/news/2026-06-04-cvpr-earth-intelligence' },
     ],
     speakers: [{ name: 'Jovana Knezevic', url: 'https://www.linkedin.com/in/jovana-knezevic-a4b19420/' }],
     talk: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',

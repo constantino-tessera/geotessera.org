@@ -19,6 +19,14 @@ export interface ContentMeta {
 
 import { blogLinks } from './blog-links';
 
+/** Tags that mark a post as "news" — these are shown on /news instead of /blog. */
+export const NEWS_TAGS = ['news', 'press'];
+
+/** True if any of the post's tags marks it as news/press. */
+export function hasNewsTag(tags: string[]): boolean {
+  return tags.some((t) => NEWS_TAGS.includes(t));
+}
+
 const blogModules = import.meta.glob('../../content/blog/*.svx', { eager: true }) as Record<string, any>;
 const taskModules = import.meta.glob('../../content/tasks/*.svx', { eager: true }) as Record<string, any>;
 
@@ -33,7 +41,7 @@ function loadModules(modules: Record<string, any>, type: 'blog' | 'task'): Conte
     const slug = extractSlug(path);
     const tags: string[] = meta.tags ?? [];
     const href = type === 'blog'
-      ? `/blog/${slug}`
+      ? (hasNewsTag(tags) ? `/news/${slug}` : `/blog/${slug}`)
       : `/tasks/${tags[0] ?? 'uncategorized'}/${slug}`;
     return {
       title: meta.title ?? slug,
@@ -82,7 +90,15 @@ export function getAllContent(): ContentMeta[] {
 }
 
 export function getBlogPosts(): ContentMeta[] {
-  return getAllContent().filter((c) => c.type === 'blog' && !c.draft);
+  return getAllContent().filter(
+    (c) => c.type === 'blog' && !c.draft && !hasNewsTag(c.tags)
+  );
+}
+
+export function getNewsPosts(): ContentMeta[] {
+  return getAllContent().filter(
+    (c) => c.type === 'blog' && !c.draft && hasNewsTag(c.tags)
+  );
 }
 
 export function getTaskExamples(): ContentMeta[] {

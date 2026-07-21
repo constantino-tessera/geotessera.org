@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getBlogPosts, type ContentMeta } from '@/lib/content';
+  import { getNewsPosts, type ContentMeta } from '@/lib/content';
   import { link } from '@/lib/router';
   import { resolveAuthors } from '@/lib/data/people';
   import Footer from '@/components/Footer.svelte';
 
-  const allPosts = getBlogPosts();
+  const allPosts = getNewsPosts();
   const allTags = [...new Set(allPosts.flatMap((p) => p.tags))].sort();
 
   let activeTag = $state<string | null>(null);
@@ -60,6 +60,8 @@
     python: 'M9 2c-3 0-5 1.5-5 3.5V8h6v1H4c-2 0-3 1.5-3 3.5S2 16 4 16h2v-2.5c0-2 1.5-3.5 3.5-3.5h5c1.5 0 2.5-1 2.5-2.5V5.5C17 3.5 15 2 12 2zm-1 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z', // python snake
     video: 'M4 4h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM8 7v6l5-3z', // play button
     social: 'M4 3h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4l-4 3v-3H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z', // speech bubble
+    press: 'M4 3h9a1 1 0 0 1 1 1v11a1 1 0 0 0 1 1H5a1 1 0 0 1-1-1zM6 6h5M6 9h5M6 12h3M14 7h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1', // newspaper
+    news: 'M4 3h9a1 1 0 0 1 1 1v11a1 1 0 0 0 1 1H5a1 1 0 0 1-1-1zM6 6h5M6 9h5M6 12h3M14 7h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1', // newspaper
   };
 
   function domain(url: string): string {
@@ -74,39 +76,35 @@
     return 'M6 2h8l4 4v12H6V2zM14 2v4h4M10 10h4M10 14h2';
   }
 
-  const blogJsonLd = JSON.stringify({
+  const newsJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'TESSERA Blog',
-    description: 'Updates, tutorials, and research from the TESSERA community',
-    url: 'https://geotessera.org/blog',
+    name: 'TESSERA News',
+    description: 'The latest news and press coverage from the TESSERA project at the University of Cambridge Department of Computer Science & Technology',
+    url: 'https://geotessera.org/news',
     publisher: { '@type': 'Organization', name: 'TESSERA', url: 'https://geotessera.org' },
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://geotessera.org' },
-        { '@type': 'ListItem', position: 2, name: 'Blog' },
+        { '@type': 'ListItem', position: 2, name: 'News' },
       ],
     },
   });
 </script>
 
 <svelte:head>
-  {@html `<script type="application/ld+json">${blogJsonLd}</script>`}
+  {@html `<script type="application/ld+json">${newsJsonLd}</script>`}
 </svelte:head>
 
 <div class="blog-page">
   <header>
-    <span class="page-label">Blog</span>
-    <p class="subtitle">Tutorials, technical deep-dives, and notes from the TESSERA community</p>
+    <span class="page-label">News</span>
+    <p class="subtitle">Read the <span class="cue-title">latest news</span> and <span class="cue-press">press coverage</span> from the TESSERA project at the University of Cambridge Department of Computer Science &amp; Technology.</p>
     <div class="feed-links">
-      <a href="/blog/feed.xml" class="feed-link" target="_blank" rel="noopener">
+      <a href="/news/feed.xml" class="feed-link" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><circle cx="3.5" cy="12.5" r="2"/><path d="M1.5 6.5a7 7 0 0 1 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M1.5 1.5a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        All posts
-      </a>
-      <a href="/blog/feed-original.xml" class="feed-link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><circle cx="3.5" cy="12.5" r="2"/><path d="M1.5 6.5a7 7 0 0 1 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M1.5 1.5a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        Original only
+        All news
       </a>
     </div>
   </header>
@@ -167,7 +165,7 @@
         </div>
       {/each}
     {:else}
-      <p class="empty">No posts match this filter.</p>
+      <p class="empty">No news matches this filter.</p>
     {/each}
   </div>
 
@@ -196,6 +194,17 @@
     letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-top: 6px;
+  }
+
+  /* Inline legend: mirror the two entry styles used in the timeline below */
+  .subtitle .cue-title {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .subtitle .cue-press {
+    color: var(--text-muted);
+    font-size: 12px;
   }
 
   .feed-links {

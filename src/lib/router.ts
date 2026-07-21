@@ -1,4 +1,5 @@
 import { writable, derived } from 'svelte/store';
+import { getNewsPosts } from './content';
 
 /** Strip Vite's base path to get the app-relative pathname. */
 export const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
@@ -20,6 +21,15 @@ const redirects: Record<string, string> = {
   '/tasks': '/docs#tasks',
   '/getting-started': '/docs',
 };
+
+// News articles moved from /blog/<slug> to /news/<slug>. Redirect the old URLs
+// so existing links and search results keep working. Built from content so any
+// future news post is handled automatically.
+for (const post of getNewsPosts()) {
+  if (!post.externalUrl) {
+    redirects[`/blog/${post.slug}`] = `/news/${post.slug}`;
+  }
+}
 
 const initialPath = stripBase(window.location.pathname);
 export const currentPath = writable(initialPath);
@@ -113,6 +123,8 @@ const routes: { path: string; route: Route }[] = [
   '/about',
   '/blog',
   '/blog/:slug',
+  '/news',
+  '/news/:slug',
   '/projects',
   '/projects/:id',
   '/tasks/:tag',

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContentBySlug } from '@/lib/content';
+  import { getContentBySlug, hasNewsTag } from '@/lib/content';
   import { resolveAuthors } from '@/lib/data/people';
   import TagPill from '@/components/TagPill.svelte';
   import Footer from '@/components/Footer.svelte';
@@ -11,6 +11,8 @@
   let { slug }: Props = $props();
   let post = $derived(getContentBySlug(slug));
   let Component = $derived(post?.component);
+  let section = $derived(post && hasNewsTag(post.tags) ? 'news' : 'blog');
+  let sectionLabel = $derived(section === 'news' ? 'News' : 'Blog');
   let jsonLd = $derived(post ? JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -20,12 +22,12 @@
       ? resolveAuthors(post.author).map((ra) => ({ '@type': 'Person', name: ra.name, ...(ra.person?.url ? { url: ra.person.url } : {}) }))
       : { '@type': 'Organization', name: 'TESSERA Team' },
     publisher: { '@type': 'Organization', name: 'TESSERA', url: 'https://geotessera.org' },
-    mainEntityOfPage: `https://geotessera.org/blog/${slug}`,
+    mainEntityOfPage: `https://geotessera.org/${section}/${slug}`,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://geotessera.org' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://geotessera.org/blog' },
+        { '@type': 'ListItem', position: 2, name: sectionLabel, item: `https://geotessera.org/${section}` },
         { '@type': 'ListItem', position: 3, name: post.title },
       ],
     },

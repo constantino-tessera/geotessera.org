@@ -44,6 +44,10 @@
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h14M3 8h10M3 12h12M3 16h8"/></svg>
         Blog
       </a>
+      <a href="/news" use:link class:active={path.startsWith('/news')} onclick={closeAll}>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h9a1 1 0 0 1 1 1v11a1 1 0 0 0 1 1H5a1 1 0 0 1-1-1z"/><path d="M14 7h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1"/><path d="M6 7h6M6 10h6M6 13h4"/></svg>
+        News
+      </a>
       <a href="/papers" use:link class:active={path.startsWith('/papers')} onclick={closeAll}>
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M7 6h6M7 9h6M7 12h4"/><circle cx="13" cy="14" r="1.5"/></svg>
         Papers

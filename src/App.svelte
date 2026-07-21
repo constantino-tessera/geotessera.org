@@ -4,6 +4,7 @@
   import TileBackground from './components/TileBackground.svelte';
   import Home from './pages/Home.svelte';
   import Blog from './pages/Blog.svelte';
+  import News from './pages/News.svelte';
   import BlogPost from './pages/BlogPost.svelte';
   import Projects from './pages/Projects.svelte';
   import ProjectDetail from './pages/ProjectDetail.svelte';
@@ -39,6 +40,10 @@
       {:else if route.path === '/blog'}
         <Blog />
       {:else if route.path === '/blog/:slug'}
+        <BlogPost slug={route.params.slug} />
+      {:else if route.path === '/news'}
+        <News />
+      {:else if route.path === '/news/:slug'}
         <BlogPost slug={route.params.slug} />
       {:else if route.path === '/projects'}
         <Projects />
