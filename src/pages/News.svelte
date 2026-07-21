@@ -43,11 +43,7 @@
     return groups;
   }
 
-  // Split into the team's own posts (internal) and external press coverage (offsite links).
-  let announcements = $derived(filtered.filter((p) => !p.externalUrl));
-  let pressItems = $derived(filtered.filter((p) => !!p.externalUrl));
-  let announcementGroups = $derived(groupByMonth(announcements));
-  let pressGroups = $derived(groupByMonth(pressItems));
+  let grouped = $derived(groupByMonth(filtered));
 
   /** Icon per tag — first matching tag wins */
   const tagIcons: Record<string, string> = {
@@ -84,7 +80,7 @@
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'TESSERA News',
-    description: 'Press coverage and news from the TESSERA project at the University of Cambridge Department of Computer Science & Technology',
+    description: 'The latest news and press coverage from the TESSERA project at the University of Cambridge Department of Computer Science & Technology',
     url: 'https://geotessera.org/news',
     publisher: { '@type': 'Organization', name: 'TESSERA', url: 'https://geotessera.org' },
     breadcrumb: {
@@ -104,7 +100,7 @@
 <div class="blog-page">
   <header>
     <span class="page-label">News</span>
-    <p class="subtitle">Press coverage and news from the TESSERA project at the University of Cambridge Department of Computer Science &amp; Technology</p>
+    <p class="subtitle">Read the <span class="cue-title">latest news</span> and <span class="cue-press">press coverage</span> from the TESSERA project at the University of Cambridge Department of Computer Science &amp; Technology.</p>
     <div class="feed-links">
       <a href="/news/feed.xml" class="feed-link" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><circle cx="3.5" cy="12.5" r="2"/><path d="M1.5 6.5a7 7 0 0 1 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M1.5 1.5a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -120,76 +116,58 @@
     {/each}
   </div>
 
-  {#snippet timeline(groups)}
-    <div class="timeline">
-      {#each groups as group}
-        <div class="month-header">{group.month}</div>
-        {#each group.posts as post}
-          <div class="timeline-entry" class:is-link={!!post.externalUrl} class:is-minor={!!post.minor} id={post.slug}>
-            <div class="timeline-rail">
-              <a class="timeline-icon" href={`#${post.slug}`} aria-label={post.title}>
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={getIcon(post.tags)}/></svg>
-              </a>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-content">
-              {#if post.minor && post.externalUrl}
-                <a href={post.externalUrl} target="_blank" rel="noopener" class="minor-link"><span class="minor-title">{post.title}</span><span class="minor-domain">{domain(post.externalUrl)}</span><svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a>
-              {:else if post.externalUrl}
-                <div class="link-row">
-                  <a href={post.externalUrl} target="_blank" rel="noopener" class="link-title">{post.title}<span class="nowrap">&thinsp;<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></span></a>
-                  <span class="link-meta">
-                    {#if post.author}
-                      <span class="link-author">{#each resolveAuthors(post.author) as ra, i}{#if i > 0}, {/if}{#if ra.person?.url}<a href={ra.person.url} target="_blank" rel="noopener" class="author-link">{ra.name}</a>{:else}{ra.name}{/if}{/each}</span>
-                    {/if}
-                    <span class="link-date">{formatDate(post.date)}</span>
-                  </span>
-                </div>
-                {#if post.description}
-                  <p class="link-desc">{post.description}</p>
-                {/if}
-              {:else}
-                <div class="post-date">{formatDate(post.date)}</div>
-                <h3><a href={post.href} use:link>{post.title}</a></h3>
-                <div class="post-meta">
-                  {#if post.author}
-                    <svg class="meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="3"/><path d="M2.5 14a5.5 5.5 0 0 1 11 0"/></svg>
-                    <span class="post-author">{#each resolveAuthors(post.author) as ra, i}{#if i > 0}, {/if}{#if ra.person?.url}<a href={ra.person.url} target="_blank" rel="noopener" class="author-link">{ra.name}</a>{:else}{ra.name}{/if}{/each}</span>
-                  {/if}
-                  <div class="post-tags">
-                    {#each post.tags as tag}
-                      <span class="tag-pill">{tag}</span>
-                    {/each}
-                  </div>
-                </div>
-                {#if post.description}
-                  <p class="post-desc">{post.description}</p>
-                {/if}
-              {/if}
-            </div>
+  <div class="timeline">
+    {#each grouped as group}
+      <div class="month-header">{group.month}</div>
+      {#each group.posts as post}
+        <div class="timeline-entry" class:is-link={!!post.externalUrl} class:is-minor={!!post.minor} id={post.slug}>
+          <div class="timeline-rail">
+            <a class="timeline-icon" href={`#${post.slug}`} aria-label={post.title}>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={getIcon(post.tags)}/></svg>
+            </a>
+            <div class="timeline-line"></div>
           </div>
-        {/each}
+          <div class="timeline-content">
+            {#if post.minor && post.externalUrl}
+              <a href={post.externalUrl} target="_blank" rel="noopener" class="minor-link"><span class="minor-title">{post.title}</span><span class="minor-domain">{domain(post.externalUrl)}</span><svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a>
+            {:else if post.externalUrl}
+              <div class="link-row">
+                <a href={post.externalUrl} target="_blank" rel="noopener" class="link-title">{post.title}<span class="nowrap">&thinsp;<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></span></a>
+                <span class="link-meta">
+                  {#if post.author}
+                    <span class="link-author">{#each resolveAuthors(post.author) as ra, i}{#if i > 0}, {/if}{#if ra.person?.url}<a href={ra.person.url} target="_blank" rel="noopener" class="author-link">{ra.name}</a>{:else}{ra.name}{/if}{/each}</span>
+                  {/if}
+                  <span class="link-date">{formatDate(post.date)}</span>
+                </span>
+              </div>
+              {#if post.description}
+                <p class="link-desc">{post.description}</p>
+              {/if}
+            {:else}
+              <div class="post-date">{formatDate(post.date)}</div>
+              <h3><a href={post.href} use:link>{post.title}</a></h3>
+              <div class="post-meta">
+                {#if post.author}
+                  <svg class="meta-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="3"/><path d="M2.5 14a5.5 5.5 0 0 1 11 0"/></svg>
+                  <span class="post-author">{#each resolveAuthors(post.author) as ra, i}{#if i > 0}, {/if}{#if ra.person?.url}<a href={ra.person.url} target="_blank" rel="noopener" class="author-link">{ra.name}</a>{:else}{ra.name}{/if}{/each}</span>
+                {/if}
+                <div class="post-tags">
+                  {#each post.tags as tag}
+                    <span class="tag-pill">{tag}</span>
+                  {/each}
+                </div>
+              </div>
+              {#if post.description}
+                <p class="post-desc">{post.description}</p>
+              {/if}
+            {/if}
+          </div>
+        </div>
       {/each}
-    </div>
-  {/snippet}
-
-  {#if announcements.length > 0}
-    <section class="news-section">
-      <h2 class="section-heading">Announcements</h2>
-      {@render timeline(announcementGroups)}
-    </section>
-  {/if}
-
-  {#if pressItems.length > 0}
-    <section class="news-section">
-      <h2 class="section-heading">In the press</h2>
-      {@render timeline(pressGroups)}
-    </section>
-  {/if}
-
-  {#if announcements.length === 0 && pressItems.length === 0}
-    <p class="empty">No news matches this filter.</p>
-  {/if}
+    {:else}
+      <p class="empty">No news matches this filter.</p>
+    {/each}
+  </div>
 
   <Footer />
 </div>
@@ -216,6 +194,17 @@
     letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-top: 6px;
+  }
+
+  /* Inline legend: mirror the two entry styles used in the timeline below */
+  .subtitle .cue-title {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .subtitle .cue-press {
+    color: var(--text-muted);
+    font-size: 12px;
   }
 
   .feed-links {
@@ -268,26 +257,6 @@
 
   .filters button:hover {
     border-color: var(--accent-dim);
-  }
-
-  /* Section split: Announcements vs In the press */
-  .news-section {
-    margin-bottom: 44px;
-  }
-
-  .news-section:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .section-heading {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin: 0 0 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--accent-border);
   }
 
   /* Timeline layout */
