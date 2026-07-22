@@ -33,6 +33,8 @@ News of Tessera's partnership with Vultr and AMD was announced 22 July, 2026 at 
 
 Sadiq Jaffer presented an overview of Tessera showing how embeddings are already being applied in agriculture, biodiversity monitoring and renewable energy mapping at the recent [RAISE Summit in Paris](https://www.youtube.com/watch?v=UDg0dFsTAMI). Read more about the training and inference setup in our earlier post on [planetary scale training and inference with AMD and Vultr](https://geotessera.org/blog/2026-03-30-training-and-inference-at-scale), and in Vultr's earlier [case study](https://discover.vultr.com/tessera-case-study).
 
+Read Vultr and AMD's jointly published [blog](https://blogs.vultr.com/tessera-amd) and [press release](https://www.businesswire.com/news/home/20260722682828/en/Vultr-and-AMD-Support-the-University-of-Cambridges-TESSERA-AI-Project-to-Accelerate-Global-Environmental-Monitoring) on the collaboration.
+
 Tessera embeddings are available now through the [Geotessera library](https://geotessera.org). If you build something with them, we would love to [hear about it](mailto:cp918@cam.ac.uk).
 
 <style>
