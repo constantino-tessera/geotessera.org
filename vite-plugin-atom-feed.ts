@@ -43,6 +43,13 @@ function parseFrontmatter(content: string): SvxMeta {
   return meta as SvxMeta;
 }
 
+/** Tags that mark an entry as "news" — kept in sync with src/lib/content.ts NEWS_TAGS. */
+const NEWS_TAGS = ['news', 'press'];
+
+function isNews(tags: string[]): boolean {
+  return tags.some((t) => NEWS_TAGS.includes(t));
+}
+
 function escXml(s: string): string {
   return s
     .replace(/&/g, '&amp;')
@@ -76,13 +83,15 @@ function collectEntries(siteUrl: string, blogDir: string, links: BlogLinkEntry[]
       const meta = parseFrontmatter(content);
       if (meta.draft === true || meta.draft === 'true') continue;
       const slug = file.replace(/\.svx$/, '');
+      const tags = meta.tags ?? [];
+      const section = isNews(tags) ? 'news' : 'blog';
       entries.push({
         title: meta.title ?? slug,
         date: meta.date ?? '1970-01-01',
         author: meta.author ?? 'TESSERA Team',
         description: meta.description ?? '',
-        url: `${siteUrl}/blog/${slug}`,
-        tags: meta.tags ?? [],
+        url: `${siteUrl}/${section}/${slug}`,
+        tags,
         isLocal: true,
       });
     }
@@ -113,6 +122,7 @@ function buildFeedXml(
   feedTitle: string,
   feedSubtitle: string,
   selfUrl: string,
+  altUrl: string,
   entries: FeedEntry[],
 ): string {
   const updated = entries[0]?.date ?? new Date().toISOString().slice(0, 10);
@@ -149,7 +159,7 @@ function buildFeedXml(
   <id>${feedId}</id>
   <title>${escXml(feedTitle)}</title>
   <subtitle>${escXml(feedSubtitle)}</subtitle>
-  <link href="${siteUrl}/blog" rel="alternate"/>
+  <link href="${altUrl}" rel="alternate"/>
   <link href="${selfUrl}" rel="self"/>
   <updated>${toISO(updated)}</updated>
 ${xml}
@@ -160,7 +170,9 @@ ${xml}
 export function atomFeedPlugin(opts: { siteUrl: string; blogDir: string; links: BlogLinkEntry[] }): Plugin {
   function buildFeeds() {
     const all = collectEntries(opts.siteUrl, opts.blogDir, opts.links);
-    const local = all.filter((e) => e.isLocal);
+    const blog = all.filter((e) => !isNews(e.tags));
+    const news = all.filter((e) => isNews(e.tags));
+    const blogLocal = blog.filter((e) => e.isLocal);
 
     const allFeed = buildFeedXml(
       opts.siteUrl,
@@ -168,7 +180,8 @@ export function atomFeedPlugin(opts: { siteUrl: string; blogDir: string; links: 
       'TESSERA Blog',
       'Updates, tutorials, and research from the TESSERA community',
       `${opts.siteUrl}/blog/feed.xml`,
-      all,
+      `${opts.siteUrl}/blog`,
+      blog,
     );
 
     const localFeed = buildFeedXml(
@@ -177,19 +190,39 @@ export function atomFeedPlugin(opts: { siteUrl: string; blogDir: string; links: 
       'TESSERA Blog — Original Content',
       'Original posts from the TESSERA team',
       `${opts.siteUrl}/blog/feed-original.xml`,
-      local,
+      `${opts.siteUrl}/blog`,
+      blogLocal,
     );
 
-    return { allFeed, localFeed };
+    const newsFeed = buildFeedXml(
+      opts.siteUrl,
+      `${opts.siteUrl}/news`,
+      'TESSERA News',
+      'Press coverage and news from the TESSERA project',
+      `${opts.siteUrl}/news/feed.xml`,
+      `${opts.siteUrl}/news`,
+      news,
+    );
+
+    return { allFeed, localFeed, newsFeed };
   }
 
   return {
     name: 'atom-feed',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url === '/blog/feed.xml' || req.url === '/blog/feed-original.xml') {
-          const { allFeed, localFeed } = buildFeeds();
-          const content = req.url === '/blog/feed.xml' ? allFeed : localFeed;
+        if (
+          req.url === '/blog/feed.xml' ||
+          req.url === '/blog/feed-original.xml' ||
+          req.url === '/news/feed.xml'
+        ) {
+          const { allFeed, localFeed, newsFeed } = buildFeeds();
+          const content =
+            req.url === '/blog/feed.xml'
+              ? allFeed
+              : req.url === '/news/feed.xml'
+                ? newsFeed
+                : localFeed;
           res.setHeader('Content-Type', 'application/atom+xml; charset=utf-8');
           res.end(content);
           return;
@@ -198,7 +231,7 @@ export function atomFeedPlugin(opts: { siteUrl: string; blogDir: string; links: 
       });
     },
     generateBundle() {
-      const { allFeed, localFeed } = buildFeeds();
+      const { allFeed, localFeed, newsFeed } = buildFeeds();
       this.emitFile({
         type: 'asset',
         fileName: 'blog/feed.xml',
@@ -208,6 +241,11 @@ export function atomFeedPlugin(opts: { siteUrl: string; blogDir: string; links: 
         type: 'asset',
         fileName: 'blog/feed-original.xml',
         source: localFeed,
+      });
+      this.emitFile({
+        type: 'asset',
+        fileName: 'news/feed.xml',
+        source: newsFeed,
       });
     },
   };

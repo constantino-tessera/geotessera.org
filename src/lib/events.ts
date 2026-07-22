@@ -52,6 +52,30 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'raise-summit-2026',
+    title: 'RAISE Summit 2026',
+    date: '2026-07-08',
+    dateEnd: '2026-07-09',
+    location: 'Le Carrousel du Louvre, Paris',
+    organiser: 'RAISE Summit',
+    links: [
+      { label: 'Event page', url: 'https://www.raisesummit.com/' },
+    ],
+    speakers: [{ name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' }],
+    talk: 'Tessera: a foundation model for Earth Observation',
+    description: 'Assistant Research Professor Sadiq Jaffer <a href="https://www.linkedin.com/posts/kasia-hilborne_satellite-ai-tessera-activity-7480946410989813760-UwMS" target="_blank" rel="noopener noreferrer">presented Tessera at the Vultr booth</a> during RAISE Summit, an AI conference at Le Carrousel du Louvre in Paris. The talk introduced Tessera as a foundation model for Earth observation and its potential to transform how satellite imagery is used. Tessera was trained on AMD hardware and Vultr infrastructure.',
+  },
+  {
+    id: 'nerc-peg-2026',
+    title: 'NERC Changing the Environment Programme Executive Group (PEG) Meeting',
+    date: '2026-07-07',
+    location: 'Online',
+    organiser: 'NERC',
+    speakers: [{ name: 'David Coomes', url: 'https://coomeslab.org/research-group/current-members/professor-david-coomes/' }],
+    talk: 'TESSERA — a Centre for Landscape Regeneration case study',
+    description: 'David Coomes presented TESSERA as the Centre for Landscape Regeneration (CLR) research case study at a biannual executive group meeting for NERC\'s Changing the Environment programme. The short session was an opportunity to showcase TESSERA to NERC staff, Executive Board members and the programme\'s other projects.',
+  },
+  {
     id: 'atbc-2026',
     title: '62nd Annual Meeting of the Association for Tropical Biology and Conservation (ATBC)',
     date: '2026-06-28',
@@ -188,7 +212,7 @@ export const tesseraEvents: TesseraEvent[] = [
     links: [
       { label: 'Paper', url: 'https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf' },
       { label: 'Abstract', url: 'https://cvpr.thecvf.com/virtual/2026/poster/37322' },
-      { label: 'Blog post', url: 'https://geotessera.org/blog/2026-06-04-cvpr-earth-intelligence' },
+      { label: 'News post', url: 'https://geotessera.org/news/2026-06-04-cvpr-earth-intelligence' },
     ],
     speakers: [{ name: 'Jovana Knezevic', url: 'https://www.linkedin.com/in/jovana-knezevic-a4b19420/' }],
     talk: 'TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis',

@@ -1,0 +1,59 @@
+---
+title: "New Faces: Kyle Gao"
+date: 2026-07-21
+tags: [announcement, new-faces]
+author: "Constantino Panagopulos"
+description: "Kyle Gao joins Tessera as an academic visitor from Aalto University, working on 3D reconstruction, multi-modal remote sensing, and geoAI."
+---
+
+<figure class="profile-photo">
+  <img src="/blog/kyle-gao.jpg" alt="Portrait of Kyle Gao" />
+</figure>
+
+<p class="profile-label">New Faces</p>
+
+Kyle Gao is an Assistant Professor in the Department of Built Environment at Aalto University. He joins the University of Cambridge Energy and Environment Group and the Tessera project as an academic visitor.
+
+He plans to contribute to applications of Tessera for environmental good as well as mathematical representation learning. His research interests include 3D reconstruction, multi-modal remote sensing, geoAI, and environmental monitoring.
+
+<div class="clear"></div>
+
+---
+
+*Kyle can be reached at [ylg23@cam.ac.uk](mailto:ylg23@cam.ac.uk). Read more about his research on [Google Scholar](https://scholar.google.com/citations?user=F-NPRk0AAAAJ&hl=en), [ORCID](https://orcid.org/0000-0002-8320-6308), or [LinkedIn](https://www.linkedin.com/in/yi-lin-kyle-gao).*
+
+<style>
+  .profile-photo {
+    float: right;
+    width: 38%;
+    margin: 0 0 1.25rem 2rem;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .profile-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin: 0 0 14px;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  @media (max-width: 640px) {
+    .profile-photo {
+      float: none;
+      width: 60%;
+      margin: 0 auto 1.5rem;
+    }
+  }
+</style>

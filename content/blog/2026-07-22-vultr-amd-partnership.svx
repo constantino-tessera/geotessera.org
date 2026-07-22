@@ -1,0 +1,67 @@
+---
+title: "Powering Tessera, the AI that sees Earth in 128 dimensions"
+date: 2026-07-22
+tags: [announcement, news]
+author: "Constantino Panagopulos"
+description: "A substantial portion of TESSERA's global embeddings was produced on Vultr cloud infrastructure powered by AMD Instinct MI325X GPUs, part of a new partnership announced this week at AMD's Advancing AI Day summit."
+---
+
+<figure class="cover-image">
+  <img src="/blog/emb_visualization_7_subfig.png" alt="A false-colour TESSERA embedding visualization of a landscape, showing fields, roads, rivers, and settlements rendered in vivid reds, purples, greens, and pinks" />
+  <figcaption>A TESSERA embedding of a crop field near Vienna, part of a dataset used to evaluate the model. Credit: TESSERA/University of Cambridge.</figcaption>
+</figure>
+
+Tessera's embeddings — AI representations that map the earth's surface in extraordinary detail — are bringing the power of satellite imagery to environmental researchers across the world, making it possible for them to monitor forests, measure crops and watch shifting coastlines much more easily and cheaply than before. But it requires a huge amount of computing resources to translate nearly a decade of satellite images into these 128-dimensional AI 'fingerprints' that cover every 10 square metres of land on Earth.
+
+At the University of Cambridge [Department of Computer Science & Technology](https://www.cst.cam.ac.uk/), the team behind Tessera are solving these computational infrastructure challenges by partnering with some of the world's leading computing companies. This week [Vultr](https://vultr.com), the world's largest privately-held cloud infrastructure company, and [AMD](https://www.amd.com/en.html), a leader in high-performance and AI computing, announced details of their partnership with Tessera at AMD's flagship summit.
+
+A substantial portion of Tessera's current generation of global embeddings was produced on Vultr cloud infrastructure powered by AMD Instinct MI325X GPUs and AMD EPYC processors. The resulting embeddings, covering the Earth's land surface from 2017 to 2025, are freely available at [geotessera.org](https://geotessera.org).
+
+## A new paradigm in Earth observation data
+
+Tessera is designed around an embeddings-as-data model. The costly, technically demanding steps in working with satellite data is done once and then shared with everyone. That means researchers wanting to monitor crops, forests or coastlines from space no longer need significant computational resources and expertise to store, clean and process petabytes of raw imagery.
+
+Producing those embeddings for the whole planet, however, is a challenge even for a university that is home to some of the UK's most powerful AI computing. Vultr and AMD are among a number of industry partners whose support makes it possible for Tessera to generate its global embeddings and allow the project to stay fully open, with free embeddings, open weights and open code.
+
+"Our goal is to democratise access to planetary-scale environmental monitoring," said Tessera co-lead Anil Madhavapeddy, Professor of Planetary Computing at the Department. "By publishing the complete training pipeline, we're ensuring that any researcher, government, or organisation worldwide can deploy this technology for their specific conservation needs."
+
+Alongside the data itself, the team has released a fully reproducible pipeline for training the model from scratch on the same infrastructure, so that other groups can retrain or fine-tune Tessera for their own regions and applications.
+
+News of Tessera's partnership with Vultr and AMD was announced 22 July, 2026 at AMD's flagship summit, [Advancing AI Day](https://www.amd.com/en/corporate/events/advancing-ai.html).
+
+## Learn more
+
+Sadiq Jaffer presented an overview of Tessera showing how embeddings are already being applied in agriculture, biodiversity monitoring and renewable energy mapping at the recent [RAISE Summit in Paris](https://www.youtube.com/watch?v=UDg0dFsTAMI). Read more about the training and inference setup in our earlier post on [planetary scale training and inference with AMD and Vultr](https://geotessera.org/blog/2026-03-30-training-and-inference-at-scale), and in Vultr's earlier [case study](https://discover.vultr.com/tessera-case-study).
+
+Read Vultr and AMD's jointly published [blog](https://blogs.vultr.com/tessera-amd) and [press release](https://www.businesswire.com/news/home/20260722682828/en/Vultr-and-AMD-Support-the-University-of-Cambridges-TESSERA-AI-Project-to-Accelerate-Global-Environmental-Monitoring) on the collaboration.
+
+Tessera embeddings are available now through the [Geotessera library](https://geotessera.org). If you build something with them, we would love to [hear about it](mailto:cp918@cam.ac.uk).
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>
