@@ -9,9 +9,27 @@ export interface BlogLink {
   tags: string[];
   /** Minor posts render as a simple one-line link with no author/description */
   minor?: boolean;
+  /**
+   * Overrides the outlet name shown beside a minor link on /news, which labels
+   * itself with `author` (falling back to the URL's domain). Set this where
+   * `author` is the individual journalist rather than the outlet — e.g. an Ars
+   * Technica piece bylined to a reporter should still read "Ars Technica".
+   * Has no effect on /blog, where minor links are labelled by domain.
+   */
+  sourceLabel?: string;
 }
 
 export const blogLinks: BlogLink[] = [
+  {
+    id: 'cambridge-news-eye-in-the-sky',
+    title: 'Eye in the sky: Cambridge AI allows instant tracking of forest loss and crop health',
+    date: '2026-07-27',
+    author: 'Cambridge News',
+    description: '',
+    url: 'https://www.pressreader.com/uk/cambridge-news/20260727/281603837253419',
+    tags: ['press'],
+    minor: true,
+  },
   {
     id: 'openuk-ai-openness-report',
     title: 'OpenUK AI Openness Report',
@@ -148,6 +166,8 @@ export const blogLinks: BlogLink[] = [
     url: 'https://www.cst.cam.ac.uk/cambridge-computer-scientist-and-tessera-co-lead-elected-fellow-royal-society',
     tags: ['press', 'news'],
     minor: true,
+    // Full name kept on `author` for feeds; shortened for the inline label.
+    sourceLabel: 'Department of Computer Science and Technology',
   },
   {
     id: 'hedgehog-tessera-week',
@@ -581,6 +601,8 @@ export const blogLinks: BlogLink[] = [
     url: 'https://arstechnica.com/ai/2025/09/can-ai-detect-hedgehogs-from-space-maybe-if-you-find-brambles-first/',
     tags: ['conservation', 'community', 'press'],
     minor: true,
+    // `author` is the reporter's byline; label the link with the outlet instead.
+    sourceLabel: 'Ars Technica',
   },
   {
     id: 'brambles-from-space',
