@@ -1,0 +1,85 @@
+---
+title: "A faster, cheaper way to map the world's forests with AI"
+date: 2026-07-28
+tags: [research, ecology, conservation, news]
+author: "Constantino Panagopulos"
+description: "New University of Cambridge research uses Tessera embeddings to map 18 tree species across the mountains of Trentino, Italy, outperforming traditional satellite methods on standard computing hardware."
+---
+
+<figure class="cover-image">
+  <img src="/blog/trentino-embeddings.webp" alt="A false-colour Tessera embedding of the mountains of Trentino, Italy, with ridges, valleys and lakes rendered in vivid greens, magentas, oranges and blues" />
+  <figcaption>Tessera embeddings over the mountainous region of Trentino, Italy. Credit: James Ball / Tessera, University of Cambridge.</figcaption>
+</figure>
+
+Forests are increasingly under threat from drought, storms, disease and logging. Mapping tree species helps those working to stem the destruction by providing information about climate change impacts, habitat health, over-exploitation and signs of deforestation. Creating the maps, however, can be expensive and time-consuming.
+
+New research from [Tessera](https://geotessera.org/) at the University of Cambridge offers an easy and readily available solution using AI and satellite data. In a paper published in the journal [Science of Remote Sensing](https://doi.org/10.1016/j.srs.2026.100466), researchers used embeddings by Tessera, a geospatial foundation model, to successfully map tree species across the Trentino region of the Italian Alps.
+
+The results outperformed traditional satellite methods and were achieved using standard computing. Lead author James Ball, a postdoctoral researcher at Cambridge's [Conservation Research Institute](https://www.conservation.cam.ac.uk/), said the research opened the door to accurate, low-cost, continent-scale forest mapping.
+
+"Tessera is a democratising force that brings satellite data to the masses," Ball said. "A team in a region without access to huge computing resources can apply this approach on forest inventories and embeddings that have already been produced by the Tessera team and roll it out for their region without too much expense or effort."
+
+The study is among the first to use geospatial foundation models to create detailed maps of tree species distribution from space. The ability to cost-effectively generate continent-scale forest maps in this way will be of particular interest to government bodies such as the European Union and conservation organisations such as the [UN Environment Programme's World Conservation Monitoring Centre](https://www.unep-wcmc.org/) and [IUCN](https://iucn.org/). It is also relevant to companies and organisations dealing with carbon credits.
+
+## The trouble with tree mapping
+
+Mapping tree species from space is notoriously difficult. That's especially true in mountainous regions such as Trentino, where steep slopes and cloud cover make it virtually impossible to separate one species from another in individual images. The challenge has long been a bottleneck for forest mappers.
+
+Previously, researchers had hoped that satellites carrying hyperspectral sensors, which capture light across hundreds of wavelengths, could disentangle the subtle, species-level signal. That has proved difficult, even with supercomputer-powered models to process the highly complex data produced by these sensors.
+
+Foundation models like Tessera analyse a year's worth of satellite images and distil them into a clean, ready-to-use embedding. The embedding captures seasonal changes in the canopy as trees flower, seed, drop and regrow leaves, information that's unique to each species. A simple model analyses the embedding to reveal individual species.
+
+In the current study, Ball trained a model to map 18 tree species and species groups in a Tessera embedding of Trentino. The results were tested against traditional methods of mapping forests as well as another foundation model, Google's AlphaEarth.
+
+Both Tessera and AlphaEarth performed well, correctly classifying around 82%. Traditional methods ranged from roughly 73% to 79% accuracy. Tessera was better at picking out rarer species and more accurately predicted the correct species proportions within each map unit.
+
+According to co-author Michele Dalponte, a forest ecologist at Italy's [Fondazione Edmund Mach](https://www.fmach.it/) who supplied the Trentino dataset, roughly three-quarters of Trentino's forest is publicly owned and actively managed, while the remaining quarter is private and largely unmanaged. The new mapping is important for forest administration because of its coverage and high level of detail.
+
+"It gives us the species composition of private land that's typically data-scarce, and it adds spatial detail within public forests," Dalponte said. "It serves as a powerful tool for the forest service — not only for locating economically valuable species but also for identifying localized biodiversity hotspots."
+
+## A soft approach to AI training
+
+The study is also notable for its use of a machine-learning technique called soft labels, in which the model takes a probabilistic approach to the labels it uses for training, something that most models don't normally do. Instead of discarding areas that contain a mix of species, it uses the proportion of each species within a map unit as the training target.
+
+"We don't have to throw away all the mixed-up data," Ball said. "We can use soft labelling to extract more information from the messy parcels."
+
+Ball, whose usual research is on tropical forests, is now applying the same methods to a forest-plot network spanning more than 11,000 sites across Latin America.
+
+"This sets up the opportunity to integrate more data and see how far we can push this for automated, continental-scale forest mapping that can represent more of its interesting traits," he said.
+
+The research was supported by the UK [Medical Research Council](https://www.ukri.org/councils/mrc/), Forestmap.ai and the Robert Sansom Studentship, as well as charitable donations from John Bernstein.
+
+---
+
+*Reference: James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David A. Coomes (2026). "Geospatial foundation models enable data-efficient tree species mapping in temperate mountain forests." Science of Remote Sensing, 14, 100466. [doi.org/10.1016/j.srs.2026.100466](https://doi.org/10.1016/j.srs.2026.100466)*
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), Tessera communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>
