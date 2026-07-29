@@ -13,6 +13,8 @@ export interface ContentMeta {
   externalUrl?: string;
   /** Minor posts render as a simple one-line link */
   minor?: boolean;
+  /** Overrides the domain label shown beside a minor link */
+  sourceLabel?: string;
   /** Draft posts are accessible by slug but hidden from listings, feeds, and sitemap */
   draft?: boolean;
 }
@@ -74,6 +76,7 @@ function loadBlogLinks(): ContentMeta[] {
     component: null,
     externalUrl: link.url,
     minor: link.minor,
+    sourceLabel: link.sourceLabel,
   }));
 }
 

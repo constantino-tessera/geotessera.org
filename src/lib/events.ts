@@ -52,6 +52,21 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'raes-presidents-conference-2026',
+    title: 'RAeS President\'s Conference 2026: Assured Space',
+    date: '2026-09-29',
+    dateEnd: '2026-09-30',
+    location: '4 Hamilton Place, London',
+    organiser: 'Royal Aeronautical Society',
+    links: [
+      { label: 'Event page', url: 'https://www.aerosociety.com/events-calendar/raes-presidents-conference-2026-assured-space/' },
+      { label: 'Programme (PDF)', url: 'https://www.aerosociety.com/media/29912/raes-presidents-conference-2026-programme.pdf' },
+    ],
+    speakers: [{ name: 'Srinivasan Keshav', url: 'https://www.cst.cam.ac.uk/people/sk818' }],
+    talk: 'An innovation engine and amplifier for adjacent sectors',
+    description: 'Srinivasan Keshav speaks on the second day of the Royal Aeronautical Society\'s President\'s Conference, alongside Dr Miranda Turvey of the Dstl. The session asks how space can act as an early adopter and "proof environment" for frontier technologies. The two-day conference, part of RAeS Space Week, takes the theme of "Assured Space". It runs in person and online.',
+  },
+  {
     id: 'raise-summit-2026',
     title: 'RAISE Summit 2026',
     date: '2026-07-08',

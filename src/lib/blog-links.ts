@@ -9,9 +9,144 @@ export interface BlogLink {
   tags: string[];
   /** Minor posts render as a simple one-line link with no author/description */
   minor?: boolean;
+  /**
+   * Overrides the outlet name shown beside a minor link on /news, which labels
+   * itself with `author` (falling back to the URL's domain). Set this where
+   * `author` is the individual journalist rather than the outlet — e.g. an Ars
+   * Technica piece bylined to a reporter should still read "Ars Technica".
+   * Has no effect on /blog, where minor links are labelled by domain.
+   */
+  sourceLabel?: string;
 }
 
 export const blogLinks: BlogLink[] = [
+  {
+    id: 'cambridge-news-eye-in-the-sky',
+    title: 'Eye in the sky: Cambridge AI allows instant tracking of forest loss and crop health',
+    date: '2026-07-27',
+    author: 'Cambridge News',
+    description: '',
+    url: 'https://www.pressreader.com/uk/cambridge-news/20260727/281603837253419',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'openuk-ai-openness-report',
+    title: 'OpenUK AI Openness Report',
+    date: '2026-07-23',
+    author: 'OpenUK',
+    description: 'TESSERA features in OpenUK\'s AI Openness Report via a fireside chat with co-lead Anil Madhavapeddy on why foundation models of the planet must remain open and sovereign to benefit the people who need them most. Full Q&A on pages 25–27.',
+    url: 'https://openuk.uk/wp-content/uploads/2026/07/AI-Openness-Report-July-2026.pdf',
+    tags: ['community'],
+  },
+  {
+    id: 'vultr-tessera-amd',
+    title: 'From Satellite Data to Planetary AI: How TESSERA Is Transforming Earth Observation',
+    date: '2026-07-22',
+    author: 'Vultr',
+    description: 'How Vultr Cloud GPU and AMD Instinct MI325X infrastructure helped University of Cambridge researchers generate TESSERA\'s planetary-scale Earth observation embeddings.',
+    url: 'https://blogs.vultr.com/tessera-amd',
+    tags: ['community', 'engineering'],
+  },
+  {
+    id: 'businesswire-vultr-amd-tessera',
+    title: 'Vultr and AMD Support the University of Cambridge\'s TESSERA AI Project to Accelerate Global Environmental Monitoring',
+    date: '2026-07-22',
+    author: 'Business Wire',
+    description: '',
+    url: 'https://www.businesswire.com/news/home/20260722682828/en/Vultr-and-AMD-Support-the-University-of-Cambridges-TESSERA-AI-Project-to-Accelerate-Global-Environmental-Monitoring',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'opengeoai-tessera-embeddings',
+    title: 'TESSERA Embeddings Usage',
+    date: '2026-07-01',
+    author: 'GeoAI',
+    description: 'A Jupyter notebook demonstrating how to use TESSERA embeddings through the geoai package.',
+    url: 'https://opengeoai.org/examples/tessera/',
+    tags: ['community', 'python'],
+  },
+  {
+    id: 'clr-tessera-workshop',
+    title: 'Workshop explores how AI & satellite data could reshape habitat monitoring',
+    date: '2026-06-16',
+    author: 'Centre for Landscape Regeneration',
+    description: '',
+    url: 'https://www.clr.conservation.cam.ac.uk/news/TESSERA-Workshop',
+    tags: ['conservation', 'community'],
+    minor: true,
+  },
+  {
+    id: 'esa-tessera-view-earth',
+    title: 'Tessera AI model offers accessible way to view Earth',
+    date: '2026-06-10',
+    author: 'ESA',
+    description: '',
+    url: 'https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Tessera_AI_model_offers_accessible_way_to_view_Earth',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'spatial-source-tessera',
+    title: 'Tessera AI model takes on the Earth observation world',
+    date: '2026-06-10',
+    author: 'Spatial Source',
+    description: '',
+    url: 'https://www.spatialsource.com.au/tessera-ai-model-takes-on-the-earth-observation-world/',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'geoconnexion-earth-intelligence',
+    title: 'Cambridge AI tool promises new era of Earth Intelligence from space',
+    date: '2026-06-10',
+    author: 'GeoConnexion',
+    description: '',
+    url: 'https://www.geoconnexion.com/news/cambridge-ai-tool-promises-new-era-of-earth-intelligence-from-space',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'mti-tessera-earth-intelligence',
+    title: 'Cambridge AI tool converts satellite archives into accessible Earth intelligence',
+    date: '2026-06-10',
+    author: 'Meteorological Technology International',
+    description: '',
+    url: 'https://www.meteorologicaltechnologyinternational.com/news/satellites/cambridge-ai-tool-converts-satellite-archives-into-accessible-earth-intelligence.html',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'physorg-tessera-view-earth',
+    title: 'Tessera AI model offers accessible way to view Earth',
+    date: '2026-06-10',
+    author: 'Phys.org',
+    description: '',
+    url: 'https://phys.org/news/2026-06-tessera-ai-accessible-view-earth.html',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'technologyorg-tessera-view-earth',
+    title: 'Tessera AI model offers accessible way to view Earth',
+    date: '2026-06-10',
+    author: 'Technology.org',
+    description: '',
+    url: 'https://www.technology.org/2026/06/10/tessera-ai-model-offers-accessible-way-to-view-earth/',
+    tags: ['press'],
+    minor: true,
+  },
+  {
+    id: 'innovation-news-network-tessera',
+    title: 'Tessera AI model opens new era for Earth observation research',
+    date: '2026-06-10',
+    author: 'Innovation News Network',
+    description: '',
+    url: 'https://www.innovationnewsnetwork.com/tessera-ai-model-opens-new-era-for-earth-observation-research/70509/',
+    tags: ['press'],
+    minor: true,
+  },
    {
     id: 'bbc-breakfast-hedgehogs',
     title: 'BBC Breakfast Show: Saving the Hedgehogs from Space',
@@ -31,6 +166,8 @@ export const blogLinks: BlogLink[] = [
     url: 'https://www.cst.cam.ac.uk/cambridge-computer-scientist-and-tessera-co-lead-elected-fellow-royal-society',
     tags: ['press', 'news'],
     minor: true,
+    // Full name kept on `author` for feeds; shortened for the inline label.
+    sourceLabel: 'Department of Computer Science and Technology',
   },
   {
     id: 'hedgehog-tessera-week',
@@ -39,6 +176,16 @@ export const blogLinks: BlogLink[] = [
     author: 'Anil Madhavapeddy',
     description: '',
     url: 'https://anil.recoil.org/notes/hedgehog-tessera-week',
+    tags: ['press', 'conservation', 'community'],
+    minor: true,
+  },
+  {
+    id: 'resultsense-hedgehog-habitats',
+    title: 'Cambridge AI maps UK hedgehog habitats from satellite data',
+    date: '2026-05-21',
+    author: 'ResultSense',
+    description: '',
+    url: 'https://www.resultsense.com/news/2026-05-21-cambridge-tessera-ai-foundation-model-hedgehog-habitats/',
     tags: ['press', 'conservation', 'community'],
     minor: true,
   },
@@ -454,6 +601,8 @@ export const blogLinks: BlogLink[] = [
     url: 'https://arstechnica.com/ai/2025/09/can-ai-detect-hedgehogs-from-space-maybe-if-you-find-brambles-first/',
     tags: ['conservation', 'community', 'press'],
     minor: true,
+    // `author` is the reporter's byline; label the link with the outlet instead.
+    sourceLabel: 'Ars Technica',
   },
   {
     id: 'brambles-from-space',
