@@ -1,9 +1,9 @@
 ---
 title: "A faster, cheaper way to map the world's forests with AI"
-date: 2026-07-28
+date: 2026-07-29
 tags: [research, ecology, conservation, news]
 author: "Constantino Panagopulos"
-description: "New University of Cambridge research uses Tessera embeddings to map 18 tree species across the mountains of Trentino, Italy, outperforming traditional satellite methods on standard computing hardware."
+description: "Cambridge researchers used Tessera, a geospatial foundation model, to map tree species across the mountainous Trentino region in Italy, outperforming traditional satellite methods and opening the door to low-cost, continent-scale forest mapping."
 ---
 
 <figure class="cover-image">
@@ -52,6 +52,8 @@ The research was supported by the UK [Medical Research Council](https://www.ukri
 ---
 
 *Reference: James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David A. Coomes (2026). "Geospatial foundation models enable data-efficient tree species mapping in temperate mountain forests." Science of Remote Sensing, 14, 100466. [doi.org/10.1016/j.srs.2026.100466](https://doi.org/10.1016/j.srs.2026.100466)*
+
+*This story also appears on the Energy and Environment Group website at the Department of Computer Science & Technology: [A Faster, Cheaper Way to Map the World's Forests with AI](https://www.cst.cam.ac.uk/research/eeg/faster-cheaper-way-map-worlds-forests-ai).*
 
 *For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), Tessera communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
 
