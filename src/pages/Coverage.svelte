@@ -10,6 +10,23 @@
   const COUNTRIES_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
   const TILE_OFFSET = 0.05;
 
+  // One entry from coverage.json's `datasets` array (schema_version 2): a
+  // single (version, variant) source with its own coverage_json/texture_png
+  // filenames, e.g. coverage_v1_vultr.json / coverage_texture_v1_vultr.png.
+  // This replaced the old layout this page used to assume (a bare
+  // coverage.json + coverage_YYYY.json + coverage_texture.png with no
+  // version/variant in the filename). The page doesn't offer a per-source
+  // toggle yet, so we just visualise the first (primary) dataset.
+  type DatasetInfo = {
+    id: string;
+    version: string;
+    variant: string;
+    years: number[];
+    coverage_json: string;
+    texture_png: string;
+    year_file_prefix?: string;
+  };
+
   let containerEl: HTMLDivElement;
   let globeInstance: any = null;
 
@@ -42,16 +59,51 @@
 
   // --- Data loading ---
 
-  async function loadCoverageData(): Promise<typeof coverageData> {
+  // Load coverage.json and resolve it to a single dataset to visualise.
+  // Mirrors tessera-coverage-map/index.html's own loadCoverageIndex(), which
+  // already handles both the current schema_version 2 (multiple datasets)
+  // and the older single-dataset shape.
+  async function loadCoverageIndex(): Promise<DatasetInfo | null> {
     try {
       const resp = await fetch(`${DATA_BASE}/coverage.json`);
       if (!resp.ok) return null;
+      const root = await resp.json();
+
+      if (root.schema_version === 2 && Array.isArray(root.datasets) && root.datasets.length > 0) {
+        return root.datasets[0];
+      }
+
+      // Legacy single-dataset shape: { years, metadata, year_file_prefix?, dataset_id? }
+      if (Array.isArray(root.years)) {
+        return {
+          id: root.dataset_id ?? 'default',
+          version: root.metadata?.version ?? '',
+          variant: '',
+          years: root.years,
+          coverage_json: 'coverage.json',
+          texture_png: 'coverage_texture.png',
+          year_file_prefix: root.year_file_prefix ?? 'coverage_',
+        };
+      }
+
+      return null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function loadCoverageData(dataset: DatasetInfo): Promise<typeof coverageData> {
+    try {
+      const resp = await fetch(`${DATA_BASE}/${dataset.coverage_json}`);
+      if (!resp.ok) return null;
       const main = await resp.json();
+      const prefix = main.year_file_prefix ?? dataset.year_file_prefix ?? `coverage_${dataset.id}_`;
+      const years: number[] = main.years ?? dataset.years;
 
       const tiles: Record<string, number[]> = {};
       const results = await Promise.allSettled(
-        main.years.map(async (year: number) => {
-          const r = await fetch(`${DATA_BASE}/coverage_${year}.json`);
+        years.map(async (year: number) => {
+          const r = await fetch(`${DATA_BASE}/${prefix}${year}.json`);
           if (!r.ok) return { year, coords: [] as string[] };
           return { year, coords: (await r.json()) as string[] };
         }),
@@ -67,7 +119,7 @@
         }
       }
 
-      return { tiles, years: main.years, metadata: main.metadata };
+      return { tiles, years, metadata: main.metadata };
     } catch {
       return null;
     }
@@ -220,10 +272,14 @@
 
   // --- Overlay texture ---
 
-  function loadOverlayTexture(): Promise<void> {
+  function loadOverlayTexture(textureFile: string): Promise<boolean> {
     return new Promise((resolve) => {
       const img = new Image();
       img.crossOrigin = 'anonymous';
+      img.onerror = () => {
+        console.warn(`Failed to load coverage texture: ${DATA_BASE}/${textureFile}`);
+        resolve(false);
+      };
       img.onload = () => {
         const canvas = document.createElement('canvas');
         canvas.width = img.width;
@@ -257,9 +313,9 @@
           overlayMaterial!.needsUpdate = true;
         }
 
-        resolve();
+        resolve(true);
       };
-      img.src = `${DATA_BASE}/coverage_texture.png`;
+      img.src = `${DATA_BASE}/${textureFile}`;
     });
   }
 
@@ -331,18 +387,25 @@
     countriesGeoJson = await loadCountries();
     if (countriesGeoJson) {
       globeInstance.polygonsData(countriesGeoJson.features);
-      statusText = 'Loading coverage data...';
     }
 
-    coverageData = await loadCoverageData();
+    statusText = 'Loading coverage index...';
+    const dataset = await loadCoverageIndex();
+    if (!dataset) {
+      statusText = 'Coverage data unavailable';
+      return;
+    }
+
+    statusText = 'Loading coverage data...';
+    coverageData = await loadCoverageData(dataset);
     if (coverageData) {
       tileCount = coverageData.metadata.total_tiles;
       landmaskCount = coverageData.metadata.total_landmasks;
     }
 
     statusText = 'Loading coverage texture...';
-    await loadOverlayTexture();
-    statusText = '';
+    const textureLoaded = await loadOverlayTexture(dataset.texture_png);
+    statusText = textureLoaded ? '' : 'Coverage texture unavailable';
   }
 
   function cleanup() {
