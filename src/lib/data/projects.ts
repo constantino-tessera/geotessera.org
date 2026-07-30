@@ -36,7 +36,8 @@ export const projects: Project[] = [
     ],
     links: [
       { label: 'View full results', url: '/projects/trentino' },
-      { label: 'Read preprint', url: 'https://doi.org/10.64898/2026.02.23.707022' },
+      { label: 'Read the story', url: '/news/2026-07-29-trentino-tree-species' },
+      { label: 'Read the paper', url: 'https://doi.org/10.1016/j.srs.2026.100466' },
       { label: 'Code on GitHub', url: 'https://github.com/PatBall1/trentino-trees' },
     ],
     hasDetailPage: true,
