@@ -15,6 +15,8 @@ export interface ContentMeta {
   minor?: boolean;
   /** Overrides the domain label shown beside a minor link */
   sourceLabel?: string;
+  /** Article sits behind a paywall — shows a "Subscription" pill on minor links */
+  paywalled?: boolean;
   /** Draft posts are accessible by slug but hidden from listings, feeds, and sitemap */
   draft?: boolean;
 }
@@ -77,6 +79,7 @@ function loadBlogLinks(): ContentMeta[] {
     externalUrl: link.url,
     minor: link.minor,
     sourceLabel: link.sourceLabel,
+    paywalled: link.paywalled,
   }));
 }
 
