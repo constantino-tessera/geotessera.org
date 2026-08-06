@@ -12,7 +12,7 @@
     </div>
     <h1>High-Resolution Species Mapping in the Italian Alps</h1>
     <p class="subtitle">
-      Geospatial foundation models enable data-efficient tree species mapping in temperate montane forests,
+      Geospatial foundation models enable data-efficient tree species mapping in temperate mountain forests,
       substantially outperforming conventional satellite-based approaches.
     </p>
     <div class="stat-pills">
@@ -257,11 +257,12 @@
   <section class="section cta-section">
     <h3>Read the Full Paper</h3>
     <p class="cta-cite">
-      <em>Geospatial foundation models enable data-efficient tree species mapping in temperate montane forests.</em><br/>
-      Ball, Wicklein, Feng, Knezevic, Atzberger, Dalponte &amp; Coomes.
+      <em>Geospatial foundation models enable data-efficient tree species mapping in temperate mountain forests.</em><br/>
+      Ball, Wicklein, Feng, Knezevic, Jaffer, Madhavapeddy, Atzberger, Dalponte &amp; Coomes.<br/>
+      Science of Remote Sensing, 14, 100466 (2026).
     </p>
     <div class="cta-links">
-      <a href="https://doi.org/10.64898/2026.02.23.707022" target="_blank" rel="noopener" class="cta-primary">Read Preprint</a>
+      <a href="https://doi.org/10.1016/j.srs.2026.100466" target="_blank" rel="noopener" class="cta-primary">Read the Paper</a>
       <a href="https://github.com/PatBall1/trentino-trees" target="_blank" rel="noopener" class="cta-secondary">View Code on GitHub</a>
     </div>
   </section>

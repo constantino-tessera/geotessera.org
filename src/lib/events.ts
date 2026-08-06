@@ -52,6 +52,22 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'ukeo-2026',
+    title: 'UK Earth Observation Conference (UKEO) 2026',
+    date: '2026-09-15',
+    dateEnd: '2026-09-17',
+    location: 'University of Warwick',
+    organiser: 'UKEO',
+    links: [
+      { label: 'Event page', url: 'https://ukeo.org/' },
+    ],
+    speakers: [{ name: 'Srinivasan Keshav', url: 'https://www.cst.cam.ac.uk/people/sk818' }],
+    talk: 'AI Foundation Models (panel session)',
+    // TODO: expand once the programme is published — fellow panellists, session
+    // abstract, and any recording or slides.
+    description: 'Srinivasan Keshav is a panellist in the AI Foundation Models session at the UK Earth Observation Conference, on Wednesday 16 September, 10:00–11:00. The conference runs over three days at the University of Warwick.',
+  },
+  {
     id: 'raes-presidents-conference-2026',
     title: 'RAeS President\'s Conference 2026: Assured Space',
     date: '2026-09-29',

@@ -131,7 +131,7 @@
           </div>
           <div class="timeline-content">
             {#if post.minor && post.externalUrl}
-              <a href={post.externalUrl} target="_blank" rel="noopener" class="minor-link"><span class="minor-title">{post.title}</span><span class="minor-domain">{domain(post.externalUrl)}</span><svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a>
+              <a href={post.externalUrl} target="_blank" rel="noopener" class="minor-link"><span class="minor-title">{post.title}</span><span class="minor-domain">{domain(post.externalUrl)}</span>{#if post.paywalled}<span class="paywall-pill" title="Requires a subscription to read in full">Subscription</span>{/if}<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a>
             {:else if post.externalUrl}
               <div class="link-row">
                 <a href={post.externalUrl} target="_blank" rel="noopener" class="link-title">{post.title}<span class="nowrap">&thinsp;<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></span></a>
@@ -554,6 +554,20 @@
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0.3px;
+  }
+
+  .paywall-pill {
+    font-size: 10px;
+    line-height: 1;
+    padding: 3px 6px;
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: center;
   }
 
   .minor-link .external-icon {

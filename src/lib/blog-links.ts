@@ -17,9 +17,27 @@ export interface BlogLink {
    * Has no effect on /blog, where minor links are labelled by domain.
    */
   sourceLabel?: string;
+  /**
+   * Set where the article sits behind a paywall or metered subscription wall.
+   * Renders a small "Subscription" pill beside the outlet name so readers know
+   * before they click.
+   */
+  paywalled?: boolean;
 }
 
 export const blogLinks: BlogLink[] = [
+  {
+    id: 'cambridge-independent-open-land-monitoring',
+    title: 'Cambridge University develops open land monitoring platform TESSERA with Vultr and AMD',
+    date: '2026-08-03',
+    author: 'Mike Scialom',
+    sourceLabel: 'Cambridge Independent',
+    description: '',
+    url: 'https://www.cambridgeindependent.co.uk/business/cambridge-university-develops-open-land-monitoring-platform-9476895/',
+    tags: ['press'],
+    minor: true,
+    paywalled: true,
+  },
   {
     id: 'cambridge-news-eye-in-the-sky',
     title: 'Eye in the sky: Cambridge AI allows instant tracking of forest loss and crop health',
