@@ -1,5 +1,5 @@
 ---
-title: "Fun Friday Feature: Tessera Postcards of Anywhere on Earth"
+title: "Tessera Postcards of Anywhere on Earth"
 date: 2026-08-07
 tags: [announcement, community]
 author: "Constantino Panagopulos"
