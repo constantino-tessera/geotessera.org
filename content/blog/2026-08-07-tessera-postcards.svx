@@ -19,7 +19,7 @@ description: "The Tessera Postcard generator renders any 10km x 6km patch of lan
   <figcaption>Cambridge, rendered from Tessera embeddings in the Postcard generator. Credit: Tessera, University of Cambridge.</figcaption>
 </figure>
 
-Every so often we like to have a bit of fun with what Tessera can do. This week's Fun Friday feature is postcards!
+Every so often we like to have a bit of fun with what Tessera can do. This week: postcards!
 
 The Tessera Postcard generator lets you select any 10km × 6km patch of land on Earth and renders it straight from the model's embeddings. You can also render the same location in a range of colour palettes, revealing the depth of information hidden in the embeddings.
 
