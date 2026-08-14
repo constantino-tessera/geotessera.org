@@ -72,6 +72,27 @@ export const projects: Project[] = [
     fundingSources: ['clr'],
     partners: ['nerc-clr'],
   },
+  {
+    id: 'weather-downscaling',
+    title: 'Sharpening Local Weather Predictions',
+    subtitle: 'Tessera embeddings describe the land surface for probabilistic weather downscaling, improving temperature and wind speed predictions at precise off-grid locations.',
+    status: 'in-progress',
+    statusLabel: 'In Progress',
+    region: 'Global',
+    tags: ['Tessera', 'Weather downscaling', 'Five regions', 'Off-grid prediction', 'ConvCNP'],
+    description: 'Weather forecasts come on coarse grids of roughly 25 km, yet conditions vary sharply within a single cell. Downscaling corrects that forecast down to a precise off-grid point, guided by a descriptor of the surface there. Led by first-year PhD student Pedro Sousa in collaboration with Richard Turner\u2019s group in the Department of Engineering, this project uses a Tessera embedding as that descriptor, in place of the coarse ERA5 surface fields that had stood in as rough proxies and alongside the existing elevation descriptor. Preliminary results show improvements in both 2 m temperature and 10 m wind speed, across five climatically diverse regions.',
+    // 'Will Tebbutt' and 'Richard E. Turner' are Department of Engineering collaborators
+    // not yet in people.ts; the names render as written until entries are added there.
+    team: ['pedro-sousa', 'Will Tebbutt', 'sadiq-jaffer', 'robin-young', 'anil-madhavapeddy', 'Richard E. Turner'],
+    stats: [
+      { label: 'Temperature skill (CRPS)', value: '+11.5%' },
+      { label: 'Wind speed skill (CRPS)', value: '+6.2%' },
+    ],
+    links: [
+      { label: 'Read the paper', url: 'https://arxiv.org/abs/2608.12271' },
+    ],
+    hasDetailPage: false,
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {

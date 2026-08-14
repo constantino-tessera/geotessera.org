@@ -14,6 +14,7 @@
     tag: string;
     blog?: string;
     pdf?: string;
+    featured?: boolean;
   }
 
   const papers: PaperEntry[] = [
@@ -28,6 +29,7 @@
       doi: '10.48550/arXiv.2607.03949',
       icon: 'M10 2L2 6.5l8 4.5 8-4.5zM2 10l8 4.5 8-4.5M2 13.5l8 4.5 8-4.5',
       tag: 'foundation model',
+      featured: true,
     },
     {
       id: 'tessera',
@@ -42,6 +44,19 @@
       pdf: 'https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_TESSERA_Temporal_Embeddings_of_Surface_Spectra_for_Earth_Representation_and_CVPR_2026_paper.pdf',
       icon: 'M10 2L3 7v6l7 5 7-5V7z',
       tag: 'foundation model',
+      featured: true,
+    },
+    {
+      id: 'weather-downscaling',
+      title: 'Earth observation embeddings are effective sub-grid descriptors for probabilistic weather downscaling',
+      authors: 'Pedro Sousa, Will Tebbutt, Sadiq Jaffer, Robin Young, Anil Madhavapeddy, Richard E. Turner',
+      venue: 'arXiv preprint',
+      date: 'Aug 2026',
+      description: 'Gives a probabilistic downscaling model a TESSERA embedding for each location, compressing a 640 m neighbourhood of 10 m pixels into a compact vector that takes over the job of describing the land surface. Across five climatically diverse regions and roughly 9,000 weather stations, every metric improves at stations and years never seen in training, with probabilistic skill (CRPS) gaining 11.5% for 2 m temperature and 6.2% for 10 m wind speed. The gains are largest where station networks are sparse, and the dense maps resolve three to four times more fine-scale wind structure than the terrain-only baseline.',
+      url: 'https://arxiv.org/abs/2608.12271',
+      doi: '10.48550/arXiv.2608.12271',
+      icon: 'M3 6h7a2 2 0 1 0-2-2M3 10h11a2 2 0 1 1-2 2M3 14h6a2 2 0 1 0-2-2',
+      tag: 'applications',
     },
     {
       id: 'crop-small-fields',
@@ -57,15 +72,15 @@
       tag: 'applications',
     },
     {
-      id: 'gedi-temporal',
-      title: 'Neural Processes Maintain Calibrated Biomass Estimates Across Spatiotemporal Gaps and Disturbance',
-      authors: 'Robin Young, Srinivasan Keshav',
-      venue: 'arXiv preprint',
-      date: 'Apr 2026',
-      description: 'This paper extends Attentive Neural Processes to fill spatiotemporal gaps in GEDI lidar biomass data using embeddings and space-for-time substitution to produce well-calibrated uncertainty estimates even through extended observation outages and forest disturbance events.',
-      url: 'https://arxiv.org/abs/2604.03874',
-      doi: '10.48550/arXiv.2604.03874',
-      icon: 'M3 3v14h14M3 13c3 0 4-7 7-7s4 5 7 5',
+      id: 'tree-species',
+      title: 'Geospatial Foundation Models Enable Data-Efficient Tree Species Mapping in Temperate Mountain Forests',
+      authors: 'James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David Coomes',
+      venue: 'Science of Remote Sensing, 14, 100466',
+      date: 'Jul 2026',
+      description: 'Evaluates TESSERA and AlphaEarth embeddings for tree species identification in heterogeneous mountain forests in Trentino, Italy. Foundation model embeddings achieve superior performance (weighted F1 = 0.83) with near-asymptotic accuracy using as few as 5% of available training parcels.',
+      url: 'https://doi.org/10.1016/j.srs.2026.100466',
+      doi: '10.1016/j.srs.2026.100466',
+      icon: 'M10 18v-5M10 13c-3.3 0-5.5-2.2-5.5-5.5S6.7 2 10 2s5.5 3.2 5.5 5.5S13.3 13 10 13z',
       tag: 'applications',
     },
     {
@@ -81,15 +96,15 @@
       tag: 'applications',
     },
     {
-      id: 'tree-species',
-      title: 'Geospatial Foundation Models Enable Data-Efficient Tree Species Mapping in Temperate Mountain Forests',
-      authors: 'James G.C. Ball, Jana Annika Wicklein, Zhengpeng Feng, Jovana Knezevic, Sadiq Jaffer, Anil Madhavapeddy, Clement Atzberger, Michele Dalponte, David Coomes',
-      venue: 'Science of Remote Sensing, 14, 100466',
-      date: 'Jul 2026',
-      description: 'Evaluates TESSERA and AlphaEarth embeddings for tree species identification in heterogeneous mountain forests in Trentino, Italy. Foundation model embeddings achieve superior performance (weighted F1 = 0.83) with near-asymptotic accuracy using as few as 5% of available training parcels.',
-      url: 'https://doi.org/10.1016/j.srs.2026.100466',
-      doi: '10.1016/j.srs.2026.100466',
-      icon: 'M10 18v-5M10 13c-3.3 0-5.5-2.2-5.5-5.5S6.7 2 10 2s5.5 3.2 5.5 5.5S13.3 13 10 13z',
+      id: 'gedi-temporal',
+      title: 'Neural Processes Maintain Calibrated Biomass Estimates Across Spatiotemporal Gaps and Disturbance',
+      authors: 'Robin Young, Srinivasan Keshav',
+      venue: 'arXiv preprint',
+      date: 'Apr 2026',
+      description: 'This paper extends Attentive Neural Processes to fill spatiotemporal gaps in GEDI lidar biomass data using embeddings and space-for-time substitution to produce well-calibrated uncertainty estimates even through extended observation outages and forest disturbance events.',
+      url: 'https://arxiv.org/abs/2604.03874',
+      doi: '10.48550/arXiv.2604.03874',
+      icon: 'M3 3v14h14M3 13c3 0 4-7 7-7s4 5 7 5',
       tag: 'applications',
     },
     {
@@ -142,6 +157,11 @@
     },
   ];
 
+  // The two core model papers stay pinned above the chronological list: they are the
+  // canonical citation (/papers#tessera) and should not drift down as applications accumulate.
+  const featuredPapers = papers.filter((p) => p.featured);
+  const otherPapers = papers.filter((p) => !p.featured);
+
   const papersJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -177,47 +197,64 @@
     <p class="subtitle">Research publications behind TESSERA</p>
   </header>
 
-  <div class="timeline">
-    {#each papers as paper}
-      <div class="timeline-entry" id={paper.id}>
-        <div class="timeline-rail">
-          <a class="timeline-icon" href={`#${paper.id}`} aria-label={paper.title}>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={paper.icon}/></svg>
-          </a>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="paper-venue-line">
-            <span class="paper-venue">{paper.venue}</span>
-            <span class="paper-date">{paper.date}</span>
-          </div>
-          <h3><a href={paper.url} target="_blank" rel="noopener">{paper.title}&#8288;<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a></h3>
-          <p class="paper-authors">{paper.authors}</p>
-          <p class="paper-desc">{paper.description}</p>
-          <div class="paper-links">
-            <a href={paper.pdf ?? paper.url} target="_blank" rel="noopener" class="paper-action">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM6 5h4M6 7.5h4M6 10h2.5"/></svg>
-              Read paper
-            </a>
-            {#if paper.blog}
-              <a href={paper.blog} target="_blank" rel="noopener" class="paper-action">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3.5h7a1 1 0 0 1 1 1v8a1 1 0 0 0 1 1H4a1 1 0 0 1-1-1z"/><path d="M11 6.5h1.5a1 1 0 0 1 1 1v4.5a1 1 0 0 1-1 1"/><path d="M5 6h3M5 8.5h3M5 11h2"/></svg>
-                Blog post
-              </a>
-            {/if}
-            <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener" class="paper-doi">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a3 3 0 0 0 4.2.3l1.5-1.5a3 3 0 0 0-4.2-4.2L6.5 5.5"/><path d="M9.5 6.5a3 3 0 0 0-4.2-.3L3.8 7.7a3 3 0 0 0 4.2 4.2l1.5-1.5"/></svg>
-              {paper.doi}
-            </a>
-            <span class="paper-tag">{paper.tag}</span>
-          </div>
-        </div>
-      </div>
-    {/each}
-  </div>
+  <section class="paper-group">
+    <h2 class="group-label"><span>The TESSERA model</span><span class="group-hint">Start here</span></h2>
+    <div class="timeline featured">
+      {#each featuredPapers as paper}
+        {@render paperEntry(paper)}
+      {/each}
+    </div>
+  </section>
+
+  <section class="paper-group">
+    <h2 class="group-label"><span>Applications &amp; methods</span><span class="group-hint">Newest first</span></h2>
+    <div class="timeline">
+      {#each otherPapers as paper}
+        {@render paperEntry(paper)}
+      {/each}
+    </div>
+  </section>
 
   <Footer />
 </div>
+
+{#snippet paperEntry(paper: PaperEntry)}
+  <div class="timeline-entry" id={paper.id}>
+    <div class="timeline-rail">
+      <a class="timeline-icon" href={`#${paper.id}`} aria-label={paper.title}>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={paper.icon}/></svg>
+      </a>
+      <div class="timeline-line"></div>
+    </div>
+    <div class="timeline-content">
+      <div class="paper-venue-line">
+        <span class="paper-venue">{paper.venue}</span>
+        <span class="paper-date">{paper.date}</span>
+      </div>
+      <h3><a href={paper.url} target="_blank" rel="noopener">{paper.title}&#8288;<svg class="external-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg></a></h3>
+      <p class="paper-authors">{paper.authors}</p>
+      <p class="paper-desc">{paper.description}</p>
+      <div class="paper-links">
+        <a href={paper.pdf ?? paper.url} target="_blank" rel="noopener" class="paper-action">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM6 5h4M6 7.5h4M6 10h2.5"/></svg>
+          Read paper
+        </a>
+        {#if paper.blog}
+          <a href={paper.blog} target="_blank" rel="noopener" class="paper-action">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3.5h7a1 1 0 0 1 1 1v8a1 1 0 0 0 1 1H4a1 1 0 0 1-1-1z"/><path d="M11 6.5h1.5a1 1 0 0 1 1 1v4.5a1 1 0 0 1-1 1"/><path d="M5 6h3M5 8.5h3M5 11h2"/></svg>
+            Blog post
+          </a>
+        {/if}
+        <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener" class="paper-doi">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a3 3 0 0 0 4.2.3l1.5-1.5a3 3 0 0 0-4.2-4.2L6.5 5.5"/><path d="M9.5 6.5a3 3 0 0 0-4.2-.3L3.8 7.7a3 3 0 0 0 4.2 4.2l1.5-1.5"/></svg>
+          {paper.doi}
+        </a>
+        <span class="paper-tag">{paper.tag}</span>
+      </div>
+    </div>
+  </div>
+{/snippet}
+
 
 <style>
   .papers-page {
@@ -241,6 +278,46 @@
     letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-top: 6px;
+  }
+
+  /* Group headings: name the two tiers, and state the ordering rule */
+  .paper-group + .paper-group {
+    margin-top: 14px;
+  }
+
+  .group-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 22px;
+  }
+
+  .group-hint {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* Pinned pair: slightly brighter rail icon */
+  .timeline.featured .timeline-icon {
+    background: rgba(0, 210, 255, 0.18);
+    border-color: var(--accent-border);
+  }
+
+  .timeline.featured .timeline-icon svg {
+    color: var(--accent);
+    opacity: 1;
   }
 
   /* Timeline layout */
