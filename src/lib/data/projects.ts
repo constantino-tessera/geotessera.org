@@ -90,6 +90,7 @@ export const projects: Project[] = [
     ],
     links: [
       { label: 'Read the paper', url: 'https://arxiv.org/abs/2608.12271' },
+      { label: 'Read the explainer', url: 'https://anil.recoil.org/notes/weather-downscaling-tessera' },
     ],
     hasDetailPage: false,
   },
