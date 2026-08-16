@@ -27,6 +27,15 @@ export interface BlogLink {
 
 export const blogLinks: BlogLink[] = [
   {
+    id: 'weather-downscaling-tessera',
+    title: 'Improving local weather forecasts using Tessera embeddings',
+    date: '2026-08-13',
+    author: 'Anil Madhavapeddy',
+    description: 'A walkthrough of Pedro Sousa\'s new preprint on weather downscaling, explaining why a frozen TESSERA embedding describes a location better than a small set of computed terrain numbers, and why the gains are largest where weather stations are sparse.',
+    url: 'https://anil.recoil.org/notes/weather-downscaling-tessera',
+    tags: ['research'],
+  },
+  {
     id: 'cambridge-independent-open-land-monitoring',
     title: 'Cambridge University develops open land monitoring platform TESSERA with Vultr and AMD',
     date: '2026-08-03',

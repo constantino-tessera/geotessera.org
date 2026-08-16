@@ -256,6 +256,15 @@
     text-underline-offset: 2px;
   }
 
+  .event-description :global(ul) {
+    margin: 0 0 1em;
+    padding-left: 1.25em;
+  }
+
+  .event-description :global(li) {
+    margin: 0 0 0.4em;
+  }
+
   /* Links row */
   .event-links {
     display: flex;

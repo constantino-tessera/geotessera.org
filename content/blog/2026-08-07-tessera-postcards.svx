@@ -1,0 +1,143 @@
+---
+title: "Tessera Postcards of Anywhere on Earth"
+date: 2026-08-07
+tags: [announcement, community]
+author: "Constantino Panagopulos"
+description: "The Tessera Postcard generator renders any 10km x 6km patch of land on Earth straight from the model's embeddings, in a range of colour palettes. Pick a spot that means something to you and send someone a postcard of how Tessera sees it."
+---
+
+<figure class="cover-video">
+  <!-- svelte-ignore a11y_media_has_caption -->
+  <video
+    src="/blog/tessera-postcards-demo.mp4"
+    poster="/blog/tessera-postcards-demo-poster.jpg"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+  <figcaption>Cambridge, rendered from Tessera embeddings in the Postcard generator. Credit: Tessera, University of Cambridge.</figcaption>
+</figure>
+
+Every so often we like to have a bit of fun with what Tessera can do. This week: postcards!
+
+The Tessera Postcard generator lets you select any 10km × 6km patch of land on Earth and renders it straight from the model's embeddings. You can also render the same location in a range of colour palettes, revealing the depth of information hidden in the embeddings.
+
+Below are a few more postcards from our archive, minus the location labels this time. Have a guess before you reveal the answers.
+
+<figure class="mystery">
+  <img src="/blog/postcard-jantar-mantar.webp" alt="A false-colour Tessera postcard of a city with wide radial avenues meeting at roundabouts, rendered in oranges, teals and purples, with a river winding down the right-hand side" loading="lazy" />
+  <details class="spoiler">
+    <summary>Reveal location</summary>
+    <p>Jantar Mantar, New Delhi, India</p>
+  </details>
+</figure>
+
+<figure class="mystery">
+  <img src="/blog/postcard-noordoostpolder.webp" alt="A false-colour Tessera postcard of a landscape of rectangular fields in a strict grid, rendered in reds, purples and blues, with a densely detailed town at the right" loading="lazy" />
+  <details class="spoiler">
+    <summary>Reveal location</summary>
+    <p>Noordoostpolder, Netherlands</p>
+  </details>
+</figure>
+
+<figure class="mystery">
+  <img src="/blog/postcard-victoria-falls.webp" alt="A false-colour Tessera postcard of a river cutting through a zig-zag gorge, rendered in greens and blues with a vivid magenta plume at the top" loading="lazy" />
+  <details class="spoiler">
+    <summary>Reveal location</summary>
+    <p>Victoria Falls, Zambia–Zimbabwe</p>
+  </details>
+</figure>
+
+Fancy making one yourself? Head to the [postcard generator](https://tee.cl.cam.ac.uk/postcard.html), pick a spot that means something to you — home, a favourite holiday spot, wherever — and send someone a postcard of how Tessera sees it.
+
+The Tessera Postcard generator is a feature of the [Tessera Embeddings Explorer](https://tee.cl.cam.ac.uk/), our browser-based tool for interactively exploring, labelling, and building lightweight classifiers on Tessera embeddings, no coding required.
+
+<style>
+  .cover-video {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .mystery {
+    margin: 2rem 0;
+  }
+
+  .mystery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .spoiler {
+    margin-top: 8px;
+  }
+
+  .spoiler summary {
+    display: inline-block;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 6px 12px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .spoiler summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .spoiler summary::before {
+    content: '▸ ';
+  }
+
+  .spoiler summary:hover {
+    border-color: var(--border-light);
+    background: var(--bg-card-hover);
+    color: var(--text-secondary);
+  }
+
+  .spoiler summary:focus-visible {
+    outline: 2px solid var(--accent-dim);
+    outline-offset: 2px;
+  }
+
+  .spoiler[open] summary {
+    color: var(--text-muted);
+  }
+
+  .spoiler[open] summary::before {
+    content: '▾ ';
+  }
+
+  .spoiler p {
+    font-size: 14px;
+    margin: 8px 0 0 0;
+    color: var(--text-secondary);
+  }
+</style>

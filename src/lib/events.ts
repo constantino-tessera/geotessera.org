@@ -83,6 +83,20 @@ export const tesseraEvents: TesseraEvent[] = [
     description: 'Srinivasan Keshav speaks on the second day of the Royal Aeronautical Society\'s President\'s Conference, alongside Dr Miranda Turvey of the Dstl. The session asks how space can act as an early adopter and "proof environment" for frontier technologies. The two-day conference, part of RAeS Space Week, takes the theme of "Assured Space". It runs in person and online.',
   },
   {
+    id: 'igarss-2026',
+    title: 'IGARSS 2026 (IEEE International Geoscience and Remote Sensing Symposium)',
+    date: '2026-08-09',
+    dateEnd: '2026-08-14',
+    location: 'Washington Hilton, Washington, D.C.',
+    organiser: 'IEEE Geoscience and Remote Sensing Society',
+    links: [
+      { label: 'Event page', url: 'https://2026.ieeeigarss.org/' },
+    ],
+    speakers: [{ name: 'Kyle Gao', url: 'https://www.aalto.fi/en/people/kyle-gao' }],
+    talk: 'Rapid Forest Fuel Load Estimation via Virtual Remote Sensing and Metric-Scale Feed-Forward 3D Reconstruction',
+    description: '<p>Visiting assistant professor Kyle Gao presents two papers at IGARSS 2026:</p><ul><li><strong>Oral:</strong> TU1.R6.4: Rapid Forest Fuel Load Estimation via Virtual Remote Sensing and Metric-Scale Feed-Forward 3D Reconstruction</li><li><strong>Poster:</strong> THP2.PI.5: Tree Canopy Segmentation in Low-Data Regimes Using Pretrained Deep Models</li></ul><p>He\'s also chairing sessions, covering GeoAI for wildfire monitoring, vision-language models for remote sensing, and large-scale LiDAR point cloud processing.</p>',
+  },
+  {
     id: 'raise-summit-2026',
     title: 'RAISE Summit 2026',
     date: '2026-07-08',
