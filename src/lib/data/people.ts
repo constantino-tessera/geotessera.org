@@ -8,6 +8,8 @@ export interface Person {
   affiliation: string;
   url?: string;
   initials: string;
+  /** Relative path under /people/ to a cropped square portrait, e.g. '/people/jane-doe.jpg'. */
+  photo?: string;
   /** Other spellings of this person's name as they appear in paper or blog
    *  author strings, so getPersonByName()/resolveAuthors() still resolve them. */
   aliases?: string[];
@@ -25,6 +27,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://www.cst.cam.ac.uk/people/sk818',
     initials: 'SK',
+    photo: '/people/srinivasan-keshav.jpg',
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
@@ -35,6 +38,7 @@ export const people: Person[] = [
     affiliation: 'Department of Plant Sciences, Cambridge',
     url: 'https://coomeslab.org/research-group/current-members/professor-david-coomes/',
     initials: 'DC',
+    photo: '/people/david-coomes.jpg',
     aliases: ['David Coomes'],
     email: 'dac18@cam.ac.uk',
     programmes: ['tessera', 'habitat-mapping'],
@@ -47,6 +51,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://anil.recoil.org/',
     initials: 'AM',
+    photo: '/people/anil-madhavapeddy.jpg',
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
@@ -57,6 +62,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://toao.com',
     initials: 'SJ',
+    photo: '/people/sadiq-jaffer.jpg',
     programmes: ['tessera'],
   },
 
@@ -69,6 +75,7 @@ export const people: Person[] = [
     affiliation: 'Department of Plant Sciences, Cambridge',
     url: 'https://patball1.github.io',
     initials: 'JB',
+    photo: '/people/james-ball.jpg',
     aliases: ['James G.C. Ball', 'James G. C. Ball'],
     email: 'jgcb3@cam.ac.uk',
     programmes: ['tessera', 'habitat-mapping'],
@@ -80,6 +87,7 @@ export const people: Person[] = [
     title: '4C PhD Student',
     affiliation: 'Department of Plant Sciences, Cambridge',
     initials: 'FB',
+    photo: '/people/felipe-begliomini.jpg',
     aliases: ['Felipe Nincao Begliomini'],
     programmes: ['habitat-mapping'],
   },
@@ -91,6 +99,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://digitalflapjack.com',
     initials: 'MD',
+    photo: '/people/michael-dales.jpg',
     programmes: ['tessera'],
   },
   {
@@ -101,6 +110,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://tunbury.org',
     initials: 'ME',
+    photo: '/people/mark-elvers.jpg',
     programmes: ['tessera'],
   },
   {
@@ -111,6 +121,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://www.cst.cam.ac.uk/people/zf281',
     initials: 'ZF',
+    photo: '/people/zhengpeng-feng.jpg',
     aliases: ['Frank Feng', 'Zhengpeng (Frank) Feng'],
     programmes: ['tessera', 'habitat-mapping'],
   },
@@ -121,6 +132,7 @@ export const people: Person[] = [
     title: '4C PhD Student',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     initials: 'JK',
+    photo: '/people/jovana-knezevic.jpg',
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
@@ -131,6 +143,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://jingtao-li-cver.github.io/home_page/',
     initials: 'JL',
+    photo: '/people/jingtao-li.jpg',
     programmes: ['tessera'],
   },
   {
@@ -141,6 +154,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://jon.recoil.org',
     initials: 'JL',
+    photo: '/people/jon-ludlam.jpg',
     programmes: ['tessera'],
   },
   {
@@ -151,6 +165,7 @@ export const people: Person[] = [
     affiliation: 'Department of Plant Sciences, Cambridge',
     url: 'https://www.aneeshnaik.com/',
     initials: 'AN',
+    photo: '/people/aneesh-naik.jpg',
     programmes: ['tessera'],
   },
   {
@@ -160,6 +175,7 @@ export const people: Person[] = [
     title: 'PhD student',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     initials: 'YS',
+    photo: '/people/yihang-she.jpg',
     programmes: ['tessera'],
   },
   {
@@ -170,6 +186,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://scholar.google.com/citations?user=v3HaAnUAAAAJ&hl=en',
     initials: 'SS',
+    photo: '/people/silja-sormunen.jpg',
     programmes: ['tessera'],
   },
   {
@@ -179,6 +196,7 @@ export const people: Person[] = [
     title: 'PhD student',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     initials: 'PS',
+    photo: '/people/pedro-sousa.jpg',
     programmes: ['tessera'],
   },
   {
@@ -189,6 +207,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://www.cst.cam.ac.uk/people/ray25',
     initials: 'RY',
+    photo: '/people/robin-young.jpg',
     programmes: ['tessera'],
   },
 
@@ -201,6 +220,7 @@ export const people: Person[] = [
     affiliation: '',
     url: 'https://scholar.google.com/citations?user=lBhFXdIAAAAJ',
     initials: 'CA',
+    photo: '/people/clement-atzberger.jpg',
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
@@ -211,6 +231,7 @@ export const people: Person[] = [
     affiliation: '',
     url: 'https://royalsociety.org/people/andrew-blake-11097/',
     initials: 'AB',
+    photo: '/people/andrew-blake.jpg',
     programmes: ['tessera'],
   },
   {
@@ -230,6 +251,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://www.linkedin.com/in/yi-lin-kyle-gao',
     initials: 'KG',
+    photo: '/people/kyle-gao.jpg',
     email: 'ylg23@cam.ac.uk',
     programmes: ['tessera'],
   },
@@ -241,6 +263,7 @@ export const people: Person[] = [
     affiliation: 'Department of Computer Science and Technology, Cambridge',
     url: 'https://mlisaius.github.io/',
     initials: 'ML',
+    photo: '/people/madeline-lisaius.jpg',
     programmes: ['tessera'],
   },
   {
