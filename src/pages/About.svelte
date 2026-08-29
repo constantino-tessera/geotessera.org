@@ -153,6 +153,18 @@
         {/each}
       </div>
     </div>
+
+    <div class="people-group">
+      <h3>Media &amp; Communications</h3>
+      <div class="media-contact">
+        <div class="media-contact-name">Constantino Panagopulos</div>
+        <div class="media-contact-role">Communications Coordinator, Tessera</div>
+        <div class="media-contact-lines">
+          <a href="tel:+447356104073">+44 (0)7356 104 073</a>
+          <a href="mailto:cp918@cam.ac.uk">cp918@cam.ac.uk</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Acknowledgments -->
@@ -373,6 +385,42 @@
 
   .people-list.collab .person-affil::before {
     content: '\00a0\2014\00a0';
+  }
+
+  /* Media & Communications — static single-entry card, toned down to the
+     same type scale as Project Collaborators rather than the photo rows */
+  .media-contact-name {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+
+  .media-contact-role {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .media-contact-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .media-contact-lines a {
+    display: block;
+    color: var(--accent-dim);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .media-contact-lines a:hover {
+    text-decoration: underline;
   }
 
   @media (min-width: 640px) {
