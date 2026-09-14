@@ -115,7 +115,7 @@ export const people: Person[] = [
   },
   {
     id: 'zhengpeng-feng',
-    name: 'Zhengpeng Feng',
+    name: 'Zhengpeng Feng (Frank)',
     role: 'researcher',
     title: 'PhD student and lead researcher',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
@@ -134,6 +134,17 @@ export const people: Person[] = [
     initials: 'JK',
     photo: '/people/jovana-knezevic.jpg',
     programmes: ['tessera', 'habitat-mapping'],
+  },
+  {
+    id: 'cissy-lei',
+    name: 'Lei Lei (Cissy)',
+    role: 'researcher',
+    title: 'Research Associate',
+    affiliation: 'Department of Computer Science and Technology, Cambridge',
+    url: 'https://ll0912.github.io/',
+    initials: 'CL',
+    photo: '/people/cissy-lei.jpg',
+    programmes: ['tessera'],
   },
   {
     id: 'jingtao-li',
@@ -211,6 +222,17 @@ export const people: Person[] = [
     programmes: ['tessera'],
   },
 
+  {
+    id: 'yujie-zan',
+    name: 'Yujie Zan',
+    role: 'researcher',
+    title: 'Research Associate',
+    affiliation: 'Department of Computer Science and Technology, Cambridge',
+    url: 'https://lookup.cam.ac.uk/person/crsid/ll858',
+    initials: 'YZ',
+    programmes: ['tessera'],
+  },
+
   // Research Affiliates (sorted A-Z by surname)
   {
     id: 'clement-atzberger',
@@ -274,6 +296,17 @@ export const people: Person[] = [
     affiliation: 'Centre for Landscape Regeneration',
     initials: 'BN',
     programmes: ['habitat-mapping', 'clr'],
+  },
+  {
+    id: 'lars-schuster',
+    name: 'Lars Schuster',
+    role: 'affiliate',
+    title: 'Visiting Research Associate',
+    affiliation: 'Department of Computer Science and Technology, Cambridge',
+    url: 'https://www.linkedin.com/in/l-schuster/',
+    initials: 'LS',
+    photo: '/people/lars-schuster.jpg',
+    programmes: ['tessera'],
   },
   {
     id: 'lucy-watson',
