@@ -221,15 +221,15 @@ export const people: Person[] = [
     photo: '/people/robin-young.jpg',
     programmes: ['tessera'],
   },
-
   {
     id: 'yujie-zan',
     name: 'Yujie Zan',
     role: 'researcher',
-    title: 'Research Associate',
+    title: 'Visiting PhD Student',
     affiliation: 'Department of Computer Science and Technology, Cambridge',
-    url: 'https://lookup.cam.ac.uk/person/crsid/ll858',
+    url: 'https://scholar.google.com/citations?user=Uot3_c4AAAAJ&hl=zh%E2%80%91CN&oi=ao',
     initials: 'YZ',
+    photo: '/people/yujie-zan.jpg',
     programmes: ['tessera'],
   },
 
