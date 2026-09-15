@@ -1,4 +1,4 @@
-export type PersonRole = 'faculty' | 'researcher' | 'affiliate' | 'collaborator';
+export type PersonRole = 'faculty' | 'researcher' | 'visitor' | 'affiliate' | 'collaborator';
 
 export interface Person {
   id: string;
@@ -136,17 +136,6 @@ export const people: Person[] = [
     programmes: ['tessera', 'habitat-mapping'],
   },
   {
-    id: 'cissy-lei',
-    name: 'Lei Lei (Cissy)',
-    role: 'researcher',
-    title: 'Research Associate',
-    affiliation: 'Department of Computer Science and Technology, Cambridge',
-    url: 'https://ll0912.github.io/',
-    initials: 'CL',
-    photo: '/people/cissy-lei.jpg',
-    programmes: ['tessera'],
-  },
-  {
     id: 'jingtao-li',
     name: 'Jingtao Li',
     role: 'researcher',
@@ -221,12 +210,48 @@ export const people: Person[] = [
     photo: '/people/robin-young.jpg',
     programmes: ['tessera'],
   },
+
+  // Current Visitors (sorted A-Z by surname)
+  {
+    id: 'kyle-gao',
+    name: 'Kyle Gao',
+    role: 'visitor',
+    title: 'Visiting Assistant Professor',
+    affiliation: 'Aalto University',
+    url: 'https://www.linkedin.com/in/yi-lin-kyle-gao',
+    initials: 'KG',
+    photo: '/people/kyle-gao.jpg',
+    email: 'ylg23@cam.ac.uk',
+    programmes: ['tessera'],
+  },
+  {
+    id: 'cissy-lei',
+    name: 'Lei Lei (Cissy)',
+    role: 'visitor',
+    title: 'Visiting Research Associate',
+    affiliation: 'University of Electronic Science and Technology of China',
+    url: 'https://ll0912.github.io/',
+    initials: 'CL',
+    photo: '/people/cissy-lei.jpg',
+    programmes: ['tessera'],
+  },
+  {
+    id: 'lars-schuster',
+    name: 'Lars Schuster',
+    role: 'visitor',
+    title: 'Visiting Research Associate',
+    affiliation: 'ETH Zürich',
+    url: 'https://www.linkedin.com/in/l-schuster/',
+    initials: 'LS',
+    photo: '/people/lars-schuster.jpg',
+    programmes: ['tessera'],
+  },
   {
     id: 'yujie-zan',
     name: 'Yujie Zan',
-    role: 'researcher',
+    role: 'visitor',
     title: 'Visiting PhD Student',
-    affiliation: 'Department of Computer Science and Technology, Cambridge',
+    affiliation: 'Wuhan University',
     url: 'https://scholar.google.com/citations?user=Uot3_c4AAAAJ&hl=zh%E2%80%91CN&oi=ao',
     initials: 'YZ',
     photo: '/people/yujie-zan.jpg',
@@ -266,18 +291,6 @@ export const people: Person[] = [
     programmes: ['habitat-mapping', 'clr'],
   },
   {
-    id: 'kyle-gao',
-    name: 'Kyle Gao',
-    role: 'affiliate',
-    title: 'Visiting Assistant Professor',
-    affiliation: 'Department of Computer Science and Technology, Cambridge',
-    url: 'https://www.linkedin.com/in/yi-lin-kyle-gao',
-    initials: 'KG',
-    photo: '/people/kyle-gao.jpg',
-    email: 'ylg23@cam.ac.uk',
-    programmes: ['tessera'],
-  },
-  {
     id: 'madeline-lisaius',
     name: 'Madeline C. Lisaius',
     role: 'affiliate',
@@ -296,17 +309,6 @@ export const people: Person[] = [
     affiliation: 'Centre for Landscape Regeneration',
     initials: 'BN',
     programmes: ['habitat-mapping', 'clr'],
-  },
-  {
-    id: 'lars-schuster',
-    name: 'Lars Schuster',
-    role: 'affiliate',
-    title: 'Visiting Research Associate',
-    affiliation: 'Department of Computer Science and Technology, Cambridge',
-    url: 'https://www.linkedin.com/in/l-schuster/',
-    initials: 'LS',
-    photo: '/people/lars-schuster.jpg',
-    programmes: ['tessera'],
   },
   {
     id: 'lucy-watson',

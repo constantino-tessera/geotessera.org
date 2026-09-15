@@ -6,6 +6,7 @@
 
   const faculty = getPeopleByRole('faculty');
   const researchers = getPeopleByRole('researcher');
+  const visitors = getPeopleByRole('visitor');
   const affiliates = getPeopleByRole('affiliate');
   const collaborators = getPeopleByRole('collaborator');
 
@@ -122,6 +123,15 @@
       <h3>Researchers</h3>
       <div class="people-list">
         {#each researchers as person}
+          {@render personRow(person)}
+        {/each}
+      </div>
+    </div>
+
+    <div class="people-group">
+      <h3>Current Visitors</h3>
+      <div class="people-list">
+        {#each visitors as person}
           {@render personRow(person)}
         {/each}
       </div>
