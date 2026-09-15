@@ -59,6 +59,18 @@
       tag: 'applications',
     },
     {
+      id: 'usability-evaluation',
+      title: 'How Usable Are Geospatial Foundation Models? A Systematic Evaluation of 89 Models',
+      authors: 'Robin Young, Artyom Gabtraupov, Kenzy Soror, Srinivasan Keshav',
+      venue: 'arXiv preprint',
+      date: 'Aug 2026',
+      description: 'The first systematic usability evaluation of geospatial foundation models: a seven-dimension framework, grounded in human-computer interaction theory and informed by a survey of ecology and conservation scientists, applied to 89 models across access, interaction, trust and community support. The authors find distinct accessibility gaps, with nearly a third of models offering no support to practitioners beyond their source code, and name Tessera as the only model in the study to support all five interaction paradigms the framework defines.',
+      url: 'https://arxiv.org/abs/2608.03804',
+      doi: '10.48550/arXiv.2608.03804',
+      icon: 'M3 17V3M3 17h14M6 14v-5M10 14V7M14 14v-8',
+      tag: 'method',
+    },
+    {
       id: 'crop-small-fields',
       title: 'Towards Improved Crop Type Classification: a Compact Embedding Approach Suitable for Small Fields',
       authors: 'Madeline C. Lisaius, Andrew Blake, Clement Atzberger, Srinivasan Keshav',
