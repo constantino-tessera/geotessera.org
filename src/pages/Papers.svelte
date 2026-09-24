@@ -47,6 +47,18 @@
       featured: true,
     },
     {
+      id: 'old-growth-forests',
+      title: 'Geospatial embeddings detect old-growth forests but buffered spatial validation narrows their advantage over Sentinel features',
+      authors: 'Thomas Ratsakatika, Mihai Zotta, Srinivasan Keshav, Emily R. Lines',
+      venue: 'arXiv preprint',
+      date: 'Sep 2026',
+      description: 'Maps old-growth forest across 211,893 hectares of Romania\u2019s Southern Carpathians using expert-informed reference labels, comparing Tessera v2, AlphaEarth and Sentinel-1/2 features against a topographic and human-access baseline. Tessera reaches the highest precision-recall AUC (0.84) under standard spatial validation, but that lead narrows to within the margin of no difference once a 10 km buffer between training and test areas controls for spatial autocorrelation. Convolutional networks add no benefit over pixel-based XGBoost, and predictions agree with an independent, field-calibrated reference map 81% of the time.',
+      url: 'https://arxiv.org/abs/2609.28194',
+      doi: '10.48550/arXiv.2609.28194',
+      icon: 'M4 17l3-6 2 3 3-7 4 10H4z',
+      tag: 'applications',
+    },
+    {
       id: 'weather-downscaling',
       title: 'Earth observation embeddings are effective sub-grid descriptors for probabilistic weather downscaling',
       authors: 'Pedro Sousa, Will Tebbutt, Sadiq Jaffer, Robin Young, Anil Madhavapeddy, Richard E. Turner',
