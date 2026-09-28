@@ -1,0 +1,116 @@
+---
+title: "Mapping Senegal's small farms from space, with a fraction of the data"
+date: 2026-09-29
+tags: [research, news]
+author: "Constantino Panagopulos"
+description: "New Cambridge research shows Tessera can map crops on Senegal's smallholder farms more accurately than current methods, using a fraction of the computing power and ground data."
+---
+
+<script>
+  import ImageZoom from '../../src/components/ImageZoom.svelte';
+</script>
+
+<figure class="cover-image">
+  <img src="/blog/senegal-crop-map.webp" alt="A Tessera crop map of Senegal's groundnut basin, a dense patchwork of green, pink, red and yellow fields crossed by black channels marking areas excluded from the analysis" />
+  <figcaption>A Tessera crop map of Senegal's groundnut basin in 2021, showing millet (dark green), groundnut (pink), sorghum (yellow), cowpea (orange), rice (purple), trees (light green), fallow land (dark brown) and other crops (red), with areas excluded from the analysis in black. Contains modified Copernicus Sentinel data (2021). Credit: Madeline Lisaius / Tessera, University of Cambridge</figcaption>
+</figure>
+
+Food in Senegal is mostly grown on small-scale, rain-dependent farms, leaving much of the population vulnerable to climate shocks, [according to the World Food Programme](https://www.wfp.org/countries/senegal). However, satellite crop-mapping tools designed to track the impact on farming of those shocks are largely beyond the reach of the West African country.
+
+New research from [Tessera](https://geotessera.org/) at the University of Cambridge suggests that could change. Using Tessera, the team mapped crops across Senegal's groundnut basin and found it was more accurate than current methods. It classified crops correctly 84% of the time in representative tests while needing only a fraction of the computing power and labelled training data. In one scenario it outperformed the next-best model by 28%.
+
+The study, "[Embedding-based Crop Type Classification in the Groundnut Basin of Senegal](https://doi.org/10.1088/2976-601X/aea0b8)," was published on 29 September in the journal *Environmental Research: Food Systems*.
+
+<figure class="inline-image">
+  <ImageZoom src="/blog/senegal-study-area-map.png" alt="Map of Senegal marking the study area in the groundnut basin, east of Dakar and north-west of Kaolack, with an inset locating Senegal in Africa" />
+  <figcaption>A map showing the location of the study area in Senegal's groundnut basin. Map data: Natural Earth. Credit: Tessera, University of Cambridge</figcaption>
+</figure>
+
+The findings suggest that Tessera could become an important tool for governments and food security organisations, particularly in areas in the Global South where ground data is difficult or expensive to gather, said lead author Madeline Lisaius, who helped develop Tessera when she was a PhD student at [Cambridge's Department of Computer Science and Technology](https://www.cst.cam.ac.uk/).
+
+"Accurate and up-to-date crop statistics can guide food security planning and help decide where best to target support. But most local governments and bodies can only afford to collect ground data every few years," Lisaius said. "With Tessera, you can train on the data you already have and extend it into the years in between, with more accurate crop information than baseline methods have ever been able to provide."
+
+Governments, NGOs and other food security organisations can begin using the technology to produce their own crop statistics now, she added.
+
+The research is given added urgency by this year's El Niño, which scientists say is the strongest ever recorded. The climate phenomenon is known to disrupt rainfall patterns in West Africa and past strong events have brought prolonged drought to the region.
+
+"Reliable agricultural data is essential to anticipate food security and climate-related risks. In Senegal, WFP is working with national partners to explore how geospatial data and artificial intelligence can strengthen food security monitoring systems and support faster, more informed decision-making," said Pierre Lucas, Representative and Country Director of the United Nations World Food Programme in Senegal.
+
+Like much of West Africa, Senegal's agriculture is dominated by smallholder producers, who grow crops on plots not much larger than a football pitch. As the paper makes clear, knowing what's grown where allows for "informed decision making at regional, national and global scales that can mean survival for vulnerable people."
+
+<figure class="wide-image">
+  <ImageZoom src="/blog/senegal-wfp-rice-transplanting.jpg" alt="Aerial view of 4 farmers wading through a flooded rice field, transplanting seedlings" />
+  <figcaption>An aerial photo of smallholder farmers transplanting rice in Senegal's Saint-Louis region in 2024. Credit: &copy; WFP/Richard Mbouet</figcaption>
+</figure>
+
+Currently, governments and food security organisations estimate crop production based on information either collected on the ground, which is slow and difficult to gather, or derived from expensive computational analyses of satellite imagery.
+
+Tessera offers an alternative way of mapping crops, a key step in estimating production. Its underlying model analyses a year's worth of satellite images to compress each 10-metre point of land into a string of numbers, known as an embedding. That embedding carries information about how the land (and what grows on it) changes over time. A simple algorithm with a few calibration data points can then turn the embedding into a large-scale crop map.
+
+The researchers compared Tessera with two satellite mapping methods widely used for monitoring agriculture, and with Google DeepMind's AlphaEarth. Each method was used to map crops for 2018, 2019 and 2021, then assessed according to accuracy, reliability, reusability and computational cost.
+
+Tessera matched or outperformed other models and held up best when trained on one year's data and applied to another. This suggests it can be used in later years without the need for new ground surveys every year.
+
+The study has some limitations, in particular a drop in accuracy between 2018 and 2021 that the researchers think is linked to the quality of the ground survey data. It also did not test for secondary crops in fields where more than one crop is grown, which could change the overall accuracy in the most diverse locations.
+
+Lisaius is keen to stress that Tessera's biggest advantage is that it brings the power of sophisticated satellite analysis to the hands of those who don't typically have access to it.
+
+"One of the great contributions of this technology is not that it's perfect, but that it's incredibly accessible," she said. "It's a step towards greater geospatial data democratisation."
+
+The current study builds on [previously published research](https://www.cst.cam.ac.uk/news/how-ai-could-bring-satellite-crop-monitoring-worlds-most-vulnerable-farms) which demonstrated Tessera's ability to map small fields in Austria.
+
+---
+
+*Reference: M. Lisaius, S. Keshav, A. Blake and C. Atzberger, 'Embedding-based Crop Type Classification in the Groundnut Basin of Senegal', Environmental Research: Food Systems (2026). DOI: [10.1088/2976-601X/aea0b8](https://doi.org/10.1088/2976-601X/aea0b8)*
+
+*This story was originally published at University of Cambridge Research News: [AI tool for mapping smallholder crops proves itself in Senegal](https://www.cam.ac.uk/research/news/ai-tool-for-mapping-smallholder-crops-proves-itself-in-senegal).*
+
+*For more information contact [Constantino Panagopulos](mailto:cp918@cam.ac.uk), Tessera communications, Department of Computer Science and Technology, +44 (0)7356 104 073.*
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .wide-image {
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .inline-image {
+    float: right;
+    width: 66%;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .inline-image {
+      float: none;
+      width: 100%;
+      margin: 0 0 1.5rem 0;
+    }
+  }
+</style>
