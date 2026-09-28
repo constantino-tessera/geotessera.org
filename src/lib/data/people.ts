@@ -311,6 +311,17 @@ export const people: Person[] = [
     programmes: ['habitat-mapping', 'clr'],
   },
   {
+    id: 'thomas-ratsakatika',
+    name: 'Thomas Ratsakatika',
+    role: 'affiliate',
+    title: 'PhD Researcher',
+    affiliation: 'Department of Geography, Cambridge',
+    url: 'https://ratsakatika.com/',
+    initials: 'TR',
+    photo: '/people/thomas-ratsakatika.jpg',
+    programmes: ['tessera'],
+  },
+  {
     id: 'jana-wicklein',
     name: 'Jana Wicklein',
     role: 'affiliate',
