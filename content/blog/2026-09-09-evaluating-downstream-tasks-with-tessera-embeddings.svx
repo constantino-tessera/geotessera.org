@@ -47,9 +47,9 @@ for event in run_kfold_cv(vectors, labels, ["rf"], k=5, task="classification"):
         print(f"macro-F1: {m['mean_f1']:.3f} ± {m['std_f1']:.3f}")
 ```
 
-That prints macro-F1: 0.796 ± 0.004, a reasonable result for 10-way crop classification from embeddings alone. Replace ["rf"] with ["nn", "rf", "xgboost", "mlp"] to compare all four per-pixel models at once. For a continuous target (canopy height, biomass, percent cover), pass task="regression" with the regressor names — ["nn_reg", "rf_reg", "xgboost_reg", "mlp_reg"] to get R²/RMSE/MAE instead of F1. One caveat: random k-fold on satellite data is optimistic because neighbouring pixels are correlated. For a realistic comparison, use a spatial split.
+That prints macro-F1: 0.796 ± 0.004, a reasonable result for 10-way crop classification from embeddings alone. Replace ["rf"] with ["nn", "rf", "xgboost", "mlp"] to compare all four per-pixel models at once. For a continuous target (canopy height, biomass, percent cover), pass task="regression" with the regressor names — ["nn_reg", "rf_reg", "xgboost_reg", "mlp_reg"] to get R²/RMSE/MAE instead of F1. One caveat: random k-fold on satellite data is optimistic because neighbouring pixels are correlated. For a realistic comparison, use a spatial split. Silja's [Finnish example](https://geotessera.org/blog/2026-09-29-tessera-eval-finnish-forest-mire) shows what that looks like in practice.
 
-Install with `pip install "tessera-eval[geotessera,xgboost]"`. A follow-up post will cover the command-line interface, which runs the same evaluations without writing any Python.
+Install with `pip install "tessera-eval[geotessera,xgboost]"`. If you'd rather not write any Python, `tessera-eval` also runs from the command line. In a follow-up post, [Silja Sormunen uses the command-line tool to classify forest and mire types in northern Finland](https://geotessera.org/blog/2026-09-29-tessera-eval-finnish-forest-mire), including a spatial holdout test.
 
 To find out more, here is the link to the [git repo](https://github.com/ucam-eo/tessera-eval).
 
