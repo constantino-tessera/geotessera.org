@@ -13,6 +13,7 @@
     icon: string;
     tag: string;
     blog?: string;
+    press?: string;
     pdf?: string;
     featured?: boolean;
   }
@@ -45,6 +46,18 @@
       icon: 'M10 2L3 7v6l7 5 7-5V7z',
       tag: 'foundation model',
       featured: true,
+    },
+    {
+      id: 'old-growth-forests',
+      title: 'Geospatial embeddings detect old-growth forests but buffered spatial validation narrows their advantage over Sentinel features',
+      authors: 'Thomas Ratsakatika, Mihai Zotta, Srinivasan Keshav, Emily R. Lines',
+      venue: 'arXiv preprint',
+      date: 'Sep 2026',
+      description: 'Maps old-growth forest across 211,893 hectares of Romania\u2019s Southern Carpathians using expert-informed reference labels, comparing Tessera v2, AlphaEarth and Sentinel-1/2 features against a topographic and human-access baseline. Tessera reaches the highest precision-recall AUC (0.84) under standard spatial validation, but that lead narrows to within the margin of no difference once a 10 km buffer between training and test areas controls for spatial autocorrelation. Convolutional networks add no benefit over pixel-based XGBoost, and predictions agree with an independent, field-calibrated reference map 81% of the time.',
+      url: 'https://arxiv.org/abs/2609.28194',
+      doi: '10.48550/arXiv.2609.28194',
+      icon: 'M4 17l3-6 2 3 3-7 4 10H4z',
+      tag: 'applications',
     },
     {
       id: 'weather-downscaling',
@@ -133,13 +146,14 @@
     },
     {
       id: 'crop-senegal',
-      title: 'Embedding-based Crop Type Classification in the Groundnut Basin of Senegal',
+      title: 'Towards accessible smallholder crop classification in the groundnut basin of Senegal',
       authors: 'Madeline C. Lisaius, Srinivasan Keshav, Andrew Blake, Clement Atzberger',
-      venue: 'arXiv preprint',
-      date: 'Jan 2026',
-      description: 'Establishes a four-part criteria for embedding-based crop mapping and evaluates TESSERA and AlphaEarth in Senegal\'s groundnut basin. The TESSERA-based approach achieves 28% higher accuracy than the next best method in temporal transfer, demonstrating effective crop classification for smallholder farming regions.',
-      url: 'https://arxiv.org/abs/2601.16900',
-      doi: '10.48550/arXiv.2601.16900',
+      venue: 'Environmental Research: Food Systems, 3, 045006',
+      date: 'Sep 2026',
+      description: 'Establishes a three-part framework, covering performance, temporal transferability and accessibility, for evaluating crop type mapping, then tests it on Tessera and AlphaEarth embeddings against traditional baselines in Senegal\'s groundnut basin. The Tessera-based method cuts compute by 78% compared with a timeseries approach and needs no custom feature engineering, while reaching 28% higher relative accuracy (an absolute gain of about 0.10 weighted F1) than the next-best method in one temporal-transfer test.',
+      url: 'https://iopscience.iop.org/article/10.1088/2976-601X/aea0b8',
+      doi: '10.1088/2976-601X/aea0b8',
+      press: 'https://www.cam.ac.uk/research/news/ai-tool-for-mapping-smallholder-crops-proves-itself-in-senegal',
       icon: 'M3 5h14M3 10h14M3 15h14M7 5v10M13 5v10',
       tag: 'applications',
     },
@@ -255,6 +269,12 @@
           <a href={paper.blog} target="_blank" rel="noopener" class="paper-action">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3.5h7a1 1 0 0 1 1 1v8a1 1 0 0 0 1 1H4a1 1 0 0 1-1-1z"/><path d="M11 6.5h1.5a1 1 0 0 1 1 1v4.5a1 1 0 0 1-1 1"/><path d="M5 6h3M5 8.5h3M5 11h2"/></svg>
             Blog post
+          </a>
+        {/if}
+        {#if paper.press}
+          <a href={paper.press} target="_blank" rel="noopener" class="paper-action">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5h8a1 1 0 0 1 1 1V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/><path d="M11 6h1.5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4"/><path d="M4 6h4M4 8.5h4M4 11h2.5"/></svg>
+            Press release
           </a>
         {/if}
         <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener" class="paper-doi">
