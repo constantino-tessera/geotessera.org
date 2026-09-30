@@ -1,6 +1,6 @@
 <script lang="ts">
   import { link } from '@/lib/router';
-  import { projects } from '@/lib/data/projects';
+  import { projects, type Project } from '@/lib/data/projects';
   import { getPersonById } from '@/lib/data/people';
   import { fundingSources } from '@/lib/data/funding';
   import { partners } from '@/lib/data/partners';
@@ -19,11 +19,14 @@
     return p?.url && p.url !== '#' ? p.url : undefined;
   }
 
+  const ownProjects = projects.filter((p) => (p.origin ?? 'cambridge') === 'cambridge');
+  const communityProjects = projects.filter((p) => p.origin === 'community');
+
   const projectsJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Projects — TESSERA',
-    description: 'Research projects applying TESSERA embeddings to habitat mapping at scale',
+    name: 'Projects — Tessera',
+    description: 'Research projects applying Tessera embeddings, by the Cambridge team and by groups worldwide',
     url: 'https://geotessera.org/projects',
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -39,6 +42,87 @@
   {@html `<script type="application/ld+json">${projectsJsonLd}</script>`}
 </svelte:head>
 
+{#snippet projectCard(project: Project)}
+  {@const external = project.origin === 'community'}
+  <article class="project-card" class:external id={project.id}>
+    <div class="card-header">
+      {#if external}
+        <span class="status-badge external">External project</span>
+        {#if project.leadInstitution}
+          <span class="lead">Led by {project.leadInstitution}</span>
+        {/if}
+        <span class="region">{project.region}</span>
+        <span class="timeline">{project.statusLabel}</span>
+      {:else}
+        <span class="status-badge {project.status}">{project.statusLabel}</span>
+        <span class="region">{project.region}</span>
+      {/if}
+      {#if project.timeline}
+        <span class="timeline">{project.timeline}</span>
+      {/if}
+    </div>
+
+    <h3>
+      {#if project.hasDetailPage}
+        <a href="/projects/{project.id}" use:link>{project.title}</a>
+      {:else}
+        {project.title}
+      {/if}
+    </h3>
+
+    <p class="description">{project.description}</p>
+
+    <div class="tags">
+      {#each project.tags as tag}
+        <span class="tag">{tag}</span>
+      {/each}
+    </div>
+
+    {#if project.team.length > 0}
+      <p class="team">
+        <span class="team-label">{external ? 'Researchers:' : 'Team:'}</span>
+        {project.team.map(id => getPersonById(id)?.name ?? id).join(', ')}
+      </p>
+    {/if}
+
+    {#if project.fundingSources?.length || project.partners?.length}
+      <p class="project-meta">
+        {#if project.fundingSources?.length}
+          <span class="meta-item"><span class="meta-label">Funded by:</span> {project.fundingSources.map(getFundingName).join(', ')}</span>
+        {/if}
+        {#if project.partners?.length}
+          <span class="meta-item"><span class="meta-label">Partners:</span> {#each project.partners as pid, i}{#if i > 0}, {/if}{#if getPartnerUrl(pid)}<a href={getPartnerUrl(pid)} target="_blank" rel="noopener">{getPartnerName(pid)}</a>{:else}{getPartnerName(pid)}{/if}{/each}</span>
+        {/if}
+      </p>
+    {/if}
+
+    {#if project.stats}
+      <div class="stats">
+        {#each project.stats as stat}
+          <div class="stat">
+            <span class="stat-value">{stat.value}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        {/each}
+      </div>
+    {/if}
+
+    {#if project.links}
+      <div class="card-links">
+        {#each project.links as link_item}
+          {#if link_item.url.startsWith('/')}
+            <a href={link_item.url} use:link class="card-action">{link_item.label}</a>
+          {:else}
+            <a href={link_item.url} target="_blank" rel="noopener" class="card-action">{link_item.label}
+              <svg class="ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg>
+            </a>
+          {/if}
+        {/each}
+      </div>
+    {/if}
+  </article>
+{/snippet}
+
 <div class="projects-page">
   <header>
     <span class="page-label">Projects</span>
@@ -48,88 +132,39 @@
   <section class="intro">
     <p>
       Our work spans regional to global scales, partnering with ecological networks and conservation
-      organisations worldwide. Each project applies TESSERA and other geospatial foundation model embeddings
+      organisations worldwide. Each project applies Tessera and other geospatial foundation model embeddings
       to deliver fine-grained, species-level habitat maps with minimal labelled data.
     </p>
     <p>
-      These are projects being run in-house by the Cambridge team, but there is a growing amount of
-      work using TESSERA globally. If you'd like yours to be listed here too, get in touch on our
-      <a href="https://eeg.zulipchat.com" target="_blank" rel="noopener">Zulip</a>!
+      Below our own projects, you'll find research by other groups who are building on Tessera embeddings.
     </p>
   </section>
 
-  <div class="project-list">
-    {#each projects as project}
-      <article class="project-card" id={project.id}>
-        <div class="card-header">
-          <span class="status-badge {project.status}">{project.statusLabel}</span>
-          <span class="region">{project.region}</span>
-          {#if project.timeline}
-            <span class="timeline">{project.timeline}</span>
-          {/if}
-        </div>
+  <section class="project-section">
+    <h2 class="section-heading">Our projects</h2>
+    <div class="project-list">
+      {#each ownProjects as project}
+        {@render projectCard(project)}
+      {/each}
+    </div>
+  </section>
 
-        <h2>
-          {#if project.hasDetailPage}
-            <a href="/projects/{project.id}" use:link>{project.title}</a>
-          {:else}
-            {project.title}
-          {/if}
-        </h2>
-
-        <p class="description">{project.description}</p>
-
-        <div class="tags">
-          {#each project.tags as tag}
-            <span class="tag">{tag}</span>
-          {/each}
-        </div>
-
-        {#if project.team.length > 0}
-          <p class="team">
-            <span class="team-label">Team:</span>
-            {project.team.map(id => getPersonById(id)?.name ?? id).join(', ')}
-          </p>
-        {/if}
-
-        {#if project.fundingSources?.length || project.partners?.length}
-          <p class="project-meta">
-            {#if project.fundingSources?.length}
-              <span class="meta-item"><span class="meta-label">Funded by:</span> {project.fundingSources.map(getFundingName).join(', ')}</span>
-            {/if}
-            {#if project.partners?.length}
-              <span class="meta-item"><span class="meta-label">Partners:</span> {#each project.partners as pid, i}{#if i > 0}, {/if}{#if getPartnerUrl(pid)}<a href={getPartnerUrl(pid)} target="_blank" rel="noopener">{getPartnerName(pid)}</a>{:else}{getPartnerName(pid)}{/if}{/each}</span>
-            {/if}
-          </p>
-        {/if}
-
-        {#if project.stats}
-          <div class="stats">
-            {#each project.stats as stat}
-              <div class="stat">
-                <span class="stat-value">{stat.value}</span>
-                <span class="stat-label">{stat.label}</span>
-              </div>
-            {/each}
-          </div>
-        {/if}
-
-        {#if project.links}
-          <div class="card-links">
-            {#each project.links as link_item}
-              {#if link_item.url.startsWith('/')}
-                <a href={link_item.url} use:link class="card-action">{link_item.label}</a>
-              {:else}
-                <a href={link_item.url} target="_blank" rel="noopener" class="card-action">{link_item.label}
-                  <svg class="ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 1.5h7v7M10 2L4 8"/></svg>
-                </a>
-              {/if}
-            {/each}
-          </div>
-        {/if}
-      </article>
-    {/each}
-  </div>
+  {#if communityProjects.length > 0}
+    <section class="project-section community">
+      <h2 class="section-heading">Projects using Tessera</h2>
+      <p class="section-intro">
+        Tessera is open, and researchers outside Cambridge are applying it to problems of their own.
+        These projects are led and run independently by their own teams. If you're using Tessera and
+        would like your work listed here, get in touch on our
+        <a href="https://eeg.zulipchat.com" target="_blank" rel="noopener">Zulip</a>.
+      </p>
+      <div class="project-list">
+        {#each communityProjects as project}
+          {@render projectCard(project)}
+        {/each}
+      </div>
+    </section>
+  {/if}
 
   <section class="callout">
     <h3>The Global Plot Alliance</h3>
@@ -157,7 +192,7 @@
   </section>
 
   <section class="funding-section">
-    <h3>Partner Institutions</h3>
+    <h3>Partner institutions</h3>
     <div class="partner-grid">
       {#each partners as partner}
         <div class="partner-item">
@@ -270,7 +305,7 @@
     letter-spacing: 0.5px;
   }
 
-  .project-card h2 {
+  .project-card h3 {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.4;
@@ -278,13 +313,13 @@
     color: var(--text-primary);
   }
 
-  .project-card h2 a {
+  .project-card h3 a {
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .project-card h2 a:hover {
+  .project-card h3 a:hover {
     color: var(--accent-dim);
   }
 
@@ -508,6 +543,56 @@
   .partner-item span {
     color: var(--text-muted);
     font-weight: 500;
+  }
+
+  .project-section {
+    margin-bottom: 40px;
+  }
+
+  .section-heading {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  .community .section-heading {
+    color: var(--text-secondary);
+  }
+
+  .section-intro {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .section-intro a {
+    color: var(--accent-dim);
+  }
+
+  .project-card.external {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .project-card.external:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .status-badge.external {
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .lead {
+    font-size: 12px;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
   }
 
   @media (max-width: 768px) {
