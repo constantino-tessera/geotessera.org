@@ -126,17 +126,15 @@
 <div class="projects-page">
   <header>
     <span class="page-label">Projects</span>
-    <p class="subtitle">From species-level forest mapping in the Alps to continent-scale habitat classification in the tropics</p>
   </header>
 
   <section class="intro">
     <p>
       Our work spans regional to global scales, partnering with ecological networks and conservation
-      organisations worldwide. Each project applies Tessera and other geospatial foundation model embeddings
-      to deliver fine-grained, species-level habitat maps with minimal labelled data.
+      organisations worldwide.
     </p>
     <p>
-      Below our own projects, you'll find research by other groups who are building on Tessera embeddings.
+      Below our own projects, you'll find work by other groups who are using Tessera embeddings in their research.
     </p>
   </section>
 
@@ -224,13 +222,6 @@
     font-size: 18px;
     text-transform: uppercase;
     color: var(--text-secondary);
-  }
-
-  .subtitle {
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
-    margin-top: 6px;
   }
 
   .intro {
@@ -559,10 +550,6 @@
     opacity: 0.8;
   }
 
-  .community .section-heading {
-    color: var(--text-secondary);
-  }
-
   .section-intro {
     font-size: 14px;
     line-height: 1.7;
@@ -574,19 +561,33 @@
     color: var(--accent-dim);
   }
 
+  /* External projects use the Cambridge brand purple family:
+     Purple #A368DF (163, 104, 223) and Warm Purple #D1B7EB. */
   .project-card.external {
-    border-style: dashed;
-    border-color: rgba(255, 255, 255, 0.14);
+    --ext: #A368DF;
+    --ext-light: #D1B7EB;
+    border-color: rgba(163, 104, 223, 0.35);
+    background: rgba(163, 104, 223, 0.04);
   }
 
   .project-card.external:hover {
-    border-color: rgba(255, 255, 255, 0.28);
+    border-color: rgba(163, 104, 223, 0.7);
   }
 
   .status-badge.external {
-    color: var(--text-secondary);
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--ext-light);
+    background: rgba(163, 104, 223, 0.15);
+    border: 1px solid rgba(163, 104, 223, 0.5);
+  }
+
+  .project-card.external .tag {
+    color: var(--ext-light);
+    background: rgba(163, 104, 223, 0.08);
+    border-color: rgba(163, 104, 223, 0.3);
+  }
+
+  .project-card.external .stat-value {
+    color: var(--ext-light);
   }
 
   .lead {

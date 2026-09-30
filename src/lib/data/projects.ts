@@ -108,8 +108,7 @@ export const projects: Project[] = [
     tags: ['Mining', 'Indigenous lands', 'Segmentation', 'Sentinel-1/2'],
     description: 'Informal gold mining (garimpo) is clearing forest and poisoning rivers with mercury across the Brazilian Amazon, including inside Indigenous Territories where it is banned. Focusing on Munduruku lands in the Tapaj\u00F3s River Basin, this Strathclyde PhD project uses Tessera embeddings to refine 30 m MapBiomas mining labels into 10 m pseudo-labels. U-Net models trained on these labels trace mining boundaries more accurately than MapBiomas, by up to 5.4 percentage points in intersection over union.',
     // External collaborators: entered as literal names, not people.ts ids, so they stay off the About page.
-    // TODO: full first names for A. Werkmeister and M. Macdonald (requested from Cameron).
-    team: ['Cameron Fergus-Allen', 'A. Werkmeister', 'M. Macdonald'],
+    team: ['Cameron Fergus-Allen', 'Astrid Werkmeister', 'Malcolm Macdonald'],
     stats: [
       { label: 'IoU over MapBiomas', value: '+5.4 pp' },
       { label: 'Label resolution', value: '30 m \u2192 10 m' },
@@ -125,6 +124,27 @@ export const projects: Project[] = [
     partners: ['Applied Space Technology Laboratory, University of Strathclyde'],
     origin: 'community',
     leadInstitution: 'University of Strathclyde',
+  },
+  {
+    id: 'paraguay-crop-monitoring',
+    // Proposed site-style title. GMV's own title: 'Paraguay Earth Observation Monitoring Crop Mapping and Early Warning System'.
+    title: 'Mapping rice and soybean across Paraguay',
+    subtitle: 'Crop mapping and early warning for Paraguay\u2019s agricultural sector',
+    status: 'in-progress',
+    statusLabel: 'In progress',
+    region: 'Paraguay',
+    // Proposed tags, to confirm.
+    tags: ['Crop mapping', 'Rice', 'Soybean', 'Early warning'],
+    // Condensed from the text GMV supplied by email (Enes Hisam, 9 Sep 2026).
+    description: 'Paraguay\u2019s agricultural sector is highly exposed to climate variability. This project tests Tessera embeddings for distinguishing rice and soybean parcels across the country from 2017 to 2025, as a scalable and reproducible basis for satellite-based crop monitoring. Parcel-level crop maps feed into planned information products, including historical and projected production estimates to support credit assessment, and early warnings of crop disease risk based on recent weather and crop phenology.',
+    // External collaborators: literal names, not people.ts ids.
+    team: ['Carlos Domenech', 'Patricia Ram\u00EDrez', 'David de la Fuente', 'Enes Hisam', 'Joao Vitorino', 'Alexandra Stavarescu', 'Susana Romao'],
+    hasDetailPage: false,
+    fundingSources: ['World Bank Group'],
+    // GMV also listed as a partner in their text; shown as lead institution instead.
+    partners: ['Vizzuality'],
+    origin: 'community',
+    leadInstitution: 'GMV',
   },
 ];
 
