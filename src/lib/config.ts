@@ -42,7 +42,7 @@ export const siteConfig = {
       statusLabel: 'available',
       description: 'Retrained model with more temporally stable embeddings, fewer low-observation artefacts, and wider coastal coverage.',
       linkText: 'Release notes',
-      linkUrl: '/blog/2026-06-02-tessera-v1-1',
+      linkUrl: '/blog/2026-06-09-tessera-v1-1',
       link2Text: 'Weights',
       link2Url: 'https://huggingface.co/geotessera/TESSERA-V-1.1',
     },

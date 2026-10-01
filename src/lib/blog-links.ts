@@ -27,6 +27,15 @@ export interface BlogLink {
 
 export const blogLinks: BlogLink[] = [
   {
+    id: 'fathir-tessera-lake-baringo',
+    title: 'Every 10 Metres of Earth in 128 Numbers: A Practical Introduction to Tessera',
+    date: '2026-09-30',
+    author: 'Mohamed Fathir',
+    description: 'A hands-on introduction to Tessera embeddings that measures the expansion of Lake Baringo, Kenya, from 181 km\u00B2 in 2017 to 223 km\u00B2 in 2025 by comparing pixels against reference water and land signatures, with no model training. The results agree within about 5% of independent Landsat-based studies.',
+    url: 'https://www.fathir.live/blog/tessera-lake-baringo',
+    tags: ['community', 'python', 'conservation'],
+  },
+  {
     id: 'weather-downscaling-tessera',
     title: 'Improving local weather forecasts using Tessera embeddings',
     date: '2026-08-13',
