@@ -11,6 +11,7 @@
   import TaskTag from './pages/TaskTag.svelte';
   import TaskExample from './pages/TaskExample.svelte';
   import About from './pages/About.svelte';
+  import Privacy from './pages/Privacy.svelte';
   import Papers from './pages/Papers.svelte';
   import Videos from './pages/Videos.svelte';
   import Coverage from './pages/Coverage.svelte';
@@ -37,6 +38,8 @@
         <Coverage />
       {:else if route.path === '/about'}
         <About />
+      {:else if route.path === '/privacy'}
+        <Privacy />
       {:else if route.path === '/blog'}
         <Blog />
       {:else if route.path === '/blog/:slug'}

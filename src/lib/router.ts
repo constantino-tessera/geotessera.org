@@ -127,6 +127,7 @@ const routes: { path: string; route: Route }[] = [
   '/news/:slug',
   '/projects',
   '/projects/:id',
+  '/privacy',
   '/tasks/:tag',
   '/tasks/:tag/:slug',
   '/papers',

@@ -2,32 +2,104 @@ export interface FundingSource {
   id: string;
   name: string;
   shortName?: string;
-  description: string;
+  grantRef?: string;
+  description?: string;
   url?: string;
 }
 
+// Alphabetical, synced from the acknowledgements in the Tessera HPC report (22 September 2026).
+// Grant references are shown on the site as plain text so funders' search tools can index them.
 export const fundingSources: FundingSource[] = [
   {
-    id: 'epic',
-    name: 'UKRI Cross Research Council / EPIC',
-    description: 'The UKRI Cross Research Council Responsive Mode Pilot Scheme grant "Creating foundation systems for environmental planetary intelligence" (EPIC) funds the core postdoctoral research on geospatial foundation models for habitat mapping, supporting the Trentino species mapping project and Latin America vegetation mapping work.',
-    url: 'https://www.ukri.org/news/first-projects-from-ukris-new-interdisciplinary-scheme-announced/',
+    id: 'amd',
+    name: 'AMD',
+    url: 'https://www.amd.com',
+  },
+  {
+    id: 'aws-open-data',
+    name: 'AWS Open Data',
+  },
+  {
+    id: 'bernstein',
+    name: 'John Bernstein',
+  },
+  {
+    id: 'dclimate',
+    name: 'dClimate',
+  },
+  {
+    id: 'google',
+    name: 'Google',
+  },
+  {
+    id: 'intel',
+    name: 'Intel',
+  },
+  {
+    id: 'jane-street',
+    name: 'Jane Street',
+    url: 'https://www.janestreet.com',
+  },
+  {
+    id: 'mantle-labs',
+    name: 'Mantle Labs',
+  },
+  {
+    id: 'microsoft-ai-for-good',
+    name: 'Microsoft AI for Good Lab',
   },
   {
     id: 'clr',
     name: 'NERC Centre for Landscape Regeneration',
     shortName: 'CLR',
-    description: 'A \u00A310M programme funding UK-focused habitat mapping and landscape restoration monitoring work in Cumbria, the Cairngorms, the Fens, and national-scale habitat condition mapping.',
   },
   {
-    id: '4c',
-    name: '4C Programme',
-    description: 'Supports PhD studentships contributing to the change detection and global habitat mapping components of the research programme.',
-    url: 'https://4c.cst.cam.ac.uk',
+    id: 'nvidia',
+    name: 'NVIDIA',
   },
   {
-    id: 'cambridge',
-    name: 'University of Cambridge',
-    description: 'Institutional support through the Department of Plant Sciences and the Department of Computer Science and Technology.',
+    id: 'sansom',
+    name: 'Dr Robert Sansom',
+  },
+  {
+    id: 'source-coop',
+    name: 'Source Coop',
+  },
+  {
+    id: 'dirac',
+    name: 'STFC Durham DiRAC HPC Facility',
+  },
+  {
+    id: 'tarides',
+    name: 'Tarides',
+    url: 'https://tarides.com',
+  },
+  {
+    id: 'ukri',
+    name: 'UK Research and Innovation',
+  },
+  {
+    id: 'airr-dawn-zenith',
+    name: 'UK Research and Innovation AI Research Resource: Dawn and Zenith',
+    grantRef: 'ST/Z000890/1',
+    description: 'Operated by the University of Cambridge and funded by the Department for Business, Innovation, Science and Trade (BSIT) and UKRI as part of the UK AI Research Resource, and the National Compute Resource, delivered in partnership with Dell Technologies and AMD.',
+  },
+  {
+    id: 'airr-isambard',
+    name: 'UK Research and Innovation AI Research Resource: Isambard-AI',
+    grantRef: 'ST/AIRR/I-A-I/1023',
+    description: 'Operated by the Bristol Centre for Supercomputing.',
+  },
+  {
+    id: 'epic',
+    name: 'UKRI Cross Research Council Responsive Mode: EPIC',
+    shortName: 'UKRI EPIC',
+    description: 'Creating foundation systems for environmental planetary intelligence.',
+    url: 'https://www.ukri.org/news/first-projects-from-ukris-new-interdisciplinary-scheme-announced/',
+  },
+  {
+    id: 'vultr',
+    name: 'Vultr',
+    url: 'https://www.vultr.com',
   },
 ];

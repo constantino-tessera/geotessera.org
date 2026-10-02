@@ -179,11 +179,12 @@
 
   <section class="funding-section">
     <h3>Funding</h3>
+    <p class="funding-intro">Tessera is hosted by the University of Cambridge. We gratefully acknowledge the following organisations and individuals for funding and supporting Tessera.</p>
     <dl class="funding-list">
       {#each fundingSources as source}
         <div class="funding-item">
-          <dt>{source.name}</dt>
-          <dd>{source.description}{#if source.url}{' '}<a href={source.url} target="_blank" rel="noopener">Learn more</a>{/if}</dd>
+          <dt>{#if source.url}<a href={source.url} target="_blank" rel="noopener">{source.name}</a>{:else}{source.name}{/if}{#if source.grantRef}{' '}<span class="grant-ref">[{source.grantRef}]</span>{/if}</dt>
+          {#if source.description}<dd>{source.description}</dd>{/if}
         </div>
       {/each}
     </dl>
@@ -476,6 +477,13 @@
     opacity: 0.8;
   }
 
+  .funding-intro {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+  }
+
   .funding-list {
     border-top: 1px solid var(--border-subtle);
   }
@@ -498,6 +506,16 @@
     line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
+  }
+
+  .funding-item dt a {
+    color: var(--text-primary);
+  }
+
+  .grant-ref {
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: nowrap;
   }
 
   .funding-item a {
