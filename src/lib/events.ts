@@ -52,6 +52,23 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'cri-seminar-2026',
+    title: 'CRI Seminar',
+    date: '2026-10-13',
+    location: 'Main Seminar Room, David Attenborough Building, Cambridge',
+    organiser: 'Conservation Research Institute (CRI)',
+    links: [
+      { label: 'Event page', url: 'https://www.conservation.cam.ac.uk/events/cri-seminar-tessera-earth-observation-model' },
+    ],
+    speakers: [
+      { name: 'David Coomes', url: 'https://coomeslab.org/research-group/current-members/professor-david-coomes/' },
+      { name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' },
+      { name: 'Anil Madhavapeddy', url: 'https://www.cst.cam.ac.uk/people/avsm2' },
+    ],
+    talk: 'CRI Seminar: Tessera Earth Observation Model',
+    description: "David Coomes, Sadiq Jaffer and Anil Madhavapeddy give an ecologist-friendly introduction to Tessera at a Conservation Research Institute seminar. The talk includes live demonstrations and practical examples of how Tessera is already being used, from fire mapping and UK habitat and crop tracking to a new system for mapping South American habitats. The seminar runs 3–4:30pm on Tuesday 13 October, with Q&A and networking afterwards. No registration is required, and all departments and partner organisations are welcome. Zoom joining details for remote attendees are on the event page.",
+  },
+  {
     id: 'clr-conference-2026',
     title: 'CLR Conference 2026: Regenerating the British Countryside, From Evidence to Action',
     date: '2026-09-18',
