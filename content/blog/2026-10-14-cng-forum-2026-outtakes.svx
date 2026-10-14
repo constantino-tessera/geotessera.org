@@ -1,0 +1,99 @@
+---
+title: "Cloud Native Geospatial Forum 2026 Outtakes"
+date: 2026-10-14
+tags: [talks, community]
+author: "Robert Banick"
+description: "Notes from presenting global, wall-to-wall Tessera at the 2026 Cloud Native Geospatial Forum: why cloud-native embeddings matter to users, what they want next on provenance and multiscale outputs, and early excitement for v2."
+---
+
+<figure class="cover-image">
+  <img src="/blog/cng-forum-2026-snowbird.jpg" alt="A false-colour map of the Salt Lake Valley painted from Tessera embeddings: the terraced Bingham Canyon copper mine at lower left, the valley's street grid in olive and terracotta with green parks across the middle, and the canyons of the Wasatch Range in rust and forest green at right" />
+  <figcaption>The Salt Lake Valley, from the Bingham Canyon mine (left) to Snowbird and Alta (right edge), painted from Tessera v1.1 embeddings for 2025. Shaded relief from the Copernicus GLO-30 elevation model. Credit: dClimate</figcaption>
+</figure>
+
+I spent this week at the 2026 edition of the Cloud Native Geospatial (CNG) Forum presenting the global, wall-to-wall Tessera dataset [dClimate](https://www.dclimate.net/) recently launched on [AWS Open Data](https://aws.amazon.com/blogs/publicsector/tessera-global-earth-observation-embeddings-now-available-on-aws-open-data/), building off the back of the Tessera model and original pipeline trained and developed by a team at the University of Cambridge.
+
+Besides presenting, I learnt a lot about how others are using embeddings and took the temperature of the cutting edge of today's geospatial technology space. Predictably, I came away excited, with my head swimming. Here are my quick takes from a busy week.
+
+## Cloud-native Tessera is filling a real need, and we should expect many new users
+
+Feedback at CNG made clear that our recent release of wall-to-wall Tessera v1.1 embeddings has improved Tessera's usability in two key ways.
+
+The first is by providing wall-to-wall embeddings for the whole Earth (bar Antarctica), rather than limited portions of it, as previously. Tessera is now genuinely general purpose globally for any year from 2017 to 2025. To date AlphaEarth was the only game in town for cloud-natively accessible, global, wall-to-wall, high resolution embeddings. Analysts do employ other patch and chip level embeddings, but many use cases really could only be met by AlphaEarth's ubiquity and high resolution.
+
+The second improvement is by providing this version of Tessera in [Zarr](https://zarr.dev/) and [Icechunk](https://icechunk.io/), cloud-native formats. For many users working within cloud-native geospatial stacks – i.e. many production workflows in non-research environments – the bare numpy arrays without CRS info returned by early versions of [GeoTessera](https://github.com/ucam-eo/geotessera) were a non-starter. Although CRS and full *xarray* support were included in later versions of GeoTessera, and a (non wall-to-wall) Tessera Zarr has been on [Source Cooperative](https://source.coop/tessera/tessera) since summer 2026, many potential users had never revisited it.
+
+Additionally, Tessera's (existing) applicability to intra-annual phenomena through its encoding of time was also very well received by teams working in fire detection, crop phenology, and other such disciplines. This feature of Tessera (and AlphaEarth, I made clear) was not well appreciated by all in the community previously and is a major plus for a lot of geospatial workflows.
+
+Taken together these improvements change the story around Tessera from a usability standpoint. Power users who want to stream lots of chunks of data over cloud-native workflows are excited to use Tessera without the added overhead of the GeoTessera API. I fully anticipate a good deal of uptake from sophisticated users with perhaps a more commercial profile.
+
+## Openness is a real edge
+
+My impression was that AlphaEarth (AE) is respected but unloved. Some of that is perhaps just knee-jerk skepticism of big tech, but the opacity of the model, its inputs, and its process ("Google is just telling us 'trust me bro'") is a real downside for many users who need ways to interrogate results. That's particularly so given embeddings are a black box to most (see below). Neither has it been forgotten that AE is only accessible outside of Google Earth Engine because Taylor Geospatial heroically covered huge egress fees to extract it from GCS and package it on Source Cooperative.
+
+AE has been used as the default, go-to embeddings dataset for high resolution tasks, and people are excited to have a legitimate open alternative. It's up to us to continue providing a high-quality dataset with well-documented, high throughput data structures.
+
+## Showing more and better provenance should be a priority in global Tessera version 2
+
+Embeddings are hard to verify, troubleshoot, and even understand (see below), so anything we can do to help users out and show our work goes a long way. I heard a lot of appreciation for following the GeoEmbeddings and GeoZarr conventions in our Zarr metadata to transparently record data provenance, checkpoint version, code version, plus all the necessary spatial information for rapid transformations. Even better received was how we expose pixel-level quality and provenance information through the `*_obs_count` and `*_month_covered` data arrays alongside the main `embeddings` array. This is a real step up in transparency and usability compared to alternatives.
+
+But this crowd has higher standards! We were pushed to think of ways to record the individual scenes used to compute each pixel and expose them for users to follow up when needed. I made clear this is not a simple ask: we write 3.2 million shards, 200 million chunks, and over 13 trillion pixels!
+
+We agreed that a pixel-level register was impractical, but a shard-by-shard one might contain many thousands of scenes per shard: easy enough to filter but unworkable to sort through. The most promising route to pulling this off is therefore a chunk-level scene registry. Even this promises to be tricky to set up ergonomically for downstream users.
+
+More study needed then? I would like to release this alongside our version 2 if we can figure out the right structure; a well-structured GeoParquet file linking to external STACs comes to mind. Really though this is something we should (a) validate is possible and (b) develop in consultation with others, so we don't design something unwieldy to use.
+
+## Embeddings have a voodoo reputation
+
+"So… how do embeddings actually work?" was a pretty common question, even though CNG self-selects for well above average skills with esoteric spatial concepts. Embeddings are the new kid on the block in the geospatial world and I sensed a real mix of trepidation and curiosity. Even many sophisticated users with real experience leveraging embeddings admitted that they're still working on developing full comfort using them.
+
+How numeric vectors in a latent space can represent many, many physical phenomena so well is clearly a tough, unfamiliar concept, and I only hope I didn't lose people with my fumbling explanations. Education, communication, and clear examples will go a long way to making more technical users comfortable with the foundational concepts of Earth embeddings.
+
+## …and maybe they deserve it
+
+One of the most on-the-nose presentations came from Denys Godwin of Clark University. Citing [this forthcoming paper](https://arxiv.org/abs/2605.12678), he made the case that comparing embeddings for different tasks is too hard and consequently barely ever done. He unveiled [GELOS](https://github.com/ClarkCGA/gelos), a tool his research team has developed to measure and visualise different embeddings' power for various use cases. I noted to him that Tessera is currently missing from GELOS and we'd be keen to see how it stacks up, and how we can do better. He agreed and promised to plug one of our new cloud-native Tessera stores into it. Science at work!
+
+## There's real demand for multiscale (resolution) outputs
+
+Multiple users mentioned the desirability of having Tessera "pyramids" via the Zarr [*multiscales*](https://github.com/zarr-conventions/multiscales) convention. The first use case was applying coarser data to large area problems that don't need bulky, high res data, without any further processing, right out of the box. The second was rapid visualisation – always a bit messy with high dimensional datasets but inevitably a need with a geospatial one.
+
+[Shane Loeffler](https://github.com/Shane98c) and [Raphael Hagen](https://github.com/norlandrhagen) of [CarbonPlan](https://carbonplan.org/) challenged us to do the multiscaling with [topozarr](https://github.com/carbonplan/topozarr) – I'll look into it and see. My honest guess (and theirs, laughingly given) is that it breaks at petabyte scale.
+
+## Bake-your-own-Tessera has legs
+
+Several attendees latched on to another point I made during my presentation: that they are welcome to roll their own Tessera inference stack with [our open source, cloud-optimised inference pipeline code](https://github.com/dClimate/tessera-embeddings). Nick (I didn't catch his last name – sorry Nick!) was very interested in Tessera embeddings for small areas of interest in the Arctic, and to his immense credit just said he'd roll his own.
+
+I showed Nick how a "local only" implementation of Tessera is feasible for small areas (i.e. city scale or below) and accessible [as a quickstart activity](https://github.com/dClimate/tessera-embeddings/blob/main/docs/quickstart.md) within the open source repo. When testing modifications to our pipeline we run this frequently, and normally manage to download and infer one month of data for Denver (a simple test) on a plain old MacBook CPU in just a few minutes.
+
+## Tessera v2 excitement is palpable
+
+Despite giving it a mere 10 seconds (and a cute image) in my presentation (I only had 5 minutes!), multiple people bounded up to me afterwards, bubbling over about the potential of version 2's promised [Matryoshka embeddings](/blog/2026-08-27-geotessera-a-year-on) (ordering embeddings by importance). CNG people (i.e. true nerds for data engineering) are perhaps more likely than most to geek out over the possibilities of smaller data and more compact chunks, so take this with a grain of salt, but I expect v2 to win a lot of hearts.
+
+<style>
+  .cover-image {
+    margin: 0 0 2rem 0;
+    width: 100%;
+  }
+
+  .cover-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+</style>
