@@ -69,6 +69,10 @@ I showed Nick how a "local only" implementation of Tessera is feasible for small
 
 Despite giving it a mere 10 seconds (and a cute image) in my presentation (I only had 5 minutes!), multiple people bounded up to me afterwards, bubbling over about the potential of version 2's promised [Matryoshka embeddings](/blog/2026-08-27-geotessera-a-year-on) (ordering embeddings by importance). CNG people (i.e. true nerds for data engineering) are perhaps more likely than most to geek out over the possibilities of smaller data and more compact chunks, so take this with a grain of salt, but I expect v2 to win a lot of hearts.
 
+---
+
+*This post was originally published on the [dClimate blog](https://blog.dclimate.net/).*
+
 <style>
   .cover-image {
     margin: 0 0 2rem 0;
