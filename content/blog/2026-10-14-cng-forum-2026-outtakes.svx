@@ -8,7 +8,7 @@ description: "Notes from presenting global, wall-to-wall Tessera at the 2026 Clo
 
 <figure class="cover-image">
   <img src="/blog/cng-forum-2026-snowbird.jpg" alt="A false-colour map of the Salt Lake Valley painted from Tessera embeddings: the terraced Bingham Canyon copper mine at lower left, the valley's street grid in olive and terracotta with green parks across the middle, and the canyons of the Wasatch Range in rust and forest green at right" />
-  <figcaption>The Salt Lake Valley, from the Bingham Canyon mine (left) to Snowbird and Alta (right edge), painted from Tessera v1.1 embeddings for 2025. Shaded relief from the Copernicus GLO-30 elevation model. Credit: dClimate</figcaption>
+  <figcaption>The Salt Lake Valley, from the Bingham Canyon mine (left) to the CNG-host Snowbird (right edge). Painted from Tessera v1.1 embeddings for 2025. Shaded relief from the Copernicus GLO-30 elevation model.</figcaption>
 </figure>
 
 I spent this week at the 2026 edition of the Cloud Native Geospatial (CNG) Forum presenting the global, wall-to-wall Tessera dataset [dClimate](https://www.dclimate.net/) recently launched on [AWS Open Data](https://aws.amazon.com/blogs/publicsector/tessera-global-earth-observation-embeddings-now-available-on-aws-open-data/), building off the back of the Tessera model and original pipeline trained and developed by a team at the University of Cambridge.
