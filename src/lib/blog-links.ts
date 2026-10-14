@@ -36,6 +36,16 @@ export const blogLinks: BlogLink[] = [
     tags: ['release', 'community'],
   },
   {
+    id: 'tee-global-coverage-deep-mlp-spatial-splits',
+    title: 'What’s new in TEE: global coverage, Deep MLP, and spatial splits',
+    date: '2026-10-08',
+    author: 'Srinivasan Keshav',
+    description: '',
+    url: 'https://svr-sk818-web.cl.cam.ac.uk/keshav/blog/posts/2026-10-08-tee-global-coverage-deep-mlp-spatial-splits.html',
+    tags: ['release', 'tee'],
+    minor: true,
+  },
+  {
     id: 'fathir-tessera-lake-baringo',
     title: 'Every 10 Metres of Earth in 128 Numbers: A Practical Introduction to Tessera',
     date: '2026-09-30',
