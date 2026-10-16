@@ -5,6 +5,7 @@ import fs from 'fs';
 import { atomFeedPlugin } from './vite-plugin-atom-feed';
 import { sitemapPlugin } from './vite-plugin-sitemap';
 import { blogLinks } from './src/lib/blog-links';
+import { agentsPlugin } from './vite-plugin-agents';
 
 /**
  * GitHub Pages SPA support: copy index.html into each known route directory
@@ -43,6 +44,7 @@ export default defineConfig({
       blogDir: path.resolve(__dirname, 'content/blog'),
     }),
     spa404Plugin(['/', '/about', '/blog', '/news', '/projects', '/docs', '/tasks', '/papers', '/videos', '/coverage', '/privacy']),
+    agentsPlugin({ siteUrl: 'https://geotessera.org', blogDir: path.resolve(__dirname, 'content/blog') }),
   ],
   resolve: {
     alias: {
