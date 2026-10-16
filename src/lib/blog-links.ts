@@ -27,6 +27,15 @@ export interface BlogLink {
 
 export const blogLinks: BlogLink[] = [
   {
+    id: 'earthmover-arraylake-tessera-v1-1',
+    title: 'Tessera v1.1 embeddings on Earthmover\u2019s Arraylake Marketplace',
+    date: '2026-10-14',
+    author: 'dClimate',
+    description: 'Global Tessera v1.1 embeddings for every year from 2017 to 2025, listed on Earthmover\'s Arraylake Marketplace as an Icechunk repository. Includes per-pixel observation counts showing how much satellite imagery sits behind each value.',
+    url: 'https://app.earthmover.io/marketplace/6aceac6b5828abfc5ef1b7b7',
+    tags: ['release', 'community'],
+  },
+  {
     id: 'tee-global-coverage-deep-mlp-spatial-splits',
     title: 'What’s new in TEE: global coverage, Deep MLP, and spatial splits',
     date: '2026-10-08',
