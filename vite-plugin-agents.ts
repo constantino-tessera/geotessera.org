@@ -81,6 +81,18 @@ export async function collectPosts(blogDir: string): Promise<Post[]> {
   return posts.sort((a, b) => b.date.localeCompare(a.date));
 }
 
+function postMarkdown(post: Post, canonical: string): string {
+  return `# ${escapeMarkdown(post.title)}\n\nDate: ${post.date}\nAuthor: ${escapeMarkdown(post.author)}\nCanonical URL: ${canonical}\n\n${markdownBody(post.body, canonical)}`;
+}
+
+function llmsIndex(posts: Post[], url: (path: string) => string): string {
+  const lists = { blog: [] as string[], news: [] as string[] };
+  for (const post of posts) {
+    lists[post.section].push(`- [${escapeMarkdown(post.title)}](${url(`${post.section}/${post.slug}.md`)}): ${post.description.replace(/\s+/g, ' ')}`);
+  }
+  return `# TESSERA\n\n> A geospatial foundation model providing satellite-derived embeddings for Earth observation.\n\nThis index links to full Markdown versions of published articles hosted on this site. External coverage is not reproduced. Interactive visualisations require JavaScript; their surrounding text and image descriptions are included in Markdown.\n\n## Blog\n\n${lists.blog.join('\n')}\n\n## News\n\n${lists.news.join('\n')}\n`;
+}
+
 /** Minimal HTML discovery pages; the browser replaces their body with the SPA. */
 export function agentPage(shell: string, title: string, description: string, canonical: string,
   body: string, markdownUrl?: string): string {
@@ -104,8 +116,43 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
   let config: ResolvedConfig;
   return {
     name: 'agents',
-    apply: 'build',
     configResolved(resolved) { config = resolved; },
+    configureServer(server) {
+      // Install before Vite's SPA fallback, which otherwise serves index.html for .md URLs.
+      server.middlewares.use(async (req, res, next) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+        const base = new URL(config.base, opts.siteUrl).pathname;
+        const pathname = new URL(req.url ?? '/', 'http://localhost').pathname;
+        if (!pathname.startsWith(base)) return next();
+        const route = pathname.slice(base.length);
+        const match = route.match(/^(blog|news)\/([^/]+)\.md$/);
+        if (route !== 'llms.txt' && !match) return next();
+        try {
+          // Read on demand so edits, new posts and draft changes appear without restarting.
+          const posts = await collectPosts(opts.blogDir);
+          let content: string;
+          if (route === 'llms.txt') {
+            content = llmsIndex(posts, path => base + path);
+          } else {
+            const post = posts.find(post => post.slug === decodeURIComponent(match![2]) &&
+              (post.section === match![1] || match![1] === 'blog'));
+            if (!post) {
+              res.statusCode = 404;
+              res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+              res.end(req.method === 'HEAD' ? undefined : `Article not found. See ${base}llms.txt\n`);
+              return;
+            }
+            const canonical = new URL(`${post.section}/${post.slug}`, new URL(config.base, opts.siteUrl)).href;
+            content = postMarkdown(post, canonical);
+          }
+          res.setHeader('Content-Type', route === 'llms.txt' ? 'text/plain; charset=utf-8' : 'text/markdown; charset=utf-8');
+          res.setHeader('Cache-Control', 'no-store');
+          res.end(req.method === 'HEAD' ? undefined : content);
+        } catch (error) {
+          next(error);
+        }
+      });
+    },
     // Run after SPA route copies have been written, including 404.html.
     writeBundle: {
       sequential: true,
@@ -121,13 +168,12 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
         };
         const posts = await collectPosts(opts.blogDir);
         const discovery = `<p>For machine-readable content, fetch <a href="${escapeHtml(url('llms.txt'))}">llms.txt</a>. Published blog and news articles have Markdown equivalents: remove any trailing slash from the article URL, then append <code>.md</code>.</p>`;
-        const lists: Record<string, string[]> = { blog: [], news: [] };
         const htmlLists: Record<string, string[]> = { blog: [], news: [] };
         for (const post of posts) {
           const route = `${post.section}/${post.slug}`;
           const canonical = url(route);
           const markdownUrl = url(`${route}.md`);
-          write(`${route}.md`, `# ${escapeMarkdown(post.title)}\n\nDate: ${post.date}\nAuthor: ${escapeMarkdown(post.author)}\nCanonical URL: ${canonical}\n\n${markdownBody(post.body, canonical)}`);
+          write(`${route}.md`, postMarkdown(post, canonical));
           const body = `<h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.date)} · ${escapeHtml(post.author)}</p><p>${escapeHtml(post.description)}</p><p><a href="${escapeHtml(markdownUrl)}">Read the full article as Markdown</a>. Enable JavaScript for the interactive page.</p>${discovery}`;
           const html = agentPage(shell, post.title, post.description, canonical, body, markdownUrl);
           write(`${route}/index.html`, html);
@@ -136,7 +182,6 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
             write(`blog/${post.slug}/index.html`, html);
             write(`blog/${post.slug}.md`, readFileSync(join(dist, `${route}.md`), 'utf8'));
           }
-          lists[post.section].push(`- [${escapeMarkdown(post.title)}](${markdownUrl}): ${post.description.replace(/\s+/g, ' ')}`);
           htmlLists[post.section].push(`<li><a href="${escapeHtml(markdownUrl)}">${escapeHtml(post.title)}</a> — ${escapeHtml(post.date)}</li>`);
         }
         for (const section of ['blog', 'news']) {
@@ -144,7 +189,7 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
           write(`${section}/index.html`, agentPage(shell, title, `Original TESSERA ${section} articles`, url(section),
             `<h1>TESSERA ${title}</h1>${discovery}<h2>Original articles</h2><ul>${htmlLists[section].join('\n')}</ul>`));
         }
-        write('llms.txt', `# TESSERA\n\n> A geospatial foundation model providing satellite-derived embeddings for Earth observation.\n\nThis index links to full Markdown versions of published articles hosted on this site. External coverage is not reproduced. Interactive visualisations require JavaScript; their surrounding text and image descriptions are included in Markdown.\n\n## Blog\n\n${lists.blog.join('\n')}\n\n## News\n\n${lists.news.join('\n')}\n`);
+        write('llms.txt', llmsIndex(posts, url));
         write('404.html', agentPage(shell, 'Page not found', 'Find machine-readable TESSERA content', url('404.html'),
           `<h1>Page not found, or JavaScript is required</h1><p>This site uses JavaScript for interactive navigation.</p>${discovery}<p>If no Markdown equivalent exists, use the index to find a published article.</p>`));
       },

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync, rmSync, realpathSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { build } from 'vite';
+import { build, createServer } from 'vite';
 import { agentsPlugin, collectPosts, markdownBody } from '../vite-plugin-agents.ts';
 
 test('Markdown preserves examples and captions, and replaces interactive components', () => {
@@ -80,6 +80,41 @@ This is the full article, with **Markdown**.
       assert.ok(read('news/index.html').includes(`${origin}news/press.md`));
       assert.ok(read('404.html').includes(`${origin}llms.txt`));
       assert.ok(read('404.html').includes('remove any trailing slash'));
+
+      const server = await createServer({ root, base, configFile: false, logLevel: 'silent',
+        server: { host: '127.0.0.1', port: 0, hmr: false, watch: null },
+        plugins: [agentsPlugin({ siteUrl: 'https://geotessera.org', blogDir })] });
+      try {
+        await server.listen();
+        const address = server.httpServer!.address();
+        assert.ok(address && typeof address !== 'string');
+        const request = (path: string, method = 'GET') => fetch(`http://127.0.0.1:${address.port}${base}${path}`, { method });
+        const markdown = await request('blog/article.md?test=1');
+        assert.equal(markdown.status, 200);
+        assert.match(markdown.headers.get('content-type')!, /text\/markdown/);
+        assert.equal(await markdown.text(), read('blog/article.md'));
+        assert.equal(await (await request('news/press.md')).text(), read('news/press.md'));
+        assert.equal(await (await request('blog/press.md')).text(), read('news/press.md'));
+        const index = await (await request('llms.txt')).text();
+        assert.ok(index.includes(`(${base}news/press.md)`));
+        assert.ok(!index.includes('draft'));
+        for (const route of ['blog/missing.md', 'news/draft.md', 'blog/draft-string.md', 'news/article.md']) {
+          const response = await request(route);
+          assert.equal(response.status, 404);
+          assert.ok(!(await response.text()).includes('<html'));
+        }
+        const head = await request('blog/article.md', 'HEAD');
+        assert.equal(head.status, 200);
+        assert.equal(await head.text(), '');
+        writeFileSync(join(blogDir, 'article.svx'), post('release') + '\nNewly edited content.\n');
+        assert.ok((await (await request('blog/article.md')).text()).includes('Newly edited content.'));
+        writeFileSync(join(blogDir, 'article.svx'), post('release', 'draft: true\n'));
+        assert.equal((await request('blog/article.md')).status, 404);
+        assert.ok(!(await (await request('llms.txt')).text()).includes('blog/article.md'));
+        assert.match(await (await request('blog/regular-spa-route')).text(), /<div id="app">/);
+      } finally {
+        await server.close();
+      }
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
