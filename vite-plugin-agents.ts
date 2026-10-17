@@ -174,7 +174,7 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
           const canonical = url(route);
           const markdownUrl = url(`${route}.md`);
           write(`${route}.md`, postMarkdown(post, canonical));
-          const body = `<h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.date)} · ${escapeHtml(post.author)}</p><p>${escapeHtml(post.description)}</p><p><a href="${escapeHtml(markdownUrl)}">Read the full article as Markdown</a>. Enable JavaScript for the interactive page.</p>${discovery}`;
+          const body = `<h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.date)} · ${escapeHtml(post.author)}</p><p>${escapeHtml(post.description)}</p><p>Enable JavaScript to read the full article.</p>`;
           const html = agentPage(shell, post.title, post.description, canonical, body, markdownUrl);
           write(`${route}/index.html`, html);
           // Preserve old /blog links for articles moved to /news, without a 404.
@@ -182,12 +182,12 @@ export function agentsPlugin(opts: { siteUrl: string; blogDir: string }): Plugin
             write(`blog/${post.slug}/index.html`, html);
             write(`blog/${post.slug}.md`, readFileSync(join(dist, `${route}.md`), 'utf8'));
           }
-          htmlLists[post.section].push(`<li><a href="${escapeHtml(markdownUrl)}">${escapeHtml(post.title)}</a> — ${escapeHtml(post.date)}</li>`);
+          htmlLists[post.section].push(`<li><a href="${escapeHtml(canonical)}">${escapeHtml(post.title)}</a> — ${escapeHtml(post.date)}</li>`);
         }
         for (const section of ['blog', 'news']) {
           const title = section === 'blog' ? 'Blog' : 'News';
           write(`${section}/index.html`, agentPage(shell, title, `Original TESSERA ${section} articles`, url(section),
-            `<h1>TESSERA ${title}</h1>${discovery}<h2>Original articles</h2><ul>${htmlLists[section].join('\n')}</ul>`));
+            `<h1>TESSERA ${title}</h1><h2>Original articles</h2><ul>${htmlLists[section].join('\n')}</ul>`));
         }
         write('llms.txt', llmsIndex(posts, url));
         write('404.html', agentPage(shell, 'Page not found', 'Find machine-readable TESSERA content', url('404.html'),

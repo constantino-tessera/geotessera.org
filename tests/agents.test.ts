@@ -74,10 +74,12 @@ This is the full article, with **Markdown**.
       assert.ok(html.includes(`rel="canonical" href="${origin}news/press"`));
       assert.ok(html.includes('A &quot;quoted&quot; title &amp; &lt;example&gt;'));
       assert.ok(html.includes(`rel="describedby" href="${base}llms.txt"`));
-      assert.ok(html.includes(`href="${origin}news/press.md">Read the full article`));
+      assert.doesNotMatch(html, /<a\b[^>]*href="[^"]*\.md"/);
+      assert.ok(!html.includes('Read the full article as Markdown'));
       assert.equal(read('blog/press/index.html'), html);
       assert.equal(read('blog/press.md'), read('news/press.md'));
-      assert.ok(read('news/index.html').includes(`${origin}news/press.md`));
+      assert.ok(read('news/index.html').includes(`href="${origin}news/press"`));
+      assert.doesNotMatch(read('news/index.html'), /<a\b[^>]*href="[^"]*\.md"/);
       assert.ok(read('404.html').includes(`${origin}llms.txt`));
       assert.ok(read('404.html').includes('remove any trailing slash'));
 
