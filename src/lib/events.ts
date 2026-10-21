@@ -52,6 +52,19 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'openuk-space-tech-radar-2026',
+    title: 'OpenUK Launch of Space Tech Radar',
+    date: '2026-10-29',
+    location: 'Fieldfisher, Riverbank House, 2 Swan Lane, London',
+    organiser: 'OpenUK',
+    links: [
+      { label: 'Event page', url: 'https://luma.com/openukspacetechradar' },
+    ],
+    speakers: [{ name: 'Anil Madhavapeddy', url: 'https://www.cst.cam.ac.uk/people/avsm2' }],
+    talk: 'Tessera: Using open geo-foundation models to find all life on Earth!',
+    description: "Anil Madhavapeddy gives the opening keynote (1:25–2pm, followed by Q&A) at the launch of the OpenUK Space Tech Radar. Simon Wardley, inventor of Wardley Mapping, gives the second keynote, and the afternoon also includes a launch panel and a second panel. The programme runs from 1pm to 4:30pm, and registration is through the event page.",
+  },
+  {
     id: 'gtc-berlin-2026',
     title: 'GTC Berlin 2026',
     date: '2026-10-21',
