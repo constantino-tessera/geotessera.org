@@ -52,6 +52,19 @@ export interface TesseraEvent {
 export const tesseraEvents: TesseraEvent[] = [
   // --- Add events below, newest first ---
   {
+    id: 'gtc-berlin-2026',
+    title: 'GTC Berlin 2026',
+    date: '2026-10-21',
+    location: 'STATION-Berlin, Session Room 7, Berlin',
+    organiser: 'NVIDIA',
+    links: [
+      { label: 'Session page', url: 'https://www.nvidia.com/de-de/gtc/session-catalog/sessions/gtceu26-sb61173/' },
+    ],
+    speakers: [{ name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' }],
+    talk: "AI for Science in Action: Using Today's Accelerated Discovery and What's Next (panel)",
+    description: "Sadiq Jaffer joined a panel discussion on AI for science at GTC Berlin 2026, NVIDIA's AI conference and expo (4:30–5:10pm CEST). He shared the stage with Giuseppe Fiameni (NVIDIA), Oriol Lehmkuhl (Barcelona Supercomputing Center), Christopher Pain (Imperial College London) and Maarit Korpi-Lagg (Aalto University). He is also presenting a poster on Thursday 22 October.",
+  },
+  {
     id: 'cri-seminar-2026',
     title: 'CRI Seminar',
     date: '2026-10-13',
