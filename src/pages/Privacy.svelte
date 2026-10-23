@@ -31,7 +31,7 @@
       <a href="https://forms.cloud.microsoft/e/LpAYfe4nHa" target="_blank" rel="noopener">Tessera Use and Interest Registry</a>.
       Please read it before submitting the form.
     </p>
-    <p class="updated">Last updated: 2 October 2026</p>
+    <p class="updated">Last updated: 19 October 2026</p>
   </header>
 
   <section class="section" id="who-we-are">
@@ -66,8 +66,9 @@
     </p>
     <p>
       Second, where you give us permission, to display your project on the
-      <a href="/" use:link>geotessera.org</a> website so that others can see how Tessera is being
-      applied. Our lawful basis for any public display is your consent.
+      <a href="/" use:link>geotessera.org</a> website, and to feature it in Tessera&rsquo;s newsletter,
+      blog or social media channels, so that others can see how Tessera is being applied. Our lawful
+      basis for any public display or feature is your consent.
     </p>
   </section>
 
@@ -76,10 +77,10 @@
     <p>
       Nothing about your project is published without your permission. If you consent to a public
       listing, we may show details such as the project name, institution, description, application
-      area, geography, website, and any publication link. Your name is shown only if you
-      separately agree to it, and your email address is shown only if you separately agree to it.
-      All other answers, including your feedback, funding details, and any comparisons, are used
-      only by the Tessera team and are not published.
+      area, geography, website, project status, funding sources, the models you compare Tessera
+      against, and any publication link. Your name is shown only if you separately agree to it, as
+      are the names of any co-authors you list. Your email address is shown only if you separately
+      agree to it.
     </p>
   </section>
 

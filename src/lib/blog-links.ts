@@ -46,6 +46,17 @@ export const blogLinks: BlogLink[] = [
     minor: true,
   },
   {
+    id: 'mongabay-afrique-senegal-crop-mapping',
+    title: 'Au S\u00E9n\u00E9gal, l\'intelligence artificielle am\u00E9liore la cartographie des cultures face au changement climatique',
+    date: '2026-10-05',
+    author: 'Aimable Twahirwa',
+    sourceLabel: 'Mongabay Afrique',
+    description: '',
+    url: 'https://fr.mongabay.com/2026/10/au-senegal-lintelligence-artificielle-ameliore-la-cartographie-des-cultures-face-au-changement-climatique/',
+    tags: ['press'],
+    minor: true,
+  },
+  {
     id: 'fathir-tessera-lake-baringo',
     title: 'Every 10 Metres of Earth in 128 Numbers: A Practical Introduction to Tessera',
     date: '2026-09-30',
