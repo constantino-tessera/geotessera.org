@@ -1,0 +1,193 @@
+---
+title: "From Cambridge to Wuhan: How a PhD student's talk opened the door to the world's top remote sensing university"
+date: 2026-10-23
+tags: [community, talks]
+author: "Zhengpeng Feng"
+description: "PhD student Frank Feng describes how presenting Tessera to one of China's leading remote sensing scientists led to a visit to Wuhan University, a tour of its satellite labs, and plans for 2-metre embeddings of Earth's land surface."
+---
+
+<script>
+  import ImageZoom from '../../src/components/ImageZoom.svelte';
+</script>
+
+<p class="standfirst">In September 2026, Cambridge researchers visited Wuhan University to present Tessera, a Cambridge-developed AI model trained on satellite images. PhD student Frank Feng describes how presenting his work to one of China's leading remote sensing scientists led to a meeting between institutions, a tour of Wuhan University's satellite labs, and plans to create highly detailed embeddings of Earth's changing land surface.</p>
+
+<figure class="lead">
+  <ImageZoom src="/blog/wuhan-lead.webp" alt="Two men in white clean-room coats and overshoes standing in a white laboratory with a green floor." />
+  <figcaption>Keshav (left) and Frank Feng suited up in Wuhan University's satellite and sensor manufacturing facility. Credit: Zhengpeng Feng</figcaption>
+</figure>
+
+<p class="attribution"><strong>Zhengpeng Feng (Frank), PhD student, University of Cambridge Department of Computer Science and Technology.</strong><br />As told to Constantino Panagopulos.</p>
+
+This visit came about because I'd presented Tessera to [Professor Gong Jianya](https://luojianet.whu.edu.cn/info/1501/1641.htm) on a previous visit to [Wuhan University](https://en.whu.edu.cn/). He said Tessera was exactly what they want as the next step for Wuhan University. I felt a bit surprised. As an Academician of the [Chinese Academy of Sciences](https://english.cas.cn/), he knows everything about remote sensing so I expected he wouldn't be impressed. But he praised my work with Tessera and said he thought it was amazing that I'd done it all in my first year as a PhD student. It's the first time I've had recognition from an academician. It felt really good.
+
+Professor Gong suggested I invite my PhD supervisor, [Professor Srinivasan Keshav](https://svr-sk818-web.cl.cam.ac.uk/keshav/), to visit China and discuss a Wuhan–Cambridge collaboration. I met up with Keshav in Beijing and we travelled together to Wuhan, where he gave a talk to about 150 researchers and students before we were shown round the university's impressive facilities.
+
+<figure class="wide">
+  <ImageZoom src="/blog/wuhan-lecture.webp" alt="A speaker on stage in front of a large screen showing the word Tessera beside a mosaic image." />
+  <figcaption>Keshav presents Tessera to researchers and students at Wuhan University's School of Remote Sensing and Information Engineering. Credit: Zhengpeng Feng</figcaption>
+</figure>
+
+Wuhan University is ranked first in the world in remote sensing (it's topped [ShanghaiRanking's remote sensing table](https://www.shanghairanking.com/rankings/gras/2025/AS0224) every year since 2017). There are over 1,000 researchers at the university working on remote sensing projects. The university designs, manufactures and operates its own satellites. During our tour, we visited the university's satellite control station, where satellite data arrives every day and saw the consoles that tell the satellites where to go.
+
+<figure class="wide">
+  <ImageZoom src="/blog/wuhan-control-room.webp" alt="A row of desks with computer monitors in front of racks of electronic equipment." />
+  <figcaption>Consoles in Wuhan University's satellite ground station, which receives data from the university's Luojia satellites. Credit: Srinivasan Keshav</figcaption>
+</figure>
+
+We then suited up and explored the university's satellite and sensor manufacturing facility. There we saw a milling machine that can polish two-metre-wide mirrors to an accuracy of 10 nanometres. We visited a gigantic test chamber, completely white inside, used for assessing reflectivity of satellite components. And we saw a large Zeiss deposition instrument that coats components with gold, silver or similar materials.
+
+<div class="wide pair">
+  <figure>
+    <ImageZoom src="/blog/wuhan-polishing-rig.webp" alt="An industrial robotic arm positioned above a large circular turntable." />
+    <figcaption>A robotic polishing rig used to finish satellite mirrors to an accuracy of 10 nanometres. Credit: Zhengpeng Feng</figcaption>
+  </figure>
+  <figure>
+    <ImageZoom src="/blog/wuhan-test-chamber.webp" alt="A large blue circular chamber with its door open, revealing a white interior." />
+    <figcaption>A test chamber, completely white inside, used to assess how satellite components reflect light. Credit: Zhengpeng Feng</figcaption>
+  </figure>
+</div>
+
+In our meetings, we discussed a collaboration between Wuhan University, Cambridge and the [Moganshan Lab](https://mgslab.ac.cn/). The core idea behind Tessera, which we developed at Cambridge, is to democratise planetary intelligence. We do this by creating ready-to-use embeddings for every 10-metre area of land on Earth, based on Sentinel satellite imagery from the EU's [Copernicus programme](https://www.copernicus.eu/en). Moganshan Lab aims to become a global provider of accessible geospatial information alongside [Landsat](https://landsat.gsfc.nasa.gov/) in the US and Copernicus in Europe. They're preparing to publish a global dataset of satellite imagery at 2-metre resolution. With the dataset from Moganshan we could push the resolution of Tessera's embeddings from 10 metres down to 2 metres, which gives 25 times finer detail.
+
+<figure class="wide">
+  <ImageZoom src="/blog/wuhan-hosts.webp" alt="A group of people standing in a meeting room in front of a screen reading 'Welcome Professor Srinivasan Keshav'." />
+  <figcaption>Keshav and Frank with members of Wuhan University's School of Remote Sensing and Information Engineering. Credit: Zhengpeng Feng</figcaption>
+</figure>
+
+That means we could potentially use embeddings to map potholes on roads or count rooftop solar panels across entire countries. I think it will unlock a lot of things that we don't know yet.
+
+<figure class="side">
+  <ImageZoom src="/blog/wuhan-taikonaut.webp" alt="A white-and-gold astronaut statue seated on a rock carved with the words Wuhan University." />
+  <figcaption>A taikonaut statue at Wuhan University. Credit: Srinivasan Keshav</figcaption>
+</figure>
+
+Something like this can only be done in collaboration. At Cambridge we have the ability, the experience and the algorithm to create embeddings. Wuhan University has people power and expertise. And Moganshan has the data. It's only by working in collaboration that we can achieve this.
+
+It's an unlikely partnership, as Keshav pointed out. At Cambridge we're newcomers. Five years ago, we had zero remote sensing expertise in the department. We're now collaborating with the top university in the world in this field, which happens to be in China.
+
+When the Moganshan dataset becomes available the biggest challenge will be finding the computing power and data storage to generate and host the embeddings. Moganshan Lab is well-resourced and could help host the embeddings. As for generating the 2-metre embeddings, I've already designed an algorithm that can do it, but running it across the whole planet will need a lot of GPUs. Before travelling to Wuhan we met the [Beijing Academy of Artificial Intelligence (BAAI)](https://www.baai.ac.cn/) and agreed to trial Tessera on Chinese-made GPUs. So far, Tessera has run on hardware made by Nvidia, AMD and Intel. If this works, it could give us a much more cost-effective way to generate the embeddings.
+
+I'm kind of the hinge between Cambridge and Wuhan right now, because I speak Chinese and English. We've started working with PhD students from Wuhan and invited them to join our [open Zulip chat](https://eeg.zulipchat.com/). The collaboration has already begun.
+
+<figure class="wide">
+  <ImageZoom src="/blog/wuhan-riverside.webp" alt="Two smiling men take a selfie at night, with an illuminated suspension bridge and city skyline behind them." />
+  <figcaption>Keshav and Frank by the river in Wuhan at night. Credit: Zhengpeng Feng</figcaption>
+</figure>
+
+<style>
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  figure :global(.zoom-trigger img) {
+    border-radius: 4px;
+  }
+
+  .standfirst {
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+
+  .attribution {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    border-left: 2px solid var(--accent-border);
+    padding-left: 14px;
+    margin: 32px 0 28px;
+  }
+
+  .attribution strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* Portrait lead photo, shown at full height on a quiet band */
+  .lead {
+    background: var(--bg-card-hover);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 8px 0 40px;
+  }
+
+  figure.lead :global(.zoom-trigger img) {
+    width: auto;
+    max-width: 100%;
+    max-height: min(82vh, 900px);
+    margin: 0 auto;
+  }
+
+  .lead figcaption {
+    text-align: center;
+  }
+
+  /* Photos that break out of the text column into a wider band */
+  .wide {
+    width: min(1080px, calc(100vw - 32px));
+    margin-left: calc(50% - min(540px, calc(50vw - 16px)));
+    margin-top: 44px;
+    margin-bottom: 48px;
+  }
+
+  .wide figcaption {
+    max-width: 656px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .pair figure {
+    min-width: 0;
+  }
+
+  .pair figcaption {
+    max-width: none;
+  }
+
+  .side {
+    float: right;
+    width: 46%;
+    margin: 6px 0 20px 28px;
+  }
+
+  @media (max-width: 640px) {
+    .pair {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .side {
+      float: none;
+      width: 100%;
+      margin: 32px 0;
+    }
+
+    .lead {
+      padding: 12px;
+    }
+
+    .wide {
+      margin-top: 32px;
+      margin-bottom: 36px;
+    }
+  }
+</style>
