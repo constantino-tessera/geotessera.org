@@ -3,6 +3,16 @@
 
   const videos = [
     {
+      id: 'gtc-berlin-ai-for-science-panel',
+      title: 'AI for Science in Action: Using Today\'s Accelerated Discovery and What\u2019s Next',
+      source: 'NVIDIA GTC Berlin 2026',
+      date: 'Oct 2026',
+      description: 'Panel discussion at NVIDIA GTC Berlin on applying AI to scientific discovery, with Sadiq Jaffer representing Tessera alongside panellists from Barcelona Supercomputing Center, Aalto University, Imperial College London and NVIDIA.',
+      url: 'https://www.nvidia.com/en-us/on-demand/session/gtcberlin26-sb61173/',
+      thumb: '/blog/gtc-berlin-2026-ai-for-science-panel.jpg',
+      type: 'talk' as const,
+    },
+    {
       id: 'raise-summit-vultr-booth',
       title: 'TESSERA: From Satellite Data to Fingerprints',
       source: 'RAISE Summit 2026, Paris — Vultr booth',
