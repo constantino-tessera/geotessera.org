@@ -160,9 +160,9 @@ export const projects: Project[] = [
     team: ['Kasimir Orlowski', 'Carlos Riano', 'Teresa De Marzo', 'Vincent Imala', 'Jotham Ayanga', 'Leah Kamene', 'Nicholas Kimeu', 'Derrick Ongere', 'Shadrack Kipkirui', 'Edith Kinyua', 'Kevin Murimi', 'Victoria Oliech'],
     hasDetailPage: false,
     // Literal strings rather than partners.ts ids, so they stay out of Tessera's own Partner institutions list.
-    partners: ['Directorate of Resource Surveys and Remote Sensing (DRSRS)', 'Kenya Forest Service (KFS)', 'Regional Centre for Mapping of Resources for Development (RCMRD)', 'European Forest Institute (EFI)'],
+    partners: ['Directorate of Resource Surveys and Remote Sensing (DRSRS)', 'Kenya Forest Service (KFS)', 'Regional Centre for Mapping of Resources for Development (RCMRD)', 'European Forest Institute (EFI)', 'European Commission Joint Research Centre (JRC)'],
     origin: 'community',
-    leadInstitution: 'European Commission Joint Research Centre',
+    leadInstitution: 'DRSRS, JRC, EFI',
   },
 ];
 

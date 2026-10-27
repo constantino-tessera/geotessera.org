@@ -92,7 +92,7 @@
           <span class="meta-item"><span class="meta-label">Funded by:</span> {project.fundingSources.map(getFundingName).join(', ')}</span>
         {/if}
         {#if project.partners?.length}
-          <span class="meta-item"><span class="meta-label">Partners:</span> {#each project.partners as pid, i}{#if i > 0}, {/if}{#if getPartnerUrl(pid)}<a href={getPartnerUrl(pid)} target="_blank" rel="noopener">{getPartnerName(pid)}</a>{:else}{getPartnerName(pid)}{/if}{/each}</span>
+          <span class="meta-item"><span class="meta-label">Partners:</span> {#each project.partners as pid, i}{#if i > 0}{', '}{/if}{#if getPartnerUrl(pid)}<a href={getPartnerUrl(pid)} target="_blank" rel="noopener">{getPartnerName(pid)}</a>{:else}{getPartnerName(pid)}{/if}{/each}</span>
         {/if}
       </p>
     {/if}
