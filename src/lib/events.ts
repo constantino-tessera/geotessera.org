@@ -72,6 +72,7 @@ export const tesseraEvents: TesseraEvent[] = [
     organiser: 'NVIDIA',
     links: [
       { label: 'Session page', url: 'https://www.nvidia.com/de-de/gtc/session-catalog/sessions/gtceu26-sb61173/' },
+      { label: 'Watch video', url: 'https://www.nvidia.com/en-us/on-demand/session/gtcberlin26-sb61173/' },
     ],
     speakers: [{ name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' }],
     talk: "AI for Science in Action: Using Today's Accelerated Discovery and What's Next (panel)",
