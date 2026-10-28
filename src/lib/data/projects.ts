@@ -146,6 +146,24 @@ export const projects: Project[] = [
     origin: 'community',
     leadInstitution: 'GMV',
   },
+  {
+    id: 'kenya-coffee-mapping',
+    title: 'Mapping coffee across Kenya',
+    subtitle: 'A national coffee probability map to support EUDR compliance',
+    status: 'in-progress',
+    statusLabel: 'In progress',
+    region: 'Kenya',
+    tags: ['Coffee mapping', 'EUDR', 'Deforestation monitoring', 'National mapping'],
+    // Wording approved by Kasimir Orlowski (JRC), 27 Oct 2026. "TESSERA" changed to sentence case per house style.
+    description: 'Under the EU Deforestation Regulation (EUDR), coffee, as well as other commodities, placed on the EU market must not be produced on land deforested after 31 December 2020. To support EUDR compliance, a team comprising Kenyan national institutions (DRSRS and KFS), the Regional Centre for Mapping of Resources for Development (RCMRD), the European Forest Institute (EFI) and the European Commission\u2019s Joint Research Centre (JRC) is developing a national coffee probability map for 2020 using Tessera satellite embeddings. This will be the first nationally produced coffee probability map of its kind in Kenya.',
+    // External collaborators: literal names, not people.ts ids.
+    team: ['Kasimir Orlowski', 'Carlos Riano', 'Teresa De Marzo', 'Vincent Imala', 'Jotham Ayanga', 'Leah Kamene', 'Nicholas Kimeu', 'Derrick Ongere', 'Shadrack Kipkirui', 'Edith Kinyua', 'Kevin Murimi', 'Victoria Oliech'],
+    hasDetailPage: false,
+    // Literal strings rather than partners.ts ids, so they stay out of Tessera's own Partner institutions list.
+    partners: ['Directorate of Resource Surveys and Remote Sensing (DRSRS)', 'Kenya Forest Service (KFS)', 'Regional Centre for Mapping of Resources for Development (RCMRD)', 'European Forest Institute (EFI)', 'European Commission Joint Research Centre (JRC)'],
+    origin: 'community',
+    leadInstitution: 'DRSRS, JRC, EFI',
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {
