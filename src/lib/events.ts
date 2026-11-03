@@ -71,6 +71,20 @@ export const tesseraEvents: TesseraEvent[] = [
     description: "Tessera research affiliate Kyle Gao (Aalto University) convenes session ESSI1.2 at the EGU General Assembly 2027, co-convened by Madeline Lisaius (former Cambridge PhD student), Jingtao Li (Cambridge), Nikolaos Ioannis Bountos and Rahul Ramachandran. The session invites work on new geospatial foundation models, pre-training, datasets and benchmarks, multisensor learning, evaluation and transferability, embeddings and real-world applications. The abstract deadline is 12 January 2027 (13:00 CET). Chairs and keynote speakers include colleagues from the Cambridge Energy and Environment Group, ESA Phi-lab and Ai2, representing Tessera, TerraMind, THOR and OlmoEarth.",
   },
   {
+    id: 'ai-for-science-summit-2026',
+    title: 'AI for Science Summit 2026',
+    date: '2026-11-24',
+    location: 'Churchill College, Cambridge',
+    organiser: 'Accelerate Programme for Scientific Discovery',
+    links: [
+      { label: 'Event page', url: 'https://science.ai.cam.ac.uk/events/ai-for-science-summit-2026' },
+      { label: 'Programme (PDF)', url: 'https://science.ai.cam.ac.uk/assets/uploads/ai-for-science-summit-programme-2026.pdf' },
+    ],
+    speakers: [{ name: 'Sadiq Jaffer', url: 'https://www.cst.cam.ac.uk/people/sj514' }],
+    talk: 'Fingerprinting the World with the Tessera Foundation model',
+    description: "Sadiq Jaffer speaks at 11:53am at the AI for Science Summit, a day of talks, discussion and a poster session on where AI is changing science and what research might look like by 2030. The theme is 'Aspiration, Action, Anticipation: AI for Science Looking to 2030'. Virtual attendance and a waitlist for in-person places are available through the event page.",
+  },
+  {
     id: 'openuk-space-tech-radar-2026',
     title: 'OpenUK Launch of Space Tech Radar',
     date: '2026-10-29',
