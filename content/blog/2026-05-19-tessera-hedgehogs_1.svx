@@ -7,7 +7,7 @@ description: "Researchers at the University of Cambridge have teamed up with the
 ---
 
 <figure class="cover-image">
-  <img src="/blog/hedgehogs-cover.jpg" alt="[Photo of a hedgehog in the grass]" />
+  <img src="/blog/hedgehogs-cover.jpg" alt="A hedgehog walking through grass among green leaves" />
   <figcaption>A hedgehog in undergrowth. Tessera is being used to map the bramble and hedgerow habitats these animals depend on. Photo: <a href="https://unsplash.com/photos/a-hedgehog-walking-through-a-lush-green-forest-cCDkGZOobRY">Rainer Bleek/Unsplash</a></figcaption>
   </figure>
 
