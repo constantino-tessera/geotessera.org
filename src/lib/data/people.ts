@@ -302,15 +302,6 @@ export const people: Person[] = [
     programmes: ['tessera'],
   },
   {
-    id: 'barbara-neto-bradley',
-    name: 'Barbara Neto-Bradley',
-    role: 'affiliate',
-    title: 'CLR Postdoc',
-    affiliation: 'Centre for Landscape Regeneration',
-    initials: 'BN',
-    programmes: ['habitat-mapping', 'clr'],
-  },
-  {
     id: 'thomas-ratsakatika',
     name: 'Thomas Ratsakatika',
     role: 'affiliate',
