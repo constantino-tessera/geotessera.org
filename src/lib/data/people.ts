@@ -200,18 +200,6 @@ export const people: Person[] = [
     programmes: ['tessera'],
   },
   {
-    id: 'jess-williams',
-    name: 'Jessica Williams',
-    role: 'researcher',
-    title: 'MPhil student and Research Programme Coordinator for the Centre for Landscape Regeneration',
-    affiliation: 'Department of Plant Sciences, Cambridge',
-    url: 'https://www.plantsci.cam.ac.uk/people/jessica-williams',
-    initials: 'JW',
-    photo: '/people/jess-williams.jpg',
-    aliases: ['Jess Williams'],
-    programmes: ['habitat-mapping', 'clr'],
-  },
-  {
     id: 'robin-young',
     name: 'Robin Young',
     role: 'researcher',
@@ -342,6 +330,18 @@ export const people: Person[] = [
     initials: 'JW',
     aliases: ['Jana Annika Wicklein'],
     programmes: ['habitat-mapping'],
+  },
+  {
+    id: 'jess-williams',
+    name: 'Jessica Williams',
+    role: 'affiliate',
+    title: 'MPhil student and Research Programme Coordinator for the Centre for Landscape Regeneration',
+    affiliation: 'Department of Plant Sciences, Cambridge',
+    url: 'https://www.plantsci.cam.ac.uk/people/jessica-williams',
+    initials: 'JW',
+    photo: '/people/jess-williams.jpg',
+    aliases: ['Jess Williams'],
+    programmes: ['habitat-mapping', 'clr'],
   },
 
   // Project Collaborators — rendered as a plain single-column list of names +
