@@ -12,7 +12,7 @@ description: "The open-source AI model is already helping researchers map smallh
 
 <figure class="cover-image">
   <img src="/blog/openuk-awards-winners.webp" alt="Five winners at the OpenUK Awards 2026 stand together on a small stage in front of an event banner, four of them holding glass trophies" />
-  <figcaption>Winners at the 7th OpenUK Awards, held at the House of Commons on 5 November. University of Cambridge Professor Anil Madhavapeddy, who accepted the software award on behalf of Tessera, is second from right. Credit: OpenUK.</figcaption>
+  <figcaption>OpenUK CEO Amanda Brock (far left) with winners at the 7th OpenUK Awards, held at the House of Commons on 5 November. University of Cambridge Professor Anil Madhavapeddy, who accepted the software award on behalf of Tessera, is second from right. Credit: OpenUK.</figcaption>
 </figure>
 
 [Tessera](https://www.cst.cam.ac.uk/research/eeg/cambridge-ai-tool-promises-new-era-earth-intelligence-space), the geospatial artificial intelligence model from the University of Cambridge, has been named joint winner of the software category at the [7th OpenUK Awards](https://openuk.uk/awards/). Presented on 5 November at a House of Commons event to [Professor of Planetary Computing, Anil Madhavapeddy](https://www.cst.cam.ac.uk/people/avsm2), who co-leads Tessera's development, the award recognises projects that demonstrate excellence and impact in open-source software development and adoption within the UK.
