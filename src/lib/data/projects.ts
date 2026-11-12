@@ -183,6 +183,25 @@ export const projects: Project[] = [
     origin: 'community',
     leadInstitution: 'Cambridge Conservation Research Institute, University of Cambridge',
   },
+  {
+    id: 'guinea-bissau-habitat-mapping',
+    title: 'Label-efficient habitat mapping in Guinea-Bissau',
+    subtitle: 'Mapping critical habitats and agricultural land use in Guinea-Bissau with Tessera embeddings',
+    status: 'in-progress',
+    statusLabel: 'In progress',
+    region: 'Guinea-Bissau',
+    tags: ['Habitat mapping', 'Land cover', 'Conservation', 'Label-efficient'],
+    // Wording signed off by Andrew Houldcroft (Nov 2026).
+    description: 'This project evaluates Tessera embeddings, paired with a range of classification model heads, for mapping critical habitats and agricultural land use across Guinea-Bissau, where field data are scarce and landscapes are highly fragmented. The aim is to produce accurate, detailed land-cover maps to support evidence-based conservation and sustainable development.',
+    // External collaborators: literal names, not people.ts ids.
+    team: ['Andrew Houldcroft'],
+    links: [{ label: 'Visit the project website', url: 'https://cantanhezchimpanzeeproject.com' }],
+    hasDetailPage: false,
+    // Literal strings rather than funding.ts / partners.ts ids, so they stay out of Tessera's own lists.
+    fundingSources: ['UKRI AI Centre for Doctoral Training in Environmental Intelligence'],
+    origin: 'community',
+    leadInstitution: 'University of Exeter',
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {
