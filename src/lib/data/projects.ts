@@ -106,7 +106,7 @@ export const projects: Project[] = [
     statusLabel: 'PhD research',
     region: 'Tapaj\u00F3s River Basin, Par\u00E1, Brazil',
     tags: ['Mining', 'Indigenous lands', 'Segmentation', 'Sentinel-1/2'],
-    description: 'Informal gold mining (garimpo) is clearing forest and poisoning rivers with mercury across the Brazilian Amazon, including inside Indigenous Territories where it is banned. Focusing on Munduruku lands in the Tapaj\u00F3s River Basin, this Strathclyde PhD project uses Tessera embeddings to refine 30 m MapBiomas mining labels into 10 m pseudo-labels. U-Net models trained on these labels trace mining boundaries more accurately than MapBiomas, by up to 5.4 percentage points in intersection over union.',
+    description: 'Informal gold mining (garimpo) is clearing forest and poisoning rivers with mercury across the Brazilian Amazon, including inside Indigenous Territories where it is banned. Focusing on Munduruku lands in the Tapaj\u00F3s River Basin, this Strathclyde PhD project uses Tessera embeddings to refine 30 m MapBiomas mining labels into 10 m pseudo-labels. U-Net models trained on these labels trace mining boundaries more accurately than MapBiomas, by up to 5.4 percentage points in intersection over union. The paper received the Best Student Paper Award at the SPIE Earth Resources and Environmental Remote Sensing/GIS Applications conference.',
     // External collaborators: entered as literal names, not people.ts ids, so they stay off the About page.
     team: ['Cameron Fergus-Allen', 'Astrid Werkmeister', 'Malcolm Macdonald'],
     stats: [
@@ -114,8 +114,8 @@ export const projects: Project[] = [
       { label: 'Label resolution', value: '30 m \u2192 10 m' },
     ],
     links: [
-      // TODO: switch to 'Read the paper' and add the recorded talk once SPIE proceedings are published.
-      { label: 'Read the abstract', url: 'https://spie.org/spie-sensors-imaging/presentation/Monitoring-garimpo-activity-in-the-Brazilian-Amazon-with-geospatial-embeddings/14283-39' },
+      // Recorded talk not yet linked.
+      { label: 'Read the paper', url: 'https://doi.org/10.1117/12.3116634' },
     ],
     hasDetailPage: false,
     // Literal strings rather than funding.ts / partners.ts ids, so these don't appear
